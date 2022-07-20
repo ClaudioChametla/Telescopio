@@ -1,9 +1,11 @@
-<div class="galaxia-selected">
-  <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
-  <p>{{galaxiasDatos[galaxiaSelected].tipo}}</p>
-  <p>{{galaxiasDatos[galaxiaSelected].radio}}</p>
-  <p>{{galaxiasDatos[galaxiaSelected].description}}</p>
-  <img src={{galaxiasDatos[galaxiaSelected].image}} alt="" height="500px" width="500px">
-  <button type="button" *ngIf="galaxiaSelected==0">Ir sistemasolar</button>
-  <button type="button" *ngIf="galaxiaSelected==0">Regresar</button>
+<div class="galaxia-universo">
+  <div class="galaxia-selected">
+    <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
+    <p>{{galaxiasDatos[galaxiaSelected].tipo}}</p>
+    <p>{{galaxiasDatos[galaxiaSelected].radio}}</p>
+    <p>{{galaxiasDatos[galaxiaSelected].description}}</p>
+    <img src={{galaxiasDatos[galaxiaSelected].image}} alt="" height="500px" width="500px">
+    <button type="button" *ngIf="galaxiaSelected==0">Ir sistemasolar</button>
+    <button type="button" *ngIf="galaxiaSelected==0">Regresar</button>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CctServiceService } from 'src/app/service/cct-service.service';
 
 @Component({
   selector: 'app-universo',
@@ -12,9 +13,12 @@ export class UniversoComponent implements OnInit {
   mostrarSistemaSolar=false;
   selecGalaxia:any;
 
-  constructor() { }
+  constructor(private cctService:CctServiceService) { }
 
   ngOnInit(): void {
+    /* this.cctService.$sistemaSolar.subscribe((res:any)=>{
+      this.mostrarSistemaSolar=res
+    }); */
   }
 
 
