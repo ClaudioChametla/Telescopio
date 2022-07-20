@@ -1,0 +1,26 @@
+
+.universo{
+
+  align-items: center;
+  justify-content: center;
+}
+
+.galaxias-content{
+  padding: 100px;
+  display: grid;
+  grid-template-columns: 20% 20% 20%;
+  justify-content: space-between;
+}
+
+.galaxia-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.galaxia-content:hover{
+  cursor: pointer;
+}
+
+.galaxia{
+  margin: 25px;
+}

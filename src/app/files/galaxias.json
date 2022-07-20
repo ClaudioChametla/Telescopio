@@ -1,0 +1,54 @@
+[
+
+	{"position": "1",
+	  "name": "Via Lactea",
+	  "image":"https://www.ngenespanol.com/wp-content/uploads/2018/09/origen-via-lactea.png",
+	  "tipo":"Espiral",
+	  "radio":"10,000,000",
+	  "description":"Descripción"
+	},
+
+	{
+    "position": "2",
+	  "name": "Andromeda",
+	  "image":"https://upload.wikimedia.org/wikipedia/commons/5/57/M31bobo.jpg",
+	  "tipo":"Espiral",
+	  "radio":"10,000,000",
+	  "description":"Descripción"
+	},
+
+	{"position": "3",
+	  "name": "Galaxia Elíptica M3",
+	  "image":"https://upload.wikimedia.org/wikipedia/commons/7/73/M3LRGB_891x674.jpg",
+	  "tipo":"Espiral",
+	  "radio":"10,000,000",
+	  "description":"Descripción"
+	},
+
+	{"position": "4",
+	  "name": "Nube de Magallanes",
+	  "image":"https://imagenes.20minutos.es/files/image_990_v3/uploads/imagenes/2020/11/24/imagen-de-la-gran-nube-de-magallanes.jpeg",
+	  "tipo":"Espiral",
+	  "radio":"10,000,000",
+	  "description":"Descripción"
+	},
+
+	{
+    "position": "5",
+    "name": "NGC 2936",
+	  "image":"https://media.theobjective.com/2013/11/RTX10W7O.jpg",
+	  "tipo":"Espiral",
+	  "radio":"10,000,000",
+	  "description":"Descripción"
+	},
+
+	{
+    "position": "6",
+	  "name": "Galaxia NGC 1672",
+	  "image":"https://thumbs.dreamstime.com/b/cuarto-de-ni%C3%B1os-estelar-ngc-galaxia-espiral-en-la-constelaci%C3%B3n-dorado-96784056.jpg",
+	  "tipo":"Espiral",
+	  "radio":"10,000,000",
+	  "description":"Descripción"
+	}
+
+]
