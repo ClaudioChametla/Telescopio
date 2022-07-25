@@ -8,5 +8,6 @@ export class CctServiceService {
   constructor() {}
 
   $sistemaSolar = new EventEmitter<any>();
+  $universo=new EventEmitter<any>();
 
 }

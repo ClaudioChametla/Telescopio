@@ -25,7 +25,6 @@
       <img class="galaxia" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-85757065-1649322336.jpg" alt="" >
     </div>
   </div>
-  <button type="button" (click)="zoomSolar()">Zoom +</button>
+  <button class="btn btn-danger" type="button" (click)="zoomSolar()">Zoom +</button>
 </div>
-<app-sistema-solar *ngIf="mostrarSistemaSolar==true"></app-sistema-solar>
-<app-galaxias *ngIf="mostrarGalaxia==true;" [galaxiaSelected]="selecGalaxia"></app-galaxias>
+<app-galaxias *ngIf="mostrarUniverso==false;" [galaxiaSelected]="selecGalaxia"></app-galaxias>

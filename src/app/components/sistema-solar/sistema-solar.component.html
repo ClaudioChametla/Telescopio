@@ -1,4 +1,4 @@
-<div class="sistema-container">
+<div class="sistema-container" *ngIf="mostrarPlaneta===false">
   <div class="planetas-content">
     <div class="planeta-content" (click)="sol()">
       <label>Sol</label>
@@ -36,6 +36,9 @@
       <label>Neptuno</label>
       <img class="planeta" src="http://space-facts.com/wp-content/uploads/neptune-transparent.png" alt="" >
     </div>
+  </div>
+  <div class="regresar">
+    <button class="btn btn-danger" (click)="irUniverso()">Zoom -</button>
   </div>
 </div>
 <app-planetas *ngIf="mostrarPlaneta==true" [planetaSelected]="planetaSelec"></app-planetas>

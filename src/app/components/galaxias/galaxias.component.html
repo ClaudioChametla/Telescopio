@@ -5,7 +5,7 @@
     <p>{{galaxiasDatos[galaxiaSelected].radio}}</p>
     <p>{{galaxiasDatos[galaxiaSelected].description}}</p>
     <img src={{galaxiasDatos[galaxiaSelected].image}} alt="" height="500px" width="500px">
-    <button type="button" *ngIf="galaxiaSelected==0">Ir sistemasolar</button>
-    <button type="button" *ngIf="galaxiaSelected==0">Regresar</button>
+    <button class="btn btn-dark" type="button" *ngIf="galaxiaSelected==0" (click)="irSistema()">Ir sistemasolar</button>
+    <button class="btn btn-dark" type="button" (click)="irUniverso()">Regresar</button>
   </div>
 </div>

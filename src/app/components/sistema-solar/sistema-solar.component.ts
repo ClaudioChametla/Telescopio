@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CctServiceService } from 'src/app/service/cct-service.service';
 
 @Component({
@@ -10,10 +11,10 @@ export class SistemaSolarComponent implements OnInit {
 
   mostrarPlaneta=false;
   planetaSelec:any;
-  constructor(private cctService:CctServiceService) { }
+  constructor(private cctService:CctServiceService, private router:Router) { }
 
   ngOnInit(): void {
-
+    this.cctService.$sistemaSolar.subscribe((res:any)=>{this.mostrarPlaneta=res;})
   }
 
   sol(){
@@ -52,6 +53,9 @@ export class SistemaSolarComponent implements OnInit {
   neptuno(){
     this.mostrarPlaneta=true;
     this.planetaSelec=7;
+  }
+  irUniverso(){
+    this.router.navigate(['/universo']);
   }
 
 
