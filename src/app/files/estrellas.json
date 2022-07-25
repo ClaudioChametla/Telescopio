@@ -1,0 +1,44 @@
+[
+  {
+    "clase":"O",
+    "temperatura":"30,000K",
+    "masa":"16",
+    "luminosidad":"30,000"
+  },
+  {
+    "clase":"B",
+    "temperatura":"10,000K 30,000K",
+    "masa":"3.1-16",
+    "luminosidad":"25-30,000"
+  },
+  {
+    "clase":"A",
+    "temperatura":"7,500-10,000K",
+    "masa":"1.4-2.1",
+    "luminosidad":"5-25"
+  },
+  {
+    "clase":"F",
+    "temperatura":"6,000-7,500K",
+    "masa":"1.04-1.4",
+    "luminosidad":"1.5-5"
+  },
+  {
+    "clase":"G",
+    "temperatura":"5,200-6,000K",
+    "masa":"0.8-1.04",
+    "luminosidad":"0.6-1.5"
+  },
+  {
+    "clase":"K",
+    "temperatura":"2,200-5,200K",
+    "masa":"0.45-0.8",
+    "luminosidad":"0.08-0.06"
+  },
+  {
+    "clase":"M",
+    "temperatura":"2,400-3,700K",
+    "masa":"0.08-0.45",
+    "luminosidad":"0.08"
+  }
+]

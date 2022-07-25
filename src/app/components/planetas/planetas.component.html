@@ -1,4 +1,8 @@
 <div class="planeta-container">
+  <p style="color:#000 ;">Nombre: {{planeta[planetaSelected].name}}</p>
+  <p style="color:#000 ;">Valocidad: {{planeta[planetaSelected].velocity}}</p>
+  <p style="color:#000 ;">Distancia: {{planeta[planetaSelected].distance}}</p>
+  <p style="color:#000 ;">Descripción: {{planeta[planetaSelected].description}}</p>
   <img src={{planeta[planetaSelected].image}} height="250px" width="250px">
 </div>
 <button class="btn btn-danger" type="button" (click)="irSistema()">Zoom -</button>

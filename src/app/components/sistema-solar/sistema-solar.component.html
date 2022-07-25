@@ -1,40 +1,40 @@
-<div class="sistema-container" *ngIf="mostrarPlaneta===false">
+<div class="sistema-container" *ngIf="mostrarPlaneta===false" (click)="estrellas()">
   <div class="planetas-content">
     <div class="planeta-content" (click)="sol()">
       <label>Sol</label>
-      <img class="planeta" src="http://pngimg.com/uploads/sun/sun_PNG13424.png" alt="" >
+      <img class="planeta sol" src="http://pngimg.com/uploads/sun/sun_PNG13424.png" alt="" >
     </div>
     <div class="planeta-content" (click)="mercurio()">
       <label>Mercurio</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/mercury-transparent.png" alt="" >
+      <img class="planeta mercurio" src="http://space-facts.com/wp-content/uploads/mercury-transparent.png" alt="" >
     </div>
     <div class="planeta-content" (click)="venus()">
       <label>Venus</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/venus-transparent.png" alt="" >
+      <img class="planeta venus" src="http://space-facts.com/wp-content/uploads/venus-transparent.png" alt="" >
     </div>
     <div class="planeta-content" (click)="tierra()">
       <label>Tierra</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/earth-transparent.png" alt="" >
+      <img class="planeta tierra" src="http://space-facts.com/wp-content/uploads/earth-transparent.png" alt="" >
     </div>
     <div class="planeta-content" (click)="marte()">
       <label>Marte</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/mars-transparent.png" alt="" >
+      <img class="planeta marte" src="http://space-facts.com/wp-content/uploads/mars-transparent.png" alt="" >
     </div>
     <div class="planeta-content" (click)="jupiter()">
       <label>Jupiter</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/jupiter-transparent.png" alt="" >
+      <img class="planeta jupiter" src="http://space-facts.com/wp-content/uploads/jupiter-transparent.png" alt="" >
     </div>
     <div class="planeta-content" (click)="saturno()">
       <label>Saturno</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/saturn-transparent.png" alt="" >
+      <img class="planeta saturno" src="http://space-facts.com/wp-content/uploads/saturn-transparent.png" alt="" >
     </div>
     <div class="planeta-content" (click)="urano()">
       <label>Urano</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/uranus-transparent.png" alt="" >
+      <img class="planeta urano" src="http://space-facts.com/wp-content/uploads/uranus-transparent.png" alt="" >
     </div>
     <div class="planeta-content" (click)="neptuno()">
       <label>Neptuno</label>
-      <img class="planeta" src="http://space-facts.com/wp-content/uploads/neptune-transparent.png" alt="" >
+      <img class="planeta neptuno" src="http://space-facts.com/wp-content/uploads/neptune-transparent.png" alt="" >
     </div>
   </div>
   <div class="regresar">

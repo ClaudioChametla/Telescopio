@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CctServiceService } from 'src/app/service/cct-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sistema-solar',
@@ -14,7 +15,7 @@ export class SistemaSolarComponent implements OnInit {
   constructor(private cctService:CctServiceService, private router:Router) { }
 
   ngOnInit(): void {
-    this.cctService.$sistemaSolar.subscribe((res:any)=>{this.mostrarPlaneta=res;})
+    this.cctService.$sistemaSolar.subscribe((res:any)=>{this.mostrarPlaneta=res;});
   }
 
   sol(){
@@ -58,5 +59,8 @@ export class SistemaSolarComponent implements OnInit {
     this.router.navigate(['/universo']);
   }
 
+  estrellas(){
+    this.router.navigate(['/estrellas']);
+  }
 
 }

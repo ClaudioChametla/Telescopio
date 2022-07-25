@@ -18,14 +18,8 @@ export class UniversoComponent implements OnInit {
     this.cctService.$universo.subscribe((res:any)=>{
       this.mostrarUniverso=res;
       console.log(res);
-
     });
-    console.log(this.mostrarUniverso);
-
-
   }
-
-
 
   viaLactea(){
     this.mostrarUniverso=false;

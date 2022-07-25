@@ -1,14 +1,16 @@
 .sistema-container{
   width: 100%;
   height: 100%;
-  padding: 10%;
+  padding: 5%;
+  align-items: center;
+  justify-content: center;
   background-image: url(https://images2.alphacoders.com/805/thumb-1920-805200.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .planetas-content{
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  display: flex;
+  flex-direction: row;
 
 }
 .planeta-content{
@@ -18,9 +20,50 @@
 }
 .planeta{
   margin: 10px;
-  height: 10vw ;
-  width: 18vh;
 }
 .planeta:hover{
   cursor: pointer;
+}
+.sol{
+  height: auto;
+  width: 15vw;
+}
+.mercurio{
+  height: auto;
+  width: 5vw;
+}
+.venus{
+  height: auto;
+  width: 6vw;
+}
+.tierra{
+  height: auto;
+  width: 8vw;
+}
+.marte{
+  height: auto;
+  width: 6vw;
+}
+.jupiter{
+  height: auto;
+  width: 12vw;
+}
+.saturno{
+  height: auto;
+  width: 11vw;
+}
+.urano{
+  height: auto;
+  width: 10vw;
+}
+.neptuno{
+  height: auto;
+  width: 9vw;
+}
+@media screen and (max-width:800px) {
+  .planetas-content{
+    display: flex;
+    flex-direction: column;
+  }
+
 }
