@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import estrellas from '../../files/estrellas.json';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estrellas',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstrellasComponent implements OnInit {
 
-  constructor() { }
+  estrellasDatos:any;
+
+  constructor(private router:Router) { }
+
 
   ngOnInit(): void {
+    this.estrellasDatos=estrellas;
   }
 
+  irSistema(){
+    this.router.navigate(['/sistema-solar']);
+  }
 }

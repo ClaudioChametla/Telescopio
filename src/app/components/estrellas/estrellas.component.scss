@@ -1,0 +1,10 @@
+.estrellas-container{
+  display: grid;
+  grid-template-columns: 20% 20% 20%;
+}
+.estrella-item{
+  margin: 50px;
+}
+.estrella-item:hover{
+  cursor: pointer;
+}

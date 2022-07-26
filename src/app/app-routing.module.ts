@@ -4,6 +4,7 @@ import { UniversoComponent } from './components/universo/universo.component';
 import { SistemaSolarComponent } from './components/sistema-solar/sistema-solar.component';
 import { EstrellasComponent } from './components/estrellas/estrellas.component';
 
+
 const routes: Routes = [
   {path:'', redirectTo:'/universo',pathMatch:'full'},
   {path:'universo',component: UniversoComponent},

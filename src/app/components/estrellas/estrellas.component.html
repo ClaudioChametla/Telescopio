@@ -1,1 +1,11 @@
-<p>estrellas works!</p>
+<div class="estrellas-container">
+  <div class="estrella-item" *ngFor="let item of estrellasDatos">
+    <p>{{item.clase}}</p>
+    <p>{{item.luminosidad}}</p>
+    <p>{{item.masa}}</p>
+    <p>{{item.temperatura}}</p>
+    <img src={{item.image}} width="250px" height="250px">
+  </div>
+
+</div>
+<button class="btn btn-danger" type="button" (click)="irSistema()"> Zoom-</button>

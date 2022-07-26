@@ -9,6 +9,7 @@ import { GalaxiasComponent } from './components/galaxias/galaxias.component';
 import { SistemaSolarComponent } from './components/sistema-solar/sistema-solar.component';
 import { PlanetasComponent } from './components/planetas/planetas.component';
 import { EstrellasComponent } from './components/estrellas/estrellas.component';
+import { TipoEstrellaComponent } from './components/tipo-estrella/tipo-estrella.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { EstrellasComponent } from './components/estrellas/estrellas.component';
     SistemaSolarComponent,
     PlanetasComponent,
     EstrellasComponent,
+    TipoEstrellaComponent,
 
   ],
   imports: [

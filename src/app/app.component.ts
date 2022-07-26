@@ -39,7 +39,7 @@ export class AppComponent {
         },
         repulse: {
           distance: 200,
-          duration: 0.4
+          duration: 1
         }
       }
     },
@@ -55,7 +55,7 @@ export class AppComponent {
         width: 1
       },
       collisions: {
-        enable: true
+        enable: false
       },
       move: {
         direction: MoveDirection.none,
@@ -63,9 +63,9 @@ export class AppComponent {
         outModes: {
           default: OutMode.bounce
         },
-        random: false,
+        random: true,
         speed: 3,
-        straight: false
+        straight: true
       },
       number: {
         density: {
@@ -89,11 +89,11 @@ export class AppComponent {
 
 
   particlesLoaded(container: Container): void {
-    console.log(container);
+    //console.log(container);
   }
 
   async particlesInit(engine: Engine): Promise<void> {
-    console.log(engine);
+    //console.log(engine);
     await loadFull(engine);
   }
 
