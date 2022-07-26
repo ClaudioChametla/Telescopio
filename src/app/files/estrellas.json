@@ -1,42 +1,49 @@
 [
   {
     "clase":"O",
+    "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Zeta_Puppis.png/220px-Zeta_Puppis.png",
     "temperatura":"30,000K",
     "masa":"16",
     "luminosidad":"30,000"
   },
   {
     "clase":"B",
+    "image":"https://betweendeepspaces.files.wordpress.com/2011/10/bluesun_soho_big.jpg",
     "temperatura":"10,000K 30,000K",
     "masa":"3.1-16",
     "luminosidad":"25-30,000"
   },
   {
     "clase":"A",
+    "image":"https://larepublica.pe/resizer/obnc2vP-a8dMjOFY7qIorENf5nY=/480x282/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/G4WPDTMMYBHPXDKIAFZ34L6MTA.jpg",
     "temperatura":"7,500-10,000K",
     "masa":"1.4-2.1",
     "luminosidad":"5-25"
   },
   {
     "clase":"F",
+    "image":"https://pymstatic.com/98698/conversions/estrella-clase-k-default.jpg",
     "temperatura":"6,000-7,500K",
     "masa":"1.04-1.4",
     "luminosidad":"1.5-5"
   },
   {
     "clase":"G",
+    "image":"",
     "temperatura":"5,200-6,000K",
     "masa":"0.8-1.04",
     "luminosidad":"0.6-1.5"
   },
   {
     "clase":"K",
+    "image":"https://www.lifeder.com/wp-content/uploads/2017/07/caracter%C3%ADsticas-de-las-estrellas.jpg",
     "temperatura":"2,200-5,200K",
     "masa":"0.45-0.8",
     "luminosidad":"0.08-0.06"
   },
   {
     "clase":"M",
+    "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"2,400-3,700K",
     "masa":"0.08-0.45",
     "luminosidad":"0.08"

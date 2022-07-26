@@ -1,3 +1,4 @@
+import { NgParticlesModule } from "ng-particles";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,7 +23,8 @@ import { EstrellasComponent } from './components/estrellas/estrellas.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgParticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
