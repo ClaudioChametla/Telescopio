@@ -1,6 +1,7 @@
 import { NgParticlesModule } from "ng-particles";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +27,8 @@ import { TipoEstrellaComponent } from './components/tipo-estrella/tipo-estrella.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgParticlesModule
+    NgParticlesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

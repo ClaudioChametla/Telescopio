@@ -7,13 +7,16 @@
     <p>{{galaxiasDatos[galaxiaSelected].description}}</p>
     <img class="galaxia-imagen" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}}>
   </div>
-  <form>
+
     <div class="mb-3 mt-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <form>
+        <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
+
+      </form>
     </div>
-    <button class="btn btn-outline-danger" type="button" >Imrpimir PDF</button>
-  </form>
+
+    <button class="btn btn-outline-danger" type="button"  (click)="createPDF()" >Imrpimir PDF</button>
 
   <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
     <button class="btn btn-outline-warning" type="button" *ngIf="galaxiaSelected==0" (click)="irSistema()">Visitar nuestro sistema solar</button>

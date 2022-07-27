@@ -11,9 +11,9 @@
   <form>
     <div class="mb-3 mt-3">
       <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
     </div>
-    <button class="btn btn-outline-danger" type="button" >Imrpimir PDF</button>
+    <button class="btn btn-outline-danger" type="button" (click)="createPDF()">Imrpimir PDF</button>
   </form>
 
   <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
