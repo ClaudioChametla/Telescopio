@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import estrellas from '../../files/estrellas.json';
+import { CctServiceService } from 'src/app/service/cct-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,16 +10,26 @@ import { Router } from '@angular/router';
 })
 export class EstrellasComponent implements OnInit {
 
+  mostrarEstrellas=true;
   estrellasDatos:any;
+  estrellasSelec:any;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private service:CctServiceService) { }
 
 
   ngOnInit(): void {
+    this.service.$estrella.subscribe((res:any)=>{
+      this.mostrarEstrellas=res;
+    })
     this.estrellasDatos=estrellas;
   }
 
   irSistema(){
     this.router.navigate(['/sistema-solar']);
+  }
+
+  seleccion(event:any){
+    this.estrellasSelec=event;
+    this.mostrarEstrellas=false;
   }
 }

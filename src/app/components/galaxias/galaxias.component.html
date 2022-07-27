@@ -1,11 +1,22 @@
 <div class="galaxia-universo">
-  <div class="galaxia-selected">
+
+  <div class="galaxia-content">
     <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
     <p>{{galaxiasDatos[galaxiaSelected].tipo}}</p>
     <p>{{galaxiasDatos[galaxiaSelected].radio}}</p>
     <p>{{galaxiasDatos[galaxiaSelected].description}}</p>
-    <img src={{galaxiasDatos[galaxiaSelected].image}} alt="" height="500px" width="500px">
-    <button class="btn btn-dark" type="button" *ngIf="galaxiaSelected==0" (click)="irSistema()">Ir sistemasolar</button>
-    <button class="btn btn-dark" type="button" (click)="irUniverso()">Regresar</button>
+    <img class="galaxia-imagen" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}}>
+  </div>
+  <form>
+    <div class="mb-3 mt-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-outline-danger" type="button" >Imrpimir PDF</button>
+  </form>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
+    <button class="btn btn-outline-warning" type="button" *ngIf="galaxiaSelected==0" (click)="irSistema()">Visitar nuestro sistema solar</button>
+    <button class="btn btn-outline-primary" type="button" (click)="irUniverso()">Regresar</button>
   </div>
 </div>

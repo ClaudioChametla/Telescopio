@@ -17,7 +17,6 @@ export class GalaxiasComponent implements OnInit {
 
   ngOnInit(): void {
     this.galaxiasDatos=galaxias;
-    console.log(galaxias);
   }
 
   irSistema(){

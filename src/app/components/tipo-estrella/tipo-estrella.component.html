@@ -1,1 +1,24 @@
-<p>tipo-estrella works!</p>
+<div class="container-fliud estrella">
+  <div class="estrella-content">
+    <p>Clase: {{estrellaSelecDatos[selecEstrella].clase}}</p>
+    <p>Temperatura: {{estrellaSelecDatos[selecEstrella].temperatura}}</p>
+    <p>Masa: {{estrellaSelecDatos[selecEstrella].masa}}</p>
+    <p>Luminosidad: {{estrellaSelecDatos[selecEstrella].luminosidad}}</p>
+    <img class="estrella-imagen" src={{estrellaSelecDatos[selecEstrella].image}}>
+  </div>
+
+
+  <form>
+    <div class="mb-3 mt-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-outline-danger" type="button" >Imrpimir PDF</button>
+  </form>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
+    <button class="btn btn-outline-light" (click)="irEstrellas()">Zoom -</button>
+  </div>
+
+
+</div>

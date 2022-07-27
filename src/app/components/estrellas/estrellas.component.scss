@@ -3,8 +3,15 @@
   grid-template-columns: 20% 20% 20%;
 }
 .estrella-item{
-  margin: 50px;
+  margin: 10px;
 }
 .estrella-item:hover{
   cursor: pointer;
+}
+.estrella-imagen{
+  width: 10vw;
+  height: auto;
+}
+p{
+  margin-bottom: 0px;
 }

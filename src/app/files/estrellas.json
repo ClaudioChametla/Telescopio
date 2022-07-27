@@ -1,5 +1,6 @@
 [
   {
+    "id":"0",
     "clase":"O",
     "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"30,000K",
@@ -7,6 +8,7 @@
     "luminosidad":"30,000"
   },
   {
+    "id":"1",
     "clase":"B",
     "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"10,000K 30,000K",
@@ -14,6 +16,7 @@
     "luminosidad":"25-30,000"
   },
   {
+    "id":"2",
     "clase":"A",
     "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"7,500-10,000K",
@@ -21,6 +24,7 @@
     "luminosidad":"5-25"
   },
   {
+    "id":"3",
     "clase":"F",
     "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"6,000-7,500K",
@@ -28,6 +32,7 @@
     "luminosidad":"1.5-5"
   },
   {
+    "id":"4",
     "clase":"G",
     "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"5,200-6,000K",
@@ -35,6 +40,7 @@
     "luminosidad":"0.6-1.5"
   },
   {
+    "id":"5",
     "clase":"K",
     "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"2,200-5,200K",
@@ -42,6 +48,7 @@
     "luminosidad":"0.08-0.06"
   },
   {
+    "id":"6",
     "clase":"M",
     "image":"https://4.bp.blogspot.com/-q8-8-X9GnMs/WLrhfCWEAfI/AAAAAAAAmhU/qJ62A6bUtRgah1NS4S10KLMVJAYjreFXACLcB/s1600/erupci%25C3%25B3n_solar_esa.jpg",
     "temperatura":"2,400-3,700K",

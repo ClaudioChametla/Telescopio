@@ -1,19 +1,14 @@
-.sistema-container{
-  width: 100%;
-  height: 100%;
-  padding: 5%;
-  align-items: center;
-  justify-content: center;
+.sistema{
+  margin-top: 15%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-.planetas-content{
-  display: flex;
-  flex-direction: row;
 
-}
 .planeta-content{
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  align-items: center;
+  justify-content: center;
 }
 .planeta{
   margin: 10px;
@@ -21,13 +16,14 @@
 .planeta:hover{
   cursor: pointer;
 }
+/*****************Tamaños de Planetas***************/
 .sol{
   height: auto;
-  width: 15vw;
+  width: 13vw;
 }
 .mercurio{
   height: auto;
-  width: 5vw;
+  width: 3vw;
 }
 .venus{
   height: auto;
@@ -43,24 +39,69 @@
 }
 .jupiter{
   height: auto;
-  width: 12vw;
+  width: 11vw;
 }
 .saturno{
   height: auto;
-  width: 11vw;
+  width: 10vw;
 }
 .urano{
   height: auto;
-  width: 10vw;
+  width: 9vw;
 }
 .neptuno{
   height: auto;
-  width: 9vw;
+  width: 8vw;
 }
-@media screen and (max-width:800px) {
+/*****************Tamaños de Planetas***************/
+
+@media screen and (max-width:575px) {
+  .sistema{
+    margin-top: 0px;
+    overflow-y: visible;
+  }
   .planetas-content{
     display: flex;
     flex-direction: column;
+  }
+  label{
+    font-size: small;
+  }
+  .sol{
+    height: auto;
+    width: 25vw;
+  }
+  .mercurio{
+    height: auto;
+    width: 25vw;
+  }
+  .venus{
+    height: auto;
+    width: 25vw;
+  }
+  .tierra{
+    height: auto;
+    width: 25vw;
+  }
+  .marte{
+    height: auto;
+    width: 25vw;
+  }
+  .jupiter{
+    height: auto;
+    width: 25vw;
+  }
+  .saturno{
+    height: auto;
+    width: 25vw;
+  }
+  .urano{
+    height: auto;
+    width: 25vw;
+  }
+  .neptuno{
+    height: auto;
+    width: 25vw;
   }
 
 }

@@ -6,8 +6,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class CctServiceService {
 
   constructor() {}
-
   $sistemaSolar = new EventEmitter<any>();
   $universo=new EventEmitter<any>();
+  $estrella=new EventEmitter<any>();
 
 }

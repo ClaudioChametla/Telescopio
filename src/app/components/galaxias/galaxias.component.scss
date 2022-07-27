@@ -1,4 +1,16 @@
 .galaxia-universo{
-  width: 100%;
-  height: 100%;
+  margin-top: 5%;
+  padding: 0px 50px 0px 50px;
+}
+.galaxia-imagen{
+  width: 20vw;
+  height: auto;
+}
+p{
+  margin-bottom: 0px;
+}
+@media screen and (max-width:575px) {
+  .galaxia-imagen{
+    width: 100%;
+  }
 }

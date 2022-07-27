@@ -1,25 +1,27 @@
-
 .universo{
-  align-items: center;
-  justify-content: center;
+  margin-top: 10%;
 }
-
-.galaxias-content{
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 20% 20% 20%;
-  justify-content: space-between;
-}
-
 .galaxia-content{
   display: flex;
   flex-direction: column;
-}
-
-.galaxia-content:hover{
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .galaxia{
-  margin: 25px;
+  height: auto;
+  width: 25vw;
+}
+.galaxia:hover{
+  cursor: pointer;
+}
+@media screen and (max-width:992px) {
+  .galaxia{
+    height: auto;
+    width: 30vw;
+  }
+  .universo{
+    margin-top: 0%;
+  }
 }

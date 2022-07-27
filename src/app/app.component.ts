@@ -35,10 +35,10 @@ export class AppComponent {
       },
       modes: {
         push: {
-          quantity: 10
+          quantity: 4
         },
         repulse: {
-          distance: 200,
+          distance: 50,
           duration: 1
         }
       }
@@ -64,13 +64,13 @@ export class AppComponent {
           default: OutMode.bounce
         },
         random: true,
-        speed: 3,
+        speed: .5,
         straight: true
       },
       number: {
         density: {
           enable: true,
-          area: 1000
+          area: 800
         },
         value: 80
       },
