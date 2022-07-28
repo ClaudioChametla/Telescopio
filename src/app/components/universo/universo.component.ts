@@ -17,7 +17,6 @@ export class UniversoComponent implements OnInit {
   ngOnInit(): void {
     this.cctService.$universo.subscribe((res:any)=>{
       this.mostrarUniverso=res;
-      console.log(res);
     });
   }
 

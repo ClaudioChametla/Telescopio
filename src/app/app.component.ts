@@ -10,9 +10,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Telescopio';
-
-
-
   id = "tsparticles";
   particlesOptions = {
     /* background: {
@@ -64,7 +61,7 @@ export class AppComponent {
           default: OutMode.bounce
         },
         random: true,
-        speed: .5,
+        speed: .1,
         straight: true
       },
       number: {
@@ -86,7 +83,6 @@ export class AppComponent {
     },
     detectRetina: true
   };
-
 
   particlesLoaded(container: Container): void {
     //console.log(container);

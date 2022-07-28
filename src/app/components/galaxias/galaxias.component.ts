@@ -13,9 +13,11 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./galaxias.component.scss']
 })
 export class GalaxiasComponent implements OnInit {
-
+  //Valor de la Galaxia seleccionada
   @Input() galaxiaSelected:any;
+  //Recibe los datos del JSON galaxias
   galaxiasDatos:any;
+  //Recibe el texto ingresado del usuario
   pdfText='';
 
   constructor(private router:Router,private cctService:CctServiceService) { }
@@ -29,13 +31,12 @@ export class GalaxiasComponent implements OnInit {
   }
 
   irUniverso(){
+    //Emite un TRUE para ocultar componente Galaxias
     this.cctService.$universo.emit(true);
-    //this.router.navigate(['/sistema-solar']);
   }
 
-
+  //Función para crear el PDF
   createPDF(){
-
     if(this.pdfText==''){
       Swal.fire({
         icon: 'error',
@@ -46,10 +47,41 @@ export class GalaxiasComponent implements OnInit {
       })
     }else{
       const pdf:any = {
-        content:[{
+        content:[
+          {
+            text:this.galaxiasDatos[this.galaxiaSelected].name,
+          style:'header'
+          },
+          {
           text:this.pdfText
-        }]
+        },
+        {
+          image:this.galaxiasDatos[this.galaxiaSelected].image,
+	        width: 500
+        },
+        {
+          text: 'Plandi - Plataformas Educativas ©',
+          style: ['quote', 'small']
+        }
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true
+        },
+        subheader: {
+          fontSize: 14,
+          bold: true
+        },
+        quote: {
+          italics: true
+        },
+        small: {
+          fontSize: 8
+        }
       }
+      }
+      //Crea y abre el PDF en nueva ventana
       pdfMake.createPdf(pdf).open();
     }
   }

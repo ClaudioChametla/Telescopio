@@ -40,12 +40,41 @@ export class PlanetasComponent implements OnInit {
       })
     }else{
       const pdf:any = {
-        content:[{
+        content:[
+          {
+            text:this.planeta[this.planetaSelected].name,
+          style:'header'
+          },
+          {
           text:this.pdfText
-        }]
+          },
+          {
+            image:this.planeta[this.planetaSelected].image,
+            width: 300
+          },
+          {
+            text: 'Plandi - Plataformas Educativas ©',
+            style: ['quote', 'small']
+          }
+      ],
+        styles: {
+          header: {
+            fontSize: 18,
+            bold: true
+          },
+          subheader: {
+            fontSize: 14,
+            bold: true
+          },
+          quote: {
+            italics: true
+          },
+          small: {
+            fontSize: 8
+          }
+        }
       }
       pdfMake.createPdf(pdf).open();
     }
   }
-
 }

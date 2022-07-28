@@ -2,16 +2,16 @@
 
   <div class="galaxia-content">
     <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
-    <p>{{galaxiasDatos[galaxiaSelected].tipo}}</p>
-    <p>{{galaxiasDatos[galaxiaSelected].radio}}</p>
-    <p>{{galaxiasDatos[galaxiaSelected].description}}</p>
+    <p>Tipo: {{galaxiasDatos[galaxiaSelected].tipo}}</p>
+    <p>Radio: {{galaxiasDatos[galaxiaSelected].radio}}</p>
+    <p>Descripción: {{galaxiasDatos[galaxiaSelected].description}}</p>
     <img class="galaxia-imagen" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}}>
   </div>
 
     <div class="mb-3 mt-3">
       <form>
-        <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
+        <label for="resumenGalaxia" class="form-label">Escribe aquí</label>
+        <textarea class="form-control" id="resumenGalaxia" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
 
       </form>
     </div>
