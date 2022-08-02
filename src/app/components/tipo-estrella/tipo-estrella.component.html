@@ -1,13 +1,48 @@
 <div class="container-fliud estrella">
   <div class="estrella-content">
-    <p>Clase: {{estrellaSelecDatos[selecEstrella].clase}}</p>
-    <p>Color: {{estrellaSelecDatos[selecEstrella].color}}</p>
-    <p>Temperatura: {{estrellaSelecDatos[selecEstrella].temperatura}}</p>
-    <p>Masa: {{estrellaSelecDatos[selecEstrella].masa}}</p>
-    <img class="estrella-imagen" src={{estrellaSelecDatos[selecEstrella].image}}>
+    <div class="estrella-datos" *ngIf="abrirTelescopio==false;">
+      <p>Clase: {{estrellaSelecDatos[selecEstrella].clase}}</p>
+      <p>Color: {{estrellaSelecDatos[selecEstrella].color}}</p>
+      <p>Temperatura: {{estrellaSelecDatos[selecEstrella].temperatura}}</p>
+      <p>Masa: {{estrellaSelecDatos[selecEstrella].masa}}</p>
+    </div>
+
   </div>
 
 
+
+  <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
+
+  <div class="telescopio" *ngIf="abrirTelescopio===false">
+    <div class="menu" >
+      <img class="estrella-imagen" src={{estrellaSelecDatos[selecEstrella].image}} alt= {{estrellaSelecDatos[selecEstrella].clase}}>
+      <button class="btn btn-outline-success" type="button" (click)="mostrarTelescopio()"> Abrir telescopio</button>
+    </div>
+  </div>
+
+  <!--Mostrando Telescopio-->
+  <div class="telescopio" *ngIf="abrirTelescopio===true">
+    <div class="menu">
+      <img class="imagen" width="400" src={{estrellaSelecDatos[selecEstrella].image}} alt= {{estrellaSelecDatos[selecEstrella].clase}} (mousemove)="telescopio($event)">
+      <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
+    </div>
+    <div class="btn-zoom">
+      <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
+      <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
+      <p>{{zoomN}}%</p>
+    </div>
+    <div class="telescopio-container" >
+      <img class="imagen2" id="lupa" src={{estrellaSelecDatos[selecEstrella].image}} alt={{estrellaSelecDatos[selecEstrella].clase}} >
+    </div>
+  </div>
+  <!--Mostrando Telescopio-->
+
+
+<!------------------------------------T E L E S C O P I O-------------------------------------------------------->
+
+
+
+<div class="estrellas-form" *ngIf="abrirTelescopio==false;">
   <form>
     <div class="mb-3 mt-3">
       <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
@@ -19,6 +54,6 @@
   <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
     <button class="btn btn-outline-light" (click)="irEstrellas()">Zoom -</button>
   </div>
-
+</div>
 
 </div>

@@ -1,25 +1,59 @@
 <div class="galaxia-universo">
 
   <div class="galaxia-content">
-    <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
-    <p>Tipo: {{galaxiasDatos[galaxiaSelected].tipo}}</p>
-    <p>Radio: {{galaxiasDatos[galaxiaSelected].radio}}</p>
-    <p>Descripción: {{galaxiasDatos[galaxiaSelected].description}}</p>
-    <img class="galaxia-imagen" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}}>
+    <div class="galaxia-information" *ngIf="abrirTelescopio===false">
+      <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
+      <p>Tipo: {{galaxiasDatos[galaxiaSelected].tipo}}</p>
+      <p>Radio: {{galaxiasDatos[galaxiaSelected].radio}}</p>
+      <p>Descripción: {{galaxiasDatos[galaxiaSelected].description}}</p>
+    </div>
+
+
+<!------------------------------------T E L E S C O P I O-------------------------------------------------------->
+
+    <div class="telescopio" *ngIf="abrirTelescopio===false">
+      <div class="menu" >
+        <img class="imagen" width="400" height="200" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}}>
+        <button class="btn btn-outline-success" type="button" (click)="mostrarTelescopio()"> Abrir telescopio</button>
+      </div>
+    </div>
+
+    <!--Mostrando Telescopio-->
+    <div class="telescopio" *ngIf="abrirTelescopio===true">
+      <div class="menu">
+        <img class="imagen" width="400" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} (mousemove)="telescopio($event)">
+        <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
+      </div>
+      <div class="btn-zoom">
+        <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
+        <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
+        <p>{{zoomN}}%</p>
+      </div>
+      <div class="telescopio-container" >
+        <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} >
+      </div>
+    </div>
+    <!--Mostrando Telescopio-->
+
+
+<!------------------------------------T E L E S C O P I O-------------------------------------------------------->
+
   </div>
 
+
+  <div class="galaxia-form" *ngIf="abrirTelescopio===false">
     <div class="mb-3 mt-3">
       <form>
         <label for="resumenGalaxia" class="form-label">Escribe aquí</label>
         <textarea class="form-control" id="resumenGalaxia" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
-
       </form>
     </div>
 
     <button class="btn btn-outline-danger" type="button"  (click)="createPDF()" >Imrpimir PDF</button>
 
-  <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
-    <button class="btn btn-outline-warning" type="button" *ngIf="galaxiaSelected==0" (click)="irSistema()">Visitar nuestro sistema solar</button>
-    <button class="btn btn-outline-primary" type="button" (click)="irUniverso()">Regresar</button>
+    <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
+      <button class="btn btn-outline-warning" type="button" *ngIf="galaxiaSelected==0" (click)="irSistema()">Visitar nuestro sistema solar</button>
+      <button class="btn btn-outline-primary" type="button" (click)="irUniverso()">Regresar</button>
+    </div>
   </div>
 </div>

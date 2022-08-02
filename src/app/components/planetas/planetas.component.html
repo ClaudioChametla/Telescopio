@@ -1,21 +1,58 @@
 <div class="container-fluid planeta">
   <div class="planeta-container">
-    <p >Nombre: {{planeta[planetaSelected].name}}</p>
-    <p >Velocidad: {{planeta[planetaSelected].velocity}}</p>
-    <p >Distancia: {{planeta[planetaSelected].distance}}</p>
-    <p >Descripción: {{planeta[planetaSelected].description}}</p>
-    <img src={{planeta[planetaSelected].image}} height="250px" width="250px">
+    <div class="planeta-information" *ngIf="abrirTelescopio===false">
+      <p >Nombre: {{planeta[planetaSelected].name}}</p>
+      <p >Velocidad: {{planeta[planetaSelected].velocity}}</p>
+      <p >Distancia: {{planeta[planetaSelected].distance}}</p>
+      <p >Descripción: {{planeta[planetaSelected].description}}</p>
+      </div>
   </div>
 
-  <form>
-    <div class="mb-3 mt-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
-    </div>
-    <button class="btn btn-outline-danger" type="button" (click)="createPDF()" >Imrpimir PDF</button>
-  </form>
 
-  <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
-    <button class="btn btn-outline-light" type="button" (click)="irSistema()">Zoom -</button>
+  <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
+
+  <div class="telescopio" *ngIf="abrirTelescopio===false">
+    <div class="menu" >
+      <img class="imagen" src={{planeta[planetaSelected].image}} height="250px" width="250px" alt={{planeta[planetaSelected].name}}>
+      <button class="btn btn-outline-success" type="button" (click)="mostrarTelescopio()"> Abrir telescopio</button>
+    </div>
+  </div>
+
+  <!--Mostrando Telescopio-->
+  <div class="telescopio" *ngIf="abrirTelescopio===true">
+    <div class="menu">
+      <img class="imagen" width="400" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} (mousemove)="telescopio($event)">
+      <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
+    </div>
+    <div class="btn-zoom">
+      <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
+      <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
+      <p>{{zoomN}}%</p>
+    </div>
+    <div class="telescopio-container" >
+      <img class="imagen2" id="lupa" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} >
+    </div>
+  </div>
+  <!--Mostrando Telescopio-->
+
+
+<!------------------------------------T E L E S C O P I O-------------------------------------------------------->
+
+
+
+
+
+  <div class="planeta-form" *ngIf="abrirTelescopio===false">
+    <form>
+      <div class="mb-3 mt-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
+      </div>
+      <button class="btn btn-outline-danger" type="button" (click)="createPDF()" >Imrpimir PDF</button>
+    </form>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
+      <button class="btn btn-outline-light" type="button" (click)="irSistema()">Zoom -</button>
+    </div>
   </div>
 </div>

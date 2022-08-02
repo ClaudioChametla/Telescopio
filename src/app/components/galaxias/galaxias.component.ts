@@ -19,6 +19,10 @@ export class GalaxiasComponent implements OnInit {
   galaxiasDatos:any;
   //Recibe el texto ingresado del usuario
   pdfText='';
+  //Varibles Telescopio
+  abrirTelescopio=false;
+  zoom=30;
+  zoomN=50;
 
   constructor(private router:Router,private cctService:CctServiceService) { }
 
@@ -86,4 +90,55 @@ export class GalaxiasComponent implements OnInit {
     }
   }
 
+///////////////////////////////////////
+  //Hace zoom en una imagen
+  telescopio(e:any){
+    let x, y, x1, y1;
+    if ( e===null){
+      e=window.event;
+    }else{
+      x = e.clientX;
+      y= e.clientY;
+      x1=150+(x);
+      y1=30+(y);
+      var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
+      lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
+    }
+  }
+
+  zoomA(){
+    if(this.zoomN<100){
+      this.zoom=this.zoom+5;
+    this.zoomN = this.zoomN+10;
+    }else{
+      alert('no');
+    }
+
+  }
+  zoomD(){
+    if(this.zoomN>10){
+      this.zoom=this.zoom-5;
+      this.zoomN = this.zoomN-10;
+    }else{
+      alert('no');
+    }
+
+  }
+  mostrarTelescopio(){
+    this.abrirTelescopio=true;
+  }
+  ocultarTelescopio(){
+    this.abrirTelescopio=false;
+  }
+///////////////////////////////////////
 }
+
+
+/* see(e:any){
+  HTML
+  (window:resize)="see($event)"
+  HTMLEND
+  console.log(e.target.innerWidth);
+
+}
+ */
