@@ -31,12 +31,42 @@ export class GalaxiasComponent implements OnInit {
   }
 
   irSistema(){
-    this.router.navigate(['/sistema-solar']);
+    if(this.pdfText!==''){
+      Swal.fire({
+        title: '¿Desea continuar? perdera sus cambios',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/sistema-solar']);
+        } else if (result.isDenied) {
+        }
+      })
+    }else{
+      this.router.navigate(['/sistema-solar']);
+    }
+
   }
 
   irUniverso(){
     //Emite un TRUE para ocultar componente Galaxias
-    this.cctService.$universo.emit(true);
+    if(this.pdfText!==''){
+      Swal.fire({
+        title: '¿Desea continuar? perdera sus cambios',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.cctService.$universo.emit(true);
+        } else if (result.isDenied) {
+        }
+      })
+    }else{
+      this.cctService.$universo.emit(true);
+    }
+
   }
 
   //Función para crear el PDF
@@ -125,7 +155,21 @@ export class GalaxiasComponent implements OnInit {
 
   }
   mostrarTelescopio(){
-    this.abrirTelescopio=true;
+    if(this.pdfText!==''){
+      Swal.fire({
+        title: '¿Desea continuar? perdera sus cambios',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/sistema-solar']);
+        } else if (result.isDenied) {
+        }
+      })
+    }else{
+      this.router.navigate(['/sistema-solar']);
+    }
   }
   ocultarTelescopio(){
     this.abrirTelescopio=false;

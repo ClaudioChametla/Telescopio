@@ -7,7 +7,7 @@
 }
 .galaxias-container{
   display: grid;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   grid-template-columns: 20% 20% 20%;
 }
@@ -22,8 +22,8 @@
   cursor: pointer;
 }
 @media screen and (max-width:992px) {
-  .galaxia{
-    height: auto;
-    width: 30vw;
+  .galaxias-container{
+    display: flex;
+    flex-direction: column;
   }
 }
