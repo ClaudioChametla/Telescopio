@@ -1,17 +1,22 @@
 .universo{
-  margin-top: 10%;
-}
-.galaxia-content{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  padding: 20px;
 }
-
+.galaxias-container{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 20% 20% 20%;
+}
+.galaxia-content{
+  margin: 20px;
+}
 .galaxia{
   height: auto;
-  width: 25vw;
+  width: 15vw;
 }
 .galaxia:hover{
   cursor: pointer;
@@ -20,8 +25,5 @@
   .galaxia{
     height: auto;
     width: 30vw;
-  }
-  .universo{
-    margin-top: 0%;
   }
 }

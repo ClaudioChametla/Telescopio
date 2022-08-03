@@ -1,9 +1,17 @@
+.estrella{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
 .estrellas-container{
   display: grid;
+  justify-content: center;
+  align-items: center;
   grid-template-columns: 20% 20% 20%;
 }
 .estrella-item{
-  margin: 10px;
+  margin: 0px;
 }
 .estrella-item:hover{
   cursor: pointer;
@@ -14,4 +22,17 @@
 }
 p{
   margin-bottom: 0px;
+}
+@media screen and (max-width:576px) {
+  .estrellas-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .estrella-imagen{
+    width: 30vw;
+    height: auto;
+  }
+  p{
+    font-size: smaller;
+  }
 }

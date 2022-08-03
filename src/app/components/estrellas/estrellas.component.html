@@ -1,4 +1,4 @@
-<div class="container-fluid estrella" *ngIf="mostrarEstrellas===true">
+<div class="estrella" *ngIf="mostrarEstrellas===true">
   <div class="estrellas-container">
     <div class="estrella-item" *ngFor="let item of estrellasDatos" >
       <p>Clase: {{item.clase}}</p>
@@ -8,6 +8,9 @@
       <img class="estrella-imagen" src={{item.image}} (click)="seleccion(item.id)">
     </div>
   </div>
-  <button class="btn btn-outline-light" type="button" (click)="irSistema()"> Zoom-</button>
+  <div class="d-grid justify-content-sm-end">
+    <button class="btn btn-outline-light" type="button" (click)="irSistema()"> Zoom-</button>
+  </div>
+
 </div>
 <app-tipo-estrella [selecEstrella]="estrellasSelec" *ngIf="mostrarEstrellas===false"></app-tipo-estrella>
