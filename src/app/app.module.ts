@@ -11,6 +11,7 @@ import { SistemaSolarComponent } from './components/sistema-solar/sistema-solar.
 import { PlanetasComponent } from './components/planetas/planetas.component';
 import { EstrellasComponent } from './components/estrellas/estrellas.component';
 import { TipoEstrellaComponent } from './components/tipo-estrella/tipo-estrella.component';
+import { MiEstrellaComponent } from './components/mi-estrella/mi-estrella.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TipoEstrellaComponent } from './components/tipo-estrella/tipo-estrella.
     PlanetasComponent,
     EstrellasComponent,
     TipoEstrellaComponent,
+    MiEstrellaComponent,
 
   ],
   imports: [

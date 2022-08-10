@@ -1,0 +1,21 @@
+<div class="estrella-container animate animate__bounce" *ngIf="miEstrella===false" (click)="mostrarMiEstrella()">
+  <audio autoplay>
+    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+  </audio>
+  <p>Crea una nueva estrella haciendo click</p>
+</div>
+<div class="estrella-container" *ngIf="miEstrella===true">
+  <audio autoplay>
+    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+  </audio>
+  <p class="animate__bounce">Nombra tu estrella</p>
+
+  <div style="display:flex; justify-content: center;">
+    <input type="text" class="form-control" placeholder="Nombre de tu estrella" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <button class="btn btn-outline-success" type="button" id="button-addon2">Ir</button>
+  </div>
+
+</div>
+
