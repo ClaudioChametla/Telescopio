@@ -3,13 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { UniversoComponent } from './components/universo/universo.component';
 import { SistemaSolarComponent } from './components/sistema-solar/sistema-solar.component';
 import { EstrellasComponent } from './components/estrellas/estrellas.component';
+import { LunaComponent } from './components/luna/luna.component';
 import { MiEstrellaComponent } from './components/mi-estrella/mi-estrella.component';
+
 
 const routes: Routes = [
   {path:'', redirectTo:'/universo',pathMatch:'full'},
   {path:'universo',component: UniversoComponent},
   {path: 'sistema-solar',component:SistemaSolarComponent},
   {path: 'estrellas',component:EstrellasComponent},
+  {path: 'luna',component:LunaComponent},
   {path: 'mi-estrella', component:MiEstrellaComponent}
 ];
 

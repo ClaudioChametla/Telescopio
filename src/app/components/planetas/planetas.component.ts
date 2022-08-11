@@ -32,6 +32,9 @@ export class PlanetasComponent implements OnInit {
   irSistema(){
     this.cctService.$sistemaSolar.emit(false);
   }
+  irLuna(){
+    this.router.navigate(['/luna']);
+  }
 
   createPDF(){
     if(this.pdfText==''){

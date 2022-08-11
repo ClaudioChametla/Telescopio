@@ -163,12 +163,12 @@ export class GalaxiasComponent implements OnInit {
         denyButtonText: `No`,
       }).then((result) => {
         if (result.isConfirmed) {
-          this.router.navigate(['/sistema-solar']);
+          this.abrirTelescopio=true;
         } else if (result.isDenied) {
         }
       })
     }else{
-      this.router.navigate(['/sistema-solar']);
+      this.abrirTelescopio=true;
     }
   }
   ocultarTelescopio(){

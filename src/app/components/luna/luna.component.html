@@ -1,0 +1,20 @@
+<div class="luna">
+
+  <div class="preguntas-container" *ngIf="cuestionario===false">
+    <h1>Bienvenido a la Luna</h1>
+    <p>Te gustaría reforzar tus conocimientos</p>
+    <p>A continuacion puedes resolver un formulario</p>
+    <button class="btn btn-outline-success" (click)="mostrarCuestionario()"> Realizar Quizz</button>
+    <button class="btn btn-outline-danger"> Regresar a la tierra </button>
+  </div>
+
+
+  <div class="preguntas-container" *ngIf="cuestionario===true">
+    <p>{{lunaDatos[selector].pregunta}} </p>
+    <button class="btn btn-danger" (click)="opA(lunaDatos[selector].opciones[0].value)">{{lunaDatos[selector].opciones[0].opcion}} </button>
+    <button class="btn btn-danger" (click)="opB(lunaDatos[selector].opciones[1].value)">{{lunaDatos[selector].opciones[1].opcion}}</button>
+    <button class="btn btn-danger" (click)="opC(lunaDatos[selector].opciones[2].value)">{{lunaDatos[selector].opciones[2].opcion}}</button>
+    <button class="btn btn-outline-success" (click)="siguientePregunta()"> Siguiente </button>
+  </div>
+
+</div>

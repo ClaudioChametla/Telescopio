@@ -12,6 +12,8 @@
   grid-template-columns: 20% 20% 20%;
 }
 .galaxia-content{
+  display: flex;
+  flex-direction: column;
   margin: 20px;
 }
 .galaxia{
@@ -25,5 +27,8 @@
   .galaxias-container{
     display: flex;
     flex-direction: column;
+  }
+  .galaxia{
+    width: 25vw;
   }
 }

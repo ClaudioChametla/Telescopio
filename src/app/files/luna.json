@@ -1,0 +1,176 @@
+[
+  {
+    "pregunta":"¿Cual es el llamado Planeta Rojo?",
+    "opciones": [
+      {
+        "opcion": "Marte",
+        "value": 1
+      },
+      {
+        "opcion": "Jupiter",
+        "value": 0
+      },
+      {
+        "opcion": "Saturno",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Cual es el llamado Planeta Gigante Gaseoso?",
+    "opciones": [
+      {
+        "opcion": "Urano",
+        "value": 0
+      },
+      {
+        "opcion": "Jupiter",
+        "value": 1
+      },
+      {
+        "opcion": "Neptuno",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Cuál es un año luz?",
+    "opciones": [
+      {
+        "opcion": "Unidad de medida en distancia utilizada en astronomía",
+        "value": 1
+      },
+      {
+        "opcion": "Unidad de medida de tiempo utilizada en astronomía",
+        "value": 0
+      },
+      {
+        "opcion": "Unidad de medida de peso utilizada en astronomía",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Dónde termina el Sistema Solar?",
+    "opciones": [
+      {
+        "opcion": "Hasta el planeta enano Pluton y Caronte",
+        "value": 0
+      },
+      {
+        "opcion": "Empezando Alpha Centauri",
+        "value": 0
+      },
+      {
+        "opcion": "Pasando la nube Oort",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Cuál es la estrella más cercana a la tierra?",
+    "opciones": [
+      {
+        "opcion": "Alpha Centauri A",
+        "value": 0
+      },
+      {
+        "opcion": "El sol",
+        "value": 1
+      },
+      {
+        "opcion": "Estrella de Barnard",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Cuál es la galaxia más cercana?",
+    "opciones": [
+      {
+        "opcion": "Enana del Can Mayor",
+        "value": 1
+      },
+      {
+        "opcion": "Andromeda",
+        "value": 0
+      },
+      {
+        "opcion": "Gran Nube de Magallanes",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "pregunta":"¿De tipo de estrella es nuestro sol?",
+    "opciones": [
+      {
+        "opcion": "Tipo M",
+        "value": 0
+      },
+      {
+        "opcion": "Tipo K",
+        "value": 0
+      },
+      {
+        "opcion": "Tipo G",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Cuál es la llamada Galaxia del pingüino?",
+    "opciones": [
+      {
+        "opcion": "NGC 1277",
+        "value": 0
+      },
+      {
+        "opcion": "NGC 2936",
+        "value": 1
+      },
+      {
+        "opcion": "Ngc 55",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Cuanto tarda la luna luna en dar una vuelta al rededor de la tierra?",
+    "opciones": [
+      {
+        "opcion": "28 días",
+        "value": 1
+      },
+      {
+        "opcion": "365 días",
+        "value": 0
+      },
+      {
+        "opcion": "182 días",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "pregunta":"¿Que fenómenos del planeta tierra estan influenciados por la luna?",
+    "opciones": [
+      {
+        "opcion": "Las mareas y el ciclo del agua",
+        "value": 0
+      },
+      {
+        "opcion": "Las mareas y el clima",
+        "value": 1
+      },
+      {
+        "opcion": "El clima y erupciones volcanicas",
+        "value": 0
+      }
+    ]
+  }
+
+
+]
+
+
