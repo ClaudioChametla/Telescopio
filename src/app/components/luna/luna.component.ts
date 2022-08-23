@@ -62,7 +62,7 @@ export class LunaComponent implements OnInit {
             this.imprimirResultados();
             this.cuestionario=false;
           } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
+
             this.irSistema();
           }
         })

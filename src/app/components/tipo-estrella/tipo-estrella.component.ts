@@ -116,10 +116,26 @@ export class TipoEstrellaComponent implements OnInit {
 
   }
   mostrarTelescopio(){
-    this.abrirTelescopio=true;
+    if(this.pdfText!==''){
+      Swal.fire({
+        title: '¿Desea continuar? perdera sus cambios',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.abrirTelescopio=true;
+        } else if (result.isDenied) {
+        }
+      })
+    }else{
+      this.abrirTelescopio=true;
+    }
   }
   ocultarTelescopio(){
     this.abrirTelescopio=false;
   }
-///////////////////////////////////////
 }
+
+///////////////////////////////////////
+

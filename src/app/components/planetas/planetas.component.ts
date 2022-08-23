@@ -30,10 +30,40 @@ export class PlanetasComponent implements OnInit {
   }
 
   irSistema(){
-    this.cctService.$sistemaSolar.emit(false);
+    if(this.pdfText!==''){
+      Swal.fire({
+        title: '¿Desea continuar? perdera sus cambios',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.cctService.$sistemaSolar.emit(false);
+        } else if (result.isDenied) {
+        }
+      })
+    }else{
+      this.cctService.$sistemaSolar.emit(false);
+    }
+
   }
   irLuna(){
-    this.router.navigate(['/luna']);
+    if(this.pdfText!==''){
+      Swal.fire({
+        title: '¿Desea continuar? perdera sus cambios',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/luna']);
+        } else if (result.isDenied) {
+        }
+      })
+    }else{
+      this.router.navigate(['/luna']);
+    }
+
   }
 
   createPDF(){
@@ -120,7 +150,22 @@ export class PlanetasComponent implements OnInit {
 
   }
   mostrarTelescopio(){
-    this.abrirTelescopio=true;
+
+    if(this.pdfText!==''){
+      Swal.fire({
+        title: '¿Desea continuar? perdera sus cambios',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: `No`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.abrirTelescopio=true;
+        } else if (result.isDenied) {
+        }
+      })
+    }else{
+      this.abrirTelescopio=true;
+    }
   }
   ocultarTelescopio(){
     this.abrirTelescopio=false;
