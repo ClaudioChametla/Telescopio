@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CctServiceService } from 'src/app/service/cct-service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-universo',
   templateUrl: './universo.component.html',
@@ -45,7 +46,12 @@ export class UniversoComponent implements OnInit {
     this.selecGalaxia=5;
   }
   zoomSolar(){
-    this.router.navigate(['/sistema-solar']);
+    this.cctService.$loader.emit(true)
+    setTimeout(() => {
+      this.cctService.$loader.emit(false);
+      this.router.navigate(['/sistema-solar']);
+    }, 1500);
+
   }
 
 }

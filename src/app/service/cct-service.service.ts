@@ -9,5 +9,6 @@ export class CctServiceService {
   $sistemaSolar = new EventEmitter<any>();
   $universo=new EventEmitter<any>();
   $estrella=new EventEmitter<any>();
+  $loader=new EventEmitter<any>();
 
 }

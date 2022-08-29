@@ -1,0 +1,48 @@
+
+.container-load{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color:rgba(240, 248, 255, 0.356);
+}
+.center-load{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader{
+  width: 250px;
+  height: 250px;
+  animation-name: nave;
+  animation-duration: 1.5s;
+  background-image: url(../../../assets/Animation/loaderShip.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+@keyframes nave {
+  0%{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    transform:translateX(-1000%);
+  }
+  30%{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  50%{
+    -webkit-transform: rotate(50deg);
+    -moz-transform: rotate(50deg);
+    -ms-transform: rotate(50deg);
+    transform: rotate(50deg);
+  }
+  100%{
+
+  }
+}
