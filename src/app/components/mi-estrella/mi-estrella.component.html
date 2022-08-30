@@ -3,8 +3,15 @@
     <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3">
         Tu navegador no soporta audio HTML5.
   </audio>
-  <p *ngIf="mostrarEstrella===true">{{nombreEstrella}}</p>
-  <p *ngIf="mostrarEstrella===false">Crea una nueva estrella haciendo click</p>
+  <div class="estrellaMostrar" *ngIf="mostrarEstrella===true">
+    <p class="animation-a" >{{nombreEstrella}}</p>
+    <img  class="animation-a" src={{miEstrellaDatos[rand].imagen}} width="250px">
+    <p class="animation-b" >{{miEstrellaDatos[rand].frase}}</p>
+    <p class="animation-c" > -{{miEstrellaDatos[rand].autor}}- </p>
+  </div>
+  <div class="estrellaMostrar" *ngIf="mostrarEstrella===false">
+    <p>Crea una nueva estrella haciendo click</p>
+  </div>
 </div>
 <div class="estrella-container" *ngIf="miEstrella===true">
   <audio autoplay>

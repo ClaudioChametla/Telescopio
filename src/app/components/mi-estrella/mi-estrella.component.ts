@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import miEstrella from '../../files/miEstrella.json';
 
 @Component({
   selector: 'app-mi-estrella',
@@ -7,9 +8,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./mi-estrella.component.scss']
 })
 export class MiEstrellaComponent implements OnInit {
+  miEstrellaDatos=miEstrella;
   nombreEstrella='';
   miEstrella=false;
   mostrarEstrella=false;
+  rand:Number=0;
   constructor() { }
 
   ngOnInit(): void {
@@ -28,7 +31,8 @@ export class MiEstrellaComponent implements OnInit {
     }else{
       this.miEstrella=false;
       this.mostrarEstrella=true;
-
+      this.rand = Math.floor(Math.random()*6);
+        console.log(this.rand);
     }
   }
 }

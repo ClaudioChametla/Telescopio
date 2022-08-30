@@ -92,8 +92,42 @@ export class LunaComponent implements OnInit {
         },
         {
         text:['Muchas felicidades\n',
-          'Haz obtenido una puntuación de: '+this.puntaje]
+          'Haz obtenido una puntuación de: '+this.puntaje+'\n\n']
         },
+        {
+          text:['Hoja de Repuestas: \n\n',
+            '1.-¿Cual es el llamado Planeta Rojo? \n',
+            'Respuesta: Marte \n\n',
+
+            '2.-¿Cual es el llamado Planeta Gigante Gaseoso? \n',
+            'Respuesta: Jupiter \n\n',
+
+            '3.-¿Que es un año luz? \n',
+            'Respuesta: Es una unidad de medida en distancia utilizada en astronomía \n\n',
+
+            '4.-¿Dónde termina el Sistema Solar? \n',
+            'Respuesta: Pasando la nube Oort \n\n',
+
+            '5.-¿Cuál es la estrella más cercana a la tierra? \n',
+            'Respuesta: El sol \n\n',
+
+            '6.-¿Cuál es la galaxia más cercana? \n',
+            'Respuesta: Enana del Can Mayor \n\n',
+
+            '7.-¿De tipo de estrella es nuestro sol? \n',
+            'Respuesta: De tipo G \n\n',
+
+            '8.-¿Cuál es la llamada Galaxia del pingüino? \n',
+            'Respuesta: NGC 2936 \n\n',
+
+            '9.-¿Cuanto tarda la luna luna en dar una vuelta al rededor de la tierra? \n',
+            'Respuesta: 28 días \n\n',
+
+            '10.-¿Que fenómenos del planeta tierra estan influenciados por la luna? \n',
+            'Respuesta: Las mareas y el clima \n\n\n',
+
+          ]
+          },
         {
           image:this.lunaDatos[10].imagen,
           width: 500

@@ -34,18 +34,18 @@
     ]
   },
   {
-    "pregunta":"¿Cuál es un año luz?",
+    "pregunta":"¿Que es un año luz?",
     "opciones": [
       {
-        "opcion": "Unidad de medida en distancia utilizada en astronomía",
+        "opcion": "Es una unidad de medida en distancia utilizada en astronomía",
         "value": 1
       },
       {
-        "opcion": "Unidad de medida de tiempo utilizada en astronomía",
+        "opcion": "Es una unidad de medida de tiempo utilizada en astronomía",
         "value": 0
       },
       {
-        "opcion": "Unidad de medida de peso utilizada en astronomía",
+        "opcion": "Es una unidad de medida de peso utilizada en astronomía",
         "value": 0
       }
     ]

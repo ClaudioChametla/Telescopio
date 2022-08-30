@@ -4,4 +4,47 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 150px;
+}
+.estrellaMostrar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.animation-a{
+  animation-name: a;
+  animation-duration: 5s;
+}
+@keyframes a {
+  0%{
+    opacity: 0;
+  }
+  100%{opacity: 1;}
+}
+.animation-b{
+  animation-name: a;
+  animation-duration: 13s;
+}
+@keyframes b {
+  0%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 0;
+  }
+  100%{opacity: 1;}
+}
+.animation-c{
+  animation-name: a;
+  animation-duration: 15s;
+}
+@keyframes c {
+  0%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 0;
+  }
+  100%{opacity: 1;}
 }
