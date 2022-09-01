@@ -1,31 +1,36 @@
 <div class="estrella-container animate animate__bounce" *ngIf="miEstrella===false" (click)="mostrarMiEstrella()">
-  <audio autoplay>
+
+  <audio autoplay loop>
     <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3">
         Tu navegador no soporta audio HTML5.
   </audio>
+
   <div class="estrellaMostrar" *ngIf="mostrarEstrella===true">
     <p class="animation-a" >{{nombreEstrella}}</p>
     <img  class="animation-a" src={{miEstrellaDatos[rand].imagen}} width="250px">
     <p class="animation-b" >{{miEstrellaDatos[rand].frase}}</p>
     <p class="animation-c" > -{{miEstrellaDatos[rand].autor}}- </p>
+    <button class="btn btn-outline-danger animation-c" (click)="irEstrellas()"> Salir</button>
   </div>
+
   <div class="estrellaMostrar" *ngIf="mostrarEstrella===false">
     <p>Crea una nueva estrella haciendo click</p>
   </div>
+
 </div>
 <div class="estrella-container" *ngIf="miEstrella===true">
+
   <audio autoplay>
     <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3">
         Tu navegador no soporta audio HTML5.
   </audio>
+
   <p class="animate__bounce">Nombra tu estrella</p>
 
   <div style="display:flex; justify-content: center;">
     <input type="text" class="form-control" placeholder="Nombre de tu estrella" name="nombre" [(ngModel)]="nombreEstrella">
     <button class="btn btn-outline-success" type="button" id="button-addon2" (click)="irEstrella()">Ir</button>
   </div>
-
-
 
 </div>
 

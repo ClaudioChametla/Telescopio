@@ -23,6 +23,62 @@
 .galaxia:hover{
   cursor: pointer;
 }
+.a{
+  animation-name: A;
+  animation-duration: .6s;
+}
+.b{
+  animation-name: B;
+  animation-duration: .5s;
+}
+.c{
+  animation-name: C;
+  animation-duration: .4s;
+}
+.d{
+  animation-name: D;
+  animation-duration: .3s;
+}
+.e{
+  animation-name: E;
+  animation-duration: .2s;
+}
+.f{
+  animation-name: F;
+  animation-duration: .1s;
+}
+
+/********** A N I M A T I O N ************/
+@keyframes A {
+  0%{transform: translateY(-120%);}
+  100%{transform: translateY(0%);}
+}
+@keyframes B {
+  0%{transform: translateY(-100%);}
+  100%{transform: translateY(0%);}
+}
+
+@keyframes C {
+  0%{transform: translateY(-80%);}
+  100%{transform: translateY(0%);}
+}
+
+@keyframes D {
+  0%{transform: translateY(-60%);}
+  100%{transform: translateY(0%);}
+}
+
+@keyframes E {
+  0%{transform: translateY(-40%);}
+  100%{transform: translateY(0%);}
+}
+
+@keyframes F {
+  0%{transform: translateY(-5%);}
+  100%{transform: translateY(0%);}
+}
+
+
 @media screen and (max-width:992px) {
   .galaxias-container{
     display: flex;

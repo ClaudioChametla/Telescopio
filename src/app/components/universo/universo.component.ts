@@ -46,12 +46,22 @@ export class UniversoComponent implements OnInit {
     this.selecGalaxia=5;
   }
   zoomSolar(){
+    this.naveSistemaSolar();
+  }
+
+  naveSistemaSolar(){
     this.cctService.$loader.emit(true)
     setTimeout(() => {
       this.cctService.$loader.emit(false);
       this.router.navigate(['/sistema-solar']);
     }, 1500);
-
+  }
+  naveMostrarUniverso(){
+    this.cctService.$loader.emit(true)
+    setTimeout(() => {
+      this.cctService.$loader.emit(false);
+      this.mostrarUniverso=false;
+    }, 1500);
   }
 
 }

@@ -33,42 +33,75 @@
 
 /*****************Tamaños de Planetas***************/
 .sol{
+  animation-name: uno;
+  animation-duration: 1s;
   height: auto;
   width: 13vw;
 }
 .mercurio{
+  animation-name: dos;
+  animation-duration: 1s;
   height: auto;
   width: 3vw;
 }
 .venus{
+  animation-name: uno;
+  animation-duration: 1s;
   height: auto;
   width: 6vw;
 }
 .tierra{
+  animation-name: dos;
+  animation-duration: 1s;
   height: auto;
   width: 8vw;
 }
 .marte{
+  animation-name: uno;
+  animation-duration: 1s;
   height: auto;
   width: 6vw;
 }
 .jupiter{
+  animation-name: dos;
+  animation-duration: 1s;
   height: auto;
   width: 11vw;
 }
 .saturno{
+  animation-name: uno;
+  animation-duration: 1s;
   height: auto;
   width: 10vw;
 }
 .urano{
+  animation-name: dos;
+  animation-duration: 1s;
   height: auto;
   width: 9vw;
 }
 .neptuno{
+  animation-name: uno;
+  animation-duration: 1s;
   height: auto;
   width: 8vw;
 }
 /*****************Tamaños de Planetas***************/
+
+/*****************Animacion Planetas***************************/
+@keyframes uno {
+  0%{transform: translateY(10%);}
+  25%{transform: translateY(-10%);}
+  75%{transform: translateY(2%);}
+  100%{transform: translateY(0%);}
+}
+@keyframes dos {
+  0%{transform: translateY(-10%);}
+  25%{transform: translateY(10%);}
+  75%{transform: translateY(-1%);}
+  100%{transform: translateY(0%);}
+}
+/*****************Animacion Planetas***************************/
 
 @media screen and (max-width:575px) {
   .sistema-content{
@@ -113,7 +146,6 @@
     background: #cecece;
     border-radius: 50px;
   }
-
 
 
   label{

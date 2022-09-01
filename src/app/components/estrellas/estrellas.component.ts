@@ -32,4 +32,13 @@ export class EstrellasComponent implements OnInit {
     this.estrellasSelec=event;
     this.mostrarEstrellas=false;
   }
+
+  naveMiEstrella(){
+    this.service.$loader.emit(true)
+    setTimeout(() => {
+      this.service.$loader.emit(false);
+      this.router.navigate(['mi-estrella']);
+    }, 1500);
+  }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import miEstrella from '../../files/miEstrella.json';
 
@@ -13,7 +14,7 @@ export class MiEstrellaComponent implements OnInit {
   miEstrella=false;
   mostrarEstrella=false;
   rand:Number=0;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -34,5 +35,8 @@ export class MiEstrellaComponent implements OnInit {
       this.rand = Math.floor(Math.random()*6);
         console.log(this.rand);
     }
+  }
+  irEstrellas(){
+    this.router.navigate(['/estrellas']);
   }
 }

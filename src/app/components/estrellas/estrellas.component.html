@@ -1,5 +1,7 @@
 <div class="estrella" *ngIf="mostrarEstrellas===true">
+
   <div class="estrellas-container">
+
     <div class="estrella-item" *ngFor="let item of estrellasDatos" >
       <p>Clase: {{item.clase}}</p>
       <p>Color: {{item.color}}</p>
@@ -7,11 +9,18 @@
       <p>Masa: {{item.masa}}</p>
       <img class="estrella-imagen" src={{item.image}} (click)="seleccion(item.id)">
     </div>
-    <div class="mi-estrella">
+
+    <div class="mi-estrella" >
+      <br>
+      <br>
       <p>Mi estrella</p>
-      <img class="estrella-imagen" src="../../../assets/Planetas/sol.png">
+      <br>
+      <img class="estrella-imagen" src="../../../assets/Planetas/sol.png" (click)="naveMiEstrella()">
     </div>
+
   </div>
+
+
   <div class="d-grid justify-content-sm-end">
     <button class="btn btn-outline-light" type="button" (click)="irSistema()"> Zoom-</button>
   </div>

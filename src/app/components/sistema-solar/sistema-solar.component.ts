@@ -60,7 +60,15 @@ export class SistemaSolarComponent implements OnInit {
   }
 
   estrellas(){
-    this.router.navigate(['/estrellas']);
+    this.naveSistemaSolar();
+  }
+
+  naveSistemaSolar(){
+    this.cctService.$loader.emit(true)
+    setTimeout(() => {
+      this.cctService.$loader.emit(false);
+      this.router.navigate(['/estrellas']);
+    }, 1500);
   }
 
 }

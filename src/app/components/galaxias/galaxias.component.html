@@ -22,13 +22,14 @@
     <div class="telescopio" *ngIf="abrirTelescopio===true">
       <div class="menu">
         <img class="imagen" width="400" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} (mousemove)="telescopio($event)">
+        <div class="btn-zoom">
+          <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
+          <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
+          <p>{{zoomN}}%</p>
+        </div>
         <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
       </div>
-      <div class="btn-zoom">
-        <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
-        <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
-        <p>{{zoomN}}%</p>
-      </div>
+
       <div class="telescopio-container" >
         <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} >
       </div>

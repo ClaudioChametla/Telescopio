@@ -39,14 +39,21 @@ export class GalaxiasComponent implements OnInit {
         denyButtonText: `No`,
       }).then((result) => {
         if (result.isConfirmed) {
-          this.router.navigate(['/sistema-solar']);
+          this.naveSistemaSolar();
         } else if (result.isDenied) {
         }
       })
     }else{
-      this.router.navigate(['/sistema-solar']);
+      this.naveSistemaSolar();
     }
 
+  }
+  naveSistemaSolar(){
+    this.cctService.$loader.emit(true);
+    setTimeout(() => {
+      this.cctService.$loader.emit(false);
+      this.router.navigate(['/sistema-solar']);
+    }, 1500);
   }
 
   irUniverso(){
