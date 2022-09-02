@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import luna from '../../files/luna.json'
@@ -12,19 +12,36 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./luna.component.scss']
 })
 
-export class LunaComponent implements OnInit {
+export class LunaComponent implements OnInit{
   cuestionario=false;
   lunaDatos:any;
   selector=0;
   puntaje=0;
   seguir=false;
 
+  ////////try
+  fps:number=10;
+  hiddenGame:Boolean=false;
+
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.lunaDatos=luna;
     /* console.log(this.lunaDatos[10].imagen); */
+    setInterval(this.main,1000/this.fps);
   }
+
+  main(){
+    console.log();
+
+    document.addEventListener("keydown",function(e:any){
+      console.log(e.keyCode);
+    })
+
+  }
+
+
 
   mostrarCuestionario(){
     this.cuestionario=true;
@@ -84,6 +101,10 @@ export class LunaComponent implements OnInit {
 
 
   imprimirResultados(){
+    if(this.puntaje>10){
+      this.hiddenGame=true;
+    }
+
     const pdf:any = {
       content:[
         {
@@ -157,5 +178,6 @@ export class LunaComponent implements OnInit {
     pdfMake.createPdf(pdf).open();
   }
 
+/////////////////////////////////////////////
 
 }

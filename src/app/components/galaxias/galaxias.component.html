@@ -1,6 +1,5 @@
 <div class="galaxia-universo">
 
-  <div class="galaxia-content">
     <div class="galaxia-information" *ngIf="abrirTelescopio===false">
       <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
       <p>Tipo: {{galaxiasDatos[galaxiaSelected].tipo}}</p>
@@ -19,28 +18,27 @@
     </div>
 
     <!--Mostrando Telescopio-->
-    <div class="telescopio" *ngIf="abrirTelescopio===true">
+    <div class="telescopio" *ngIf="abrirTelescopio===true" (window:resize)="windowsSize($event)">
       <div class="menu">
-        <img class="imagen" width="400" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} (mousemove)="telescopio($event)">
+        <img class="imagen" width="400" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} (mousemove)="telescopio($event)" >
+
         <div class="btn-zoom">
-          <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
-          <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
+          <button class="btn btn-outline-info" type="button" (click)="zoomA()">-</button>
+          <button class="btn btn-outline-info" type="button" (click)="zoomD()">+</button>
           <p>{{zoomN}}%</p>
         </div>
         <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
       </div>
 
       <div class="telescopio-container" >
-        <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} >
+        <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} *ngIf="!superficie" >
+        <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image2}} alt={{galaxiasDatos[galaxiaSelected].name2}} *ngIf="superficie">
       </div>
     </div>
     <!--Mostrando Telescopio-->
 
 
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
-
-  </div>
-
 
   <div class="galaxia-form" *ngIf="abrirTelescopio===false">
     <div class="mb-3 mt-3">
@@ -57,4 +55,5 @@
       <button class="btn btn-outline-primary" type="button" (click)="irUniverso()">Regresar</button>
     </div>
   </div>
+
 </div>

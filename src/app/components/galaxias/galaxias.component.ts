@@ -20,15 +20,18 @@ export class GalaxiasComponent implements OnInit {
   //Recibe el texto ingresado del usuario
   pdfText='';
   //Varibles Telescopio
+  windSize:Boolean=false;
   abrirTelescopio=false;
-  zoom=30;
-  zoomN=50;
+  zoom:any=30;
+  zoomN:any=50;
+  superficie:Boolean=false;
 
   constructor(private router:Router,private cctService:CctServiceService) { }
 
   ngOnInit(): void {
     this.galaxiasDatos=galaxias;
   }
+
 
   irSistema(){
     if(this.pdfText!==''){
@@ -73,7 +76,6 @@ export class GalaxiasComponent implements OnInit {
     }else{
       this.cctService.$universo.emit(true);
     }
-
   }
 
   //Función para crear el PDF
@@ -127,40 +129,71 @@ export class GalaxiasComponent implements OnInit {
     }
   }
 
+
 ///////////////////////////////////////
-  //Hace zoom en una imagen
-  telescopio(e:any){
-    let x, y, x1, y1;
-    if ( e===null){
-      e=window.event;
+
+  //Detecta el cambio en el tamaño de la pantalla para cambiar las variables
+  windowsSize(e:any){
+    if(e.target.innerWidth>992){
+      this.windSize=false;
     }else{
-      x = e.clientX;
-      y= e.clientY;
-      x1=150+(x);
-      y1=30+(y);
-      var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
-      lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
+      this.windSize=true;
     }
   }
 
+  //Hace zoom en una imagen
+  //Evento movemouse detecta cambios y mueve el cilpPath de la seunda imagen
+  telescopio(e:any){
+  let x, y, x1, y1;
+    if(this.windSize===false){
+
+      if ( e===null){
+        e=window.event;
+      }else{
+        x = e.clientX;
+        y= e.clientY;
+        x1=150+(x);
+        y1=-100+(y);
+        var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
+        lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
+      }
+
+    }else{
+      if ( e===null){
+        e=window.event;
+      }else{
+        x = e.clientX;
+        y= e.clientY;
+        x1=100+(x);
+        y1=(y);
+        var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
+        lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
+      }
+    }
+  }
+
+  //Abre el porcentaje que tiene el circulo del clipPath
   zoomA(){
     if(this.zoomN<100){
       this.zoom=this.zoom+5;
     this.zoomN = this.zoomN+10;
+    if(this.zoomN>39){this.superficie=false;}
     }else{
-      alert('no');
+      /* this.superficie=false; */
     }
-
   }
+
   zoomD(){
     if(this.zoomN>10){
       this.zoom=this.zoom-5;
       this.zoomN = this.zoomN-10;
+      if(this.zoomN<40){this.superficie=true;}
     }else{
-      alert('no');
+      /* this.superficie=true; */
     }
-
   }
+
+  //Muestra la pantalla del telescopio
   mostrarTelescopio(){
     if(this.pdfText!==''){
       Swal.fire({
@@ -183,13 +216,3 @@ export class GalaxiasComponent implements OnInit {
   }
 ///////////////////////////////////////
 }
-
-
-/* see(e:any){
-  HTML
-  (window:resize)="see($event)"
-  HTMLEND
-  console.log(e.target.innerWidth);
-
-}
- */
