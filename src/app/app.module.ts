@@ -14,6 +14,7 @@ import { TipoEstrellaComponent } from './components/tipo-estrella/tipo-estrella.
 import { LunaComponent } from './components/luna/luna.component';
 import { MiEstrellaComponent } from './components/mi-estrella/mi-estrella.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { DibujoComponent } from './components/dibujo/dibujo.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     LunaComponent,
     MiEstrellaComponent,
     LoaderComponent,
+    DibujoComponent,
 
   ],
   imports: [

@@ -28,8 +28,12 @@ export class LunaComponent implements OnInit,AfterViewInit{
   fps:number=50;
   hiddenGame:Boolean=true;
 
+  ngAfterViewInit():void{
+    //this.render();
+  }
+
   /******************************gamming******************************/
-  image= new Image();
+  /* image= new Image();
   canvasCopy:any;
   @ViewChild('canvasRef',{static:false}) canvasRef:any;
   isAvaible:Boolean;
@@ -49,7 +53,7 @@ export class LunaComponent implements OnInit,AfterViewInit{
     if(e.target.id === 'canvasId'){
       this.isAvaible = !this.isAvaible;
     }
-  }
+  } */
   /**************************************************************/
 
   constructor(private router:Router) { }
@@ -58,17 +62,18 @@ export class LunaComponent implements OnInit,AfterViewInit{
     this.lunaDatos=luna;
   }
 
+  salir(){
+    this.hiddenGame=false;
+  }
+
 /**************************************************************/
-  ngAfterViewInit():void{
+ /*  ngAfterViewInit():void{
     this.render();
-    /* setInterval(res => {this.principal()},1000) */
   }
 
   render(){
     const canvasEl = this.canvasRef.nativeElement;
     this.cx = canvasEl.getContext('2d');
-    /* this.cx.fillStyle= '#fff';
-    this.cx.fillRect(20,20,20,20); */
     this.cx.lineWidth = 5;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = '#FFF';
@@ -91,9 +96,7 @@ export class LunaComponent implements OnInit,AfterViewInit{
 
   }
 
-  salir(){
-    this.hiddenGame=false;
-  }
+
 
 
 
@@ -125,7 +128,7 @@ export class LunaComponent implements OnInit,AfterViewInit{
       this.cx.lineTo(currentPos.x, currentPos.y);
       this.cx.stroke();
     }
-  }
+  } */
 
 /**************************************************************/
 
@@ -188,7 +191,7 @@ export class LunaComponent implements OnInit,AfterViewInit{
 
 
   imprimirResultados(){
-    if(this.puntaje>1){
+    if(this.puntaje>8){
       this.hiddenGame=true;
     }
 
