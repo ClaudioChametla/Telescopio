@@ -55,8 +55,13 @@ p{
 }
 
 @media screen and (max-width:992px){
+  .galaxia-universo{
+    align-items: baseline;
+  justify-content:baseline;
+  }
   .telescopio{
     flex-direction: column;
+    justify-content: baseline;
   }
   .imagen{
     width: 300px;

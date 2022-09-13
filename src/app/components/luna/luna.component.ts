@@ -1,9 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import luna from '../../files/luna.json'
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import { Options } from 'tsparticles-engine';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -12,7 +13,11 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./luna.component.scss']
 })
 
-export class LunaComponent implements OnInit{
+
+export class LunaComponent implements OnInit,AfterViewInit{
+
+
+
   cuestionario=false;
   lunaDatos:any;
   selector=0;
@@ -20,27 +25,109 @@ export class LunaComponent implements OnInit{
   seguir=false;
 
   ////////try
-  fps:number=10;
-  hiddenGame:Boolean=false;
+  fps:number=50;
+  hiddenGame:Boolean=true;
 
+  /******************************gamming******************************/
+  image= new Image();
+  canvasCopy:any;
+  @ViewChild('canvasRef',{static:false}) canvasRef:any;
+  isAvaible:Boolean;
+  public width = 800;
+  public height= 800;
+  private points:Array<any> = [];
+  cx: CanvasRenderingContext2D;
+  @HostListener('document:mousemove',['$event'])
+  onMoveMouse=(e:any)=>{
+    if(e.target.id === 'canvasId' && (this.isAvaible)){
+      this.write(e);
+    }
+  }
+  @HostListener('click',['$event'])
+  onClick=(e:any)=>{
+    this.points=[];
+    if(e.target.id === 'canvasId'){
+      this.isAvaible = !this.isAvaible;
+    }
+  }
+  /**************************************************************/
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.lunaDatos=luna;
-    /* console.log(this.lunaDatos[10].imagen); */
-    setInterval(this.main,1000/this.fps);
   }
 
-  main(){
-    console.log();
+/**************************************************************/
+  ngAfterViewInit():void{
+    this.render();
+    /* setInterval(res => {this.principal()},1000) */
+  }
 
-    document.addEventListener("keydown",function(e:any){
-      console.log(e.keyCode);
-    })
+  render(){
+    const canvasEl = this.canvasRef.nativeElement;
+    this.cx = canvasEl.getContext('2d');
+    /* this.cx.fillStyle= '#fff';
+    this.cx.fillRect(20,20,20,20); */
+    this.cx.lineWidth = 5;
+    this.cx.lineCap = 'round';
+    this.cx.strokeStyle = '#FFF';
+  }
+
+  limpiarCanvas(){
+    this.cx.clearRect(0,0,this.width,this.height);
+  }
+
+
+  descargar(e:any){
+    e.stopPropagation();
+    let dibujo: any = document.getElementById('dibujo');
+    this.canvasCopy=this.canvasRef;
+    const canvasEl = this.canvasRef.nativeElement;
+    this.image.src = canvasEl.toDataURL('img/png');
+    dibujo!.href = this.image.src;
+    dibujo!.download = "ElLadoOscuroDeLaLuna.png"
+    console.log(this.image);
 
   }
 
+  salir(){
+    this.hiddenGame=false;
+  }
+
+
+
+  private write(res):any{
+    const canvasEl:any = this.canvasRef.nativeElement;
+    const rect = canvasEl.getBoundingClientRect();
+    const prevPos = {
+      x: res.clientX - rect.left,
+      y: res.clientY - rect.top
+    };
+    this.writeSingle(prevPos);
+  }
+  private writeSingle(prevPos){
+    this.points.push(prevPos);
+    if(this.points.length>3){
+      const prevPos =  this.points[this.points.length -1];
+      const currentPos = this.points[this.points.length -2];
+      this.drawOnCanvas(prevPos, currentPos);
+
+    }
+  }
+  private drawOnCanvas(prevPos:any, currentPos:any){
+    if(!this.cx){
+      return;
+    }
+    this.cx.beginPath();
+    if(prevPos){
+      this.cx.moveTo(prevPos.x, prevPos.y);
+      this.cx.lineTo(currentPos.x, currentPos.y);
+      this.cx.stroke();
+    }
+  }
+
+/**************************************************************/
 
 
   mostrarCuestionario(){
@@ -101,7 +188,7 @@ export class LunaComponent implements OnInit{
 
 
   imprimirResultados(){
-    if(this.puntaje>10){
+    if(this.puntaje>1){
       this.hiddenGame=true;
     }
 
