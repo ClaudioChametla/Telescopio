@@ -1,5 +1,5 @@
 <div class="galaxia-universo">
-
+  <!-- contiene la informacion de cada galaxia -->
     <div class="galaxia-information" *ngIf="abrirTelescopio===false">
       <p>{{galaxiasDatos[galaxiaSelected].name}}</p>
       <p>Tipo: {{galaxiasDatos[galaxiaSelected].tipo}}</p>
@@ -9,7 +9,7 @@
 
 
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
-
+    <!--Telescopio Oculto imagen de la galaxia y boton para abrir telescopio-->
     <div class="telescopio" *ngIf="abrirTelescopio===false">
       <div class="menu" >
         <img class="imagen" width="400" height="200" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}}>
@@ -19,19 +19,26 @@
 
     <!--Mostrando Telescopio-->
     <div class="telescopio" *ngIf="abrirTelescopio===true" (window:resize)="windowsSize($event)">
+
       <div class="menu">
+        <!-- imagen 1 con evento mousemove para pasar las coordenadas a la imagen 2 -->
         <img class="imagen" width="400" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} (mousemove)="telescopio($event)" >
 
+        <!-- controles de zoom -->
         <div class="btn-zoom">
           <button class="btn btn-outline-info" type="button" (click)="zoomA()">-</button>
           <button class="btn btn-outline-info" type="button" (click)="zoomD()">+</button>
           <p>{{zoomN}}%</p>
+          <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
         </div>
-        <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
+
       </div>
 
       <div class="telescopio-container" >
+        <!-- imagen 2 que recibe las cordenadas y mueve el clipPath -->
+        <!-- Imagen de toda galaxia y selecciona la imagen 1-->
         <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} *ngIf="!superficie" >
+        <!-- Imagen de la galaxia cercana y selecciona la imagen 2- -->
         <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image2}} alt={{galaxiasDatos[galaxiaSelected].name2}} *ngIf="superficie">
       </div>
     </div>
@@ -39,17 +46,20 @@
 
 
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
-
+  <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
   <div class="galaxia-form" *ngIf="abrirTelescopio===false">
     <div class="mb-3 mt-3">
+      <!-- creacion del PDF -->
       <form>
-        <label for="resumenGalaxia" class="form-label">Escribe aquí</label>
+        <label for="resumenGalaxia" class="form-label">Escribe aquí
+
+        </label>
         <textarea class="form-control" id="resumenGalaxia" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
       </form>
     </div>
 
     <button class="btn btn-outline-danger" type="button"  (click)="createPDF()" >Imrpimir PDF</button>
-
+    <!-- botones de ir a galaxia o a sistema solar -->
     <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
       <button class="btn btn-outline-warning" type="button" *ngIf="galaxiaSelected==0" (click)="irSistema()">Visitar nuestro sistema solar</button>
       <button class="btn btn-outline-primary" type="button" (click)="irUniverso()">Regresar</button>

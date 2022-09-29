@@ -26,7 +26,7 @@ export class LunaComponent implements OnInit,AfterViewInit{
 
   ////////try
   fps:number=50;
-  hiddenGame:Boolean=true;
+  hiddenGame:Boolean=false;
 
   ngAfterViewInit():void{
     //this.render();

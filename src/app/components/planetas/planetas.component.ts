@@ -14,13 +14,17 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class PlanetasComponent implements OnInit {
 
+  //Valor de planeta seleccionado
   @Input() planetaSelected:any;
   planeta:any;
+  //Texto del PDF
   pdfText='';
   //Varibles Telescopio
   abrirTelescopio=false;
-  zoom=30;
-  zoomN=50;
+  zoom:any=30;
+  zoomN:any=50;
+  windSize:Boolean=false;
+  superficie:Boolean=false;
 
 
   constructor(private router:Router,private cctService:CctServiceService) { }
@@ -29,6 +33,7 @@ export class PlanetasComponent implements OnInit {
     this.planeta=planetas;
   }
 
+  //Este metodo te lleva al componente sistema-solar
   irSistema(){
     if(this.pdfText!==''){
       Swal.fire({
@@ -45,8 +50,9 @@ export class PlanetasComponent implements OnInit {
     }else{
       this.cctService.$sistemaSolar.emit(false);
     }
-
   }
+
+  //Este metodo carga el componente de la lunna
   irLuna(){
     if(this.pdfText!==''){
       Swal.fire({
@@ -116,20 +122,45 @@ export class PlanetasComponent implements OnInit {
   }
 
   ///////////////////////////////////////
+
+  //Detecta el cambio en el tamaño de la pantalla para cambiar las variables
+  windowsSize(e:any){
+    if(e.target.innerWidth>992){
+      this.windSize=false;
+    }else{
+      this.windSize=true;
+    }
+  }
+
   //Hace zoom en una imagen
   telescopio(e:any){
     let x, y, x1, y1;
-    if ( e===null){
-      e=window.event;
-    }else{
-      x = e.clientX;
-      y= e.clientY;
-      x1=150+(x);
-      y1=30+(y);
-      var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
-      lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
+      if(this.windSize===false){
+
+        if ( e===null){
+          e=window.event;
+        }else{
+          x = e.clientX;
+          y= e.clientY;
+          x1=150+(x);
+          y1=-100+(y);
+          var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
+          lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
+        }
+
+      }else{
+        if ( e===null){
+          e=window.event;
+        }else{
+          x = e.clientX;
+          y= e.clientY;
+          x1=100+(x);
+          y1=(y);
+          var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
+          lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
+        }
+      }
     }
-  }
 
   zoomA(){
     if(this.zoomN<100){

@@ -9,8 +9,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./sistema-solar.component.scss']
 })
 export class SistemaSolarComponent implements OnInit {
-
-  mostrarPlaneta=false;
+  //Variables para mostrar planetas
+  mostrarPlaneta:Boolean=false;
   planetaSelec:any;
   constructor(private cctService:CctServiceService, private router:Router) { }
 
@@ -18,6 +18,8 @@ export class SistemaSolarComponent implements OnInit {
     this.cctService.$sistemaSolar.subscribe((res:any)=>{this.mostrarPlaneta=res;});
   }
 
+  //Los siguientes metodos con nombres de planetas
+  //te llevan a cada uno de los siguientes planetas
   sol(){
     this.mostrarPlaneta=true;
     /* this.cctService.$sistemaSolar.emit(false); */
@@ -55,6 +57,8 @@ export class SistemaSolarComponent implements OnInit {
     this.mostrarPlaneta=true;
     this.planetaSelec=7;
   }
+
+  //Este es un metodo que te redirecciona al componente universo
   irUniverso(){
     this.router.navigate(['/universo']);
   }
@@ -63,6 +67,7 @@ export class SistemaSolarComponent implements OnInit {
     this.naveSistemaSolar();
   }
 
+  //Te lleva al componente estrellas y carga la animacionde transicion
   naveSistemaSolar(){
     this.cctService.$loader.emit(true)
     setTimeout(() => {

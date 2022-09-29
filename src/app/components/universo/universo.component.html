@@ -1,5 +1,5 @@
 <div class="universo" *ngIf="mostrarUniverso==true;">
-
+  <!-- Todas las galaxias son contenidas en galaxias-container -->
   <div class="galaxias-container">
     <div class="galaxia-content" (click)="viaLactea()">
       <label>Via Lactea</label>
@@ -32,4 +32,5 @@
   </div>
 
 </div>
+<!-- Se pasa de la galaxia seleccionada de un padre a un hijo -->
 <app-galaxias *ngIf="mostrarUniverso==false;" [galaxiaSelected]="selecGalaxia"></app-galaxias>

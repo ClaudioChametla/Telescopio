@@ -32,7 +32,7 @@ export class GalaxiasComponent implements OnInit {
     this.galaxiasDatos=galaxias;
   }
 
-
+  //Este metodo te lleva al componente sistema-solar
   irSistema(){
     if(this.pdfText!==''){
       Swal.fire({
@@ -49,8 +49,10 @@ export class GalaxiasComponent implements OnInit {
     }else{
       this.naveSistemaSolar();
     }
-
   }
+
+  //Carga la animacion de la nave
+  //para hacer la transicion
   naveSistemaSolar(){
     this.cctService.$loader.emit(true);
     setTimeout(() => {
@@ -59,6 +61,7 @@ export class GalaxiasComponent implements OnInit {
     }, 1500);
   }
 
+  //Metodo que te lleva a conponente universo
   irUniverso(){
     //Emite un TRUE para ocultar componente Galaxias
     if(this.pdfText!==''){
@@ -89,6 +92,8 @@ export class GalaxiasComponent implements OnInit {
         timer: 1500
       })
     }else{
+      //Se contruye el PDF
+      //La imagen que se le pasa esta en BASE 64
       const pdf:any = {
         content:[
           {
@@ -172,7 +177,7 @@ export class GalaxiasComponent implements OnInit {
     }
   }
 
-  //Abre el porcentaje que tiene el circulo del clipPath
+  //Aumenta el porcentaje que tiene el circulo del clipPath
   zoomA(){
     if(this.zoomN<100){
       this.zoom=this.zoom+5;
@@ -183,6 +188,7 @@ export class GalaxiasComponent implements OnInit {
     }
   }
 
+  //Disminuye el porcentaje que tiene el circulo del clipPath
   zoomD(){
     if(this.zoomN>10){
       this.zoom=this.zoom-5;

@@ -1,17 +1,23 @@
-<div class="container-fluid planeta">
-  <div class="planeta-container">
-    <div class="planeta-information" *ngIf="abrirTelescopio===false">
-      <p >Nombre: {{planeta[planetaSelected].name}}</p>
-      <p >Velocidad: {{planeta[planetaSelected].velocity}}</p>
-      <p >Distancia: {{planeta[planetaSelected].distance}}</p>
-      <p >Descripción: {{planeta[planetaSelected].description}}</p>
-      <img class="imagen imagen-luna" src="https://bioagus.files.wordpress.com/2021/07/luna.png" height="50px" width="50px" alt={{planeta[planetaSelected].name *ngIf="planetaSelected===2" (click)="irLuna()">
-      </div>
+<div class="planeta">
+
+  <!-- Contiene la informacion de cada planeta -->
+  <div class="planeta-information" *ngIf="abrirTelescopio===false">
+    <p >Nombre: {{planeta[planetaSelected].name}}</p>
+    <p >Velocidad: {{planeta[planetaSelected].velocity}}</p>
+    <p >Distancia: {{planeta[planetaSelected].distance}}</p>
+    <p >Descripción: {{planeta[planetaSelected].description}}</p>
   </div>
 
+  <!-- Mostrar si la tierra esta seleccionada -->
+  <img *ngIf="planetaSelected===2" class="imagen imagen-luna"
+    src="https://bioagus.files.wordpress.com/2021/07/luna.png"
+    height="50px"
+    width="50px"
+    alt={{planeta[planetaSelected].name}}
+    (click)="irLuna()">
 
   <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
-
+  <!--Telescopio Oculto imagen del planeta y boton para abrir telescopio-->
   <div class="telescopio" *ngIf="abrirTelescopio===false">
     <div class="menu" >
       <img class="imagen" src={{planeta[planetaSelected].image}} height="250px" width="250px" alt={{planeta[planetaSelected].name}}>
@@ -20,17 +26,27 @@
   </div>
 
   <!--Mostrando Telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio===true">
+  <div class="telescopio" *ngIf="abrirTelescopio===true" (window:resize)="windowsSize($event)">
+
     <div class="menu">
+      <!-- imagen 1 con evento mousemove para pasar las coordenadas a la imagen 2 -->
       <img class="imagen" width="400" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} (mousemove)="telescopio($event)">
-      <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
+
+      <!-- controles de zoom -->
+      <div class="btn-zoom">
+        <button class="btn btn-outline-info" type="button" (click)="zoomA()">-</button>
+        <button class="btn btn-outline-info" type="button" (click)="zoomD()">+</button>
+        <p>{{zoomN}}%</p>
+        <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
+      </div>
+
     </div>
-    <div class="btn-zoom">
-      <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
-      <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
-      <p>{{zoomN}}%</p>
-    </div>
+
     <div class="telescopio-container" >
+      <!-- imagen 2 que recibe las cordenadas y mueve el clipPath -->
+      <!-- Imagen de toda galaxia y selecciona la imagen 1-->
+      <img class="imagen2" id="lupa" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} >
+      <!-- Imagen de la galaxia cercana y selecciona la imagen 2-->
       <img class="imagen2" id="lupa" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} >
     </div>
   </div>
@@ -38,13 +54,10 @@
 
 
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
-
-
-
-
-
+  <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
   <div class="planeta-form" *ngIf="abrirTelescopio===false">
     <form>
+      <!-- creacion del PDF -->
       <div class="mb-3 mt-3">
         <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
@@ -55,5 +68,5 @@
     <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
       <button class="btn btn-outline-light" type="button" (click)="irSistema()">Zoom -</button>
     </div>
-  </div>
+
 </div>
