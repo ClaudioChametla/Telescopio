@@ -19,17 +19,20 @@ export class GalaxiasComponent implements OnInit {
   galaxiasDatos:any;
   //Recibe el texto ingresado del usuario
   pdfText='';
+
+  //Telescopio
+  informacion=[];
   //Varibles Telescopio
-  windSize:Boolean=false;
   abrirTelescopio=false;
-  zoom:any=30;
-  zoomN:any=50;
-  superficie:Boolean=false;
 
   constructor(private router:Router,private cctService:CctServiceService) { }
 
   ngOnInit(): void {
     this.galaxiasDatos=galaxias;
+    this.informacion.push(
+      this.galaxiasDatos[this.galaxiaSelected].image,
+      this.galaxiasDatos[this.galaxiaSelected].name
+    )
   }
 
   //Este metodo te lleva al componente sistema-solar
@@ -137,70 +140,9 @@ export class GalaxiasComponent implements OnInit {
 
 ///////////////////////////////////////
 
-  //Detecta el cambio en el tamaño de la pantalla para cambiar las variables
-  windowsSize(e:any){
-    if(e.target.innerWidth>992){
-      this.windSize=false;
-    }else{
-      this.windSize=true;
-    }
-  }
-
-  //Hace zoom en una imagen
-  //Evento movemouse detecta cambios y mueve el cilpPath de la seunda imagen
-  telescopio(e:any){
-  let x, y, x1, y1;
-    if(this.windSize===false){
-
-      if ( e===null){
-        e=window.event;
-      }else{
-        x = e.clientX;
-        y= e.clientY;
-        x1=150+(x);
-        y1=-100+(y);
-        var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
-        lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
-      }
-
-    }else{
-      if ( e===null){
-        e=window.event;
-      }else{
-        x = e.clientX;
-        y= e.clientY;
-        x1=100+(x);
-        y1=(y);
-        var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
-        lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
-      }
-    }
-  }
-
-  //Aumenta el porcentaje que tiene el circulo del clipPath
-  zoomA(){
-    if(this.zoomN<100){
-      this.zoom=this.zoom+5;
-    this.zoomN = this.zoomN+10;
-    if(this.zoomN>39){this.superficie=false;}
-    }else{
-      /* this.superficie=false; */
-    }
-  }
-
-  //Disminuye el porcentaje que tiene el circulo del clipPath
-  zoomD(){
-    if(this.zoomN>10){
-      this.zoom=this.zoom-5;
-      this.zoomN = this.zoomN-10;
-      if(this.zoomN<40){this.superficie=true;}
-    }else{
-      /* this.superficie=true; */
-    }
-  }
-
   //Muestra la pantalla del telescopio
   mostrarTelescopio(){
+
     if(this.pdfText!==''){
       Swal.fire({
         title: '¿Desea continuar? perdera sus cambios',

@@ -26,30 +26,12 @@
   </div>
 
   <!--Mostrando Telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio===true" (window:resize)="windowsSize($event)">
-
-    <div class="menu">
-      <!-- imagen 1 con evento mousemove para pasar las coordenadas a la imagen 2 -->
-      <img class="imagen" width="400" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} (mousemove)="telescopio($event)">
-
-      <!-- controles de zoom -->
-      <div class="btn-zoom">
-        <button class="btn btn-outline-info" type="button" (click)="zoomA()">-</button>
-        <button class="btn btn-outline-info" type="button" (click)="zoomD()">+</button>
-        <p>{{zoomN}}%</p>
-        <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
-      </div>
-
-    </div>
-
-    <div class="telescopio-container" >
-      <!-- imagen 2 que recibe las cordenadas y mueve el clipPath -->
-      <!-- Imagen de toda galaxia y selecciona la imagen 1-->
-      <img class="imagen2" id="lupa" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} >
-      <!-- Imagen de la galaxia cercana y selecciona la imagen 2-->
-      <img class="imagen2" id="lupa" src={{planeta[planetaSelected].image}} alt={{planeta[planetaSelected].name}} >
-    </div>
+  <!--Mostrando Telescopio-->
+  <div class="telescopio" *ngIf="abrirTelescopio===true">
+    <app-telescopio [datos]="informacion" ></app-telescopio>
+    <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
   </div>
+  <!--Mostrando Telescopio-->
   <!--Mostrando Telescopio-->
 
 

@@ -18,32 +18,11 @@
     </div>
 
     <!--Mostrando Telescopio-->
-    <div class="telescopio" *ngIf="abrirTelescopio===true" (window:resize)="windowsSize($event)">
-
-      <div class="menu">
-        <!-- imagen 1 con evento mousemove para pasar las coordenadas a la imagen 2 -->
-        <img class="imagen" width="400" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} (mousemove)="telescopio($event)" >
-
-        <!-- controles de zoom -->
-        <div class="btn-zoom">
-          <button class="btn btn-outline-info" type="button" (click)="zoomA()">-</button>
-          <button class="btn btn-outline-info" type="button" (click)="zoomD()">+</button>
-          <p>{{zoomN}}%</p>
-          <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
-        </div>
-
-      </div>
-
-      <div class="telescopio-container" >
-        <!-- imagen 2 que recibe las cordenadas y mueve el clipPath -->
-        <!-- Imagen de toda galaxia y selecciona la imagen 1-->
-        <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image}} alt={{galaxiasDatos[galaxiaSelected].name}} *ngIf="!superficie" >
-        <!-- Imagen de la galaxia cercana y selecciona la imagen 2- -->
-        <img class="imagen2" id="lupa" src={{galaxiasDatos[galaxiaSelected].image2}} alt={{galaxiasDatos[galaxiaSelected].name2}} *ngIf="superficie">
-      </div>
+    <div class="telescopio" *ngIf="abrirTelescopio===true">
+      <app-telescopio [datos]="informacion" ></app-telescopio>
+      <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
     </div>
     <!--Mostrando Telescopio-->
-
 
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
   <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->

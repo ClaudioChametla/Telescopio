@@ -17,6 +17,7 @@ export class TipoEstrellaComponent implements OnInit {
   estrellaSelecDatos:any;
   pdfText='';
   //Varibles Telescopio
+  informacion:any=[];
   abrirTelescopio=false;
   zoom=30;
   zoomN=50;
@@ -25,6 +26,10 @@ export class TipoEstrellaComponent implements OnInit {
 
   ngOnInit(): void {
     this.estrellaSelecDatos=estrellas;
+    this.informacion.push(
+      this.estrellaSelecDatos[this.selecEstrella].image,
+      this.estrellaSelecDatos[this.selecEstrella].name
+    )
   }
 
   irEstrellas(){

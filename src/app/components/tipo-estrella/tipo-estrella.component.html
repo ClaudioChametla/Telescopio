@@ -22,20 +22,12 @@
   </div>
 
   <!--Mostrando Telescopio-->
+  <!--Mostrando Telescopio-->
   <div class="telescopio" *ngIf="abrirTelescopio===true">
-    <div class="menu">
-      <img class="imagen" width="400" src={{estrellaSelecDatos[selecEstrella].image}} alt= {{estrellaSelecDatos[selecEstrella].clase}} (mousemove)="telescopio($event)">
-      <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
-    </div>
-    <div class="btn-zoom">
-      <button class="btn btn-outline-info" type="button" (click)="zoomA()">+</button>
-      <button class="btn btn-outline-info" type="button" (click)="zoomD()">-</button>
-      <p>{{zoomN}}%</p>
-    </div>
-    <div class="telescopio-container" >
-      <img class="imagen2" id="lupa" src={{estrellaSelecDatos[selecEstrella].image}} alt={{estrellaSelecDatos[selecEstrella].clase}} >
-    </div>
+    <app-telescopio [datos]="informacion" ></app-telescopio>
+    <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
   </div>
+  <!--Mostrando Telescopio-->
   <!--Mostrando Telescopio-->
 
 

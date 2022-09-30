@@ -20,6 +20,7 @@ export class PlanetasComponent implements OnInit {
   //Texto del PDF
   pdfText='';
   //Varibles Telescopio
+  informacion:any = [];
   abrirTelescopio=false;
   zoom:any=30;
   zoomN:any=50;
@@ -31,6 +32,10 @@ export class PlanetasComponent implements OnInit {
 
   ngOnInit(): void {
     this.planeta=planetas;
+    this.informacion.push(
+      this.planeta[this.planetaSelected].image,
+      this.planeta[this.planetaSelected].name
+    )
   }
 
   //Este metodo te lleva al componente sistema-solar
