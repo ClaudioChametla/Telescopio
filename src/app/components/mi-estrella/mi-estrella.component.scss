@@ -12,20 +12,28 @@
   justify-content: center;
   align-items: center;
 }
+/* Animaciones mostrar los elementos en pantalla */
 .animation-a{
   animation-name: a;
   animation-duration: 5s;
 }
+.animation-b{
+  animation-name: a;
+  animation-duration: 13s;
+}
+.animation-c{
+  animation-name: a;
+  animation-duration: 15s;
+}
+
+/* Configuracion de animaciones mostrar los elementos en pantalla */
 @keyframes a {
   0%{
     opacity: 0;
   }
   100%{opacity: 1;}
 }
-.animation-b{
-  animation-name: a;
-  animation-duration: 13s;
-}
+
 @keyframes b {
   0%{
     opacity: 0;
@@ -35,10 +43,7 @@
   }
   100%{opacity: 1;}
 }
-.animation-c{
-  animation-name: a;
-  animation-duration: 15s;
-}
+
 @keyframes c {
   0%{
     opacity: 0;

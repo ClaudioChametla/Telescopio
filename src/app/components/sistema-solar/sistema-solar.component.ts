@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CctServiceService } from 'src/app/service/cct-service.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sistema-solar',

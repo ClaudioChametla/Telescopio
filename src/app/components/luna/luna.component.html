@@ -12,10 +12,10 @@
 
 
   <div class="preguntas-container" *ngIf="cuestionario===true">
-    <p>{{lunaDatos[selector].pregunta}} </p>
-    <button class="btn btn-primary" (click)="opA(lunaDatos[selector].opciones[0].value)">{{lunaDatos[selector].opciones[0].opcion}} </button>
-    <button class="btn btn-primary" (click)="opB(lunaDatos[selector].opciones[1].value)">{{lunaDatos[selector].opciones[1].opcion}}</button>
-    <button class="btn btn-primary" (click)="opC(lunaDatos[selector].opciones[2].value)">{{lunaDatos[selector].opciones[2].opcion}}</button>
+    <p>{{lunaDatos[random][selector].pregunta}} </p>
+    <button class="btn btn-primary" (click)="opA(lunaDatos[random][selector].opciones[0].value)">{{lunaDatos[random][selector].opciones[0].opcion}} </button>
+    <button class="btn btn-primary" (click)="opB(lunaDatos[random][selector].opciones[1].value)">{{lunaDatos[random][selector].opciones[1].opcion}}</button>
+    <button class="btn btn-primary" (click)="opC(lunaDatos[random][selector].opciones[2].value)">{{lunaDatos[random][selector].opciones[2].opcion}}</button>
     <button class="btn btn-outline-success" (click)="siguientePregunta()"> Siguiente </button>
   </div>
 

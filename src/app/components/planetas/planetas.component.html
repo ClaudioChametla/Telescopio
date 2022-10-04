@@ -28,6 +28,7 @@
   <!--Mostrando Telescopio-->
   <!--Mostrando Telescopio-->
   <div class="telescopio" *ngIf="abrirTelescopio===true">
+    <!-- Telescopio hereda la informacion -->
     <app-telescopio [datos]="informacion" ></app-telescopio>
     <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
   </div>

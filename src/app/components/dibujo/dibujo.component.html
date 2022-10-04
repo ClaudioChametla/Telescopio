@@ -1,9 +1,14 @@
-  <p>Felicidades haz llegado al lado obscuro de la luna</p>
-  <p>A continuación realiza un dibujo de lo que para ti es el universo</p>
-  <canvas #canvasRef id="canvasId" width="700" height="700" style="border: solid 1px #FFF;"></canvas>
-  <h3 class="barra"></h3>
-  <div [ngClass]="isAvaible ? 'clickOn':'clickOut'"></div>
-  <input id="selectorColor" type="color" value="#FFFFFF" (change)="colorSelected()">
-  <button class="btn btn-outline-danger" (click)="limpiarCanvas()">Borrar </button>
-  <a id="dibujo"><button class="btn btn-outline-success" (click)="descargar($event)">Descargar </button></a>
+<!-- Descripción -->
+<p>Felicidades haz llegado al lado obscuro de la luna</p>
+<p>A continuación realiza un dibujo de lo que para ti es el universo</p>
+<!-- Canvas sobre el cual se realizara el dibujo -->
+<canvas #canvasRef id="canvasId" width="700" height="700" style="border: solid 1px #FFF;"></canvas>
+<!-- Cambia de imagen dependdiendo si se esta dibujando o no -->
+<div [ngClass]="isAvaible ? 'clickOn':'clickOut'"></div>
+<!-- Cambia el color del lapiz -->
+<input id="selectorColor" type="color" value="#FFFFFF" (change)="colorSelected()">
+<!-- Boton que limpia el contenido del canvas -->
+<button class="btn btn-outline-danger" (click)="limpiarCanvas()">Borrar </button>
+<!-- Boton para descargar la imagen dibujada -->
+<a id="dibujo"><button class="btn btn-outline-success" (click)="descargar($event)">Descargar </button></a>
 

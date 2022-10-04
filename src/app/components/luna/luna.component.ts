@@ -1,10 +1,9 @@
-import { Component, ElementRef, HostListener, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import luna from '../../files/luna.json'
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { Options } from 'tsparticles-engine';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -14,143 +13,58 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 
 
-export class LunaComponent implements OnInit,AfterViewInit{
+export class LunaComponent implements OnInit{
 
-
-
-  cuestionario=false;
+  //Variables del cuestionario
+  cuestionario:Boolean=false;
   lunaDatos:any;
-  selector=0;
-  puntaje=0;
-  seguir=false;
+  selector:number=0;
+  puntaje:Number=0;
+  seguir:Boolean=false;
+  random:number=0;
 
-  ////////try
-  fps:number=50;
-  hiddenGame:Boolean=false;
+  //Para mostrar u ocultar la pizarra
+  hiddenGame:Boolean=true;
 
-  ngAfterViewInit():void{
-    //this.render();
-  }
-
-  /******************************gamming******************************/
-  /* image= new Image();
-  canvasCopy:any;
-  @ViewChild('canvasRef',{static:false}) canvasRef:any;
-  isAvaible:Boolean;
-  public width = 800;
-  public height= 800;
-  private points:Array<any> = [];
-  cx: CanvasRenderingContext2D;
-  @HostListener('document:mousemove',['$event'])
-  onMoveMouse=(e:any)=>{
-    if(e.target.id === 'canvasId' && (this.isAvaible)){
-      this.write(e);
-    }
-  }
-  @HostListener('click',['$event'])
-  onClick=(e:any)=>{
-    this.points=[];
-    if(e.target.id === 'canvasId'){
-      this.isAvaible = !this.isAvaible;
-    }
-  } */
-  /**************************************************************/
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.lunaDatos=luna;
+    //Selecciona un numero aleatorio entre 1 y 4
+    //Para seleccionar el cuestionario
+    this.random = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
   }
 
+  //oculta la pizarra
   salir(){
     this.hiddenGame=false;
   }
 
-/**************************************************************/
- /*  ngAfterViewInit():void{
-    this.render();
-  }
-
-  render(){
-    const canvasEl = this.canvasRef.nativeElement;
-    this.cx = canvasEl.getContext('2d');
-    this.cx.lineWidth = 5;
-    this.cx.lineCap = 'round';
-    this.cx.strokeStyle = '#FFF';
-  }
-
-  limpiarCanvas(){
-    this.cx.clearRect(0,0,this.width,this.height);
-  }
-
-
-  descargar(e:any){
-    e.stopPropagation();
-    let dibujo: any = document.getElementById('dibujo');
-    this.canvasCopy=this.canvasRef;
-    const canvasEl = this.canvasRef.nativeElement;
-    this.image.src = canvasEl.toDataURL('img/png');
-    dibujo!.href = this.image.src;
-    dibujo!.download = "ElLadoOscuroDeLaLuna.png"
-    console.log(this.image);
-
-  }
-
-
-
-
-
-  private write(res):any{
-    const canvasEl:any = this.canvasRef.nativeElement;
-    const rect = canvasEl.getBoundingClientRect();
-    const prevPos = {
-      x: res.clientX - rect.left,
-      y: res.clientY - rect.top
-    };
-    this.writeSingle(prevPos);
-  }
-  private writeSingle(prevPos){
-    this.points.push(prevPos);
-    if(this.points.length>3){
-      const prevPos =  this.points[this.points.length -1];
-      const currentPos = this.points[this.points.length -2];
-      this.drawOnCanvas(prevPos, currentPos);
-
-    }
-  }
-  private drawOnCanvas(prevPos:any, currentPos:any){
-    if(!this.cx){
-      return;
-    }
-    this.cx.beginPath();
-    if(prevPos){
-      this.cx.moveTo(prevPos.x, prevPos.y);
-      this.cx.lineTo(currentPos.x, currentPos.y);
-      this.cx.stroke();
-    }
-  } */
-
-/**************************************************************/
-
-
+  //Muestra el cuestionario
   mostrarCuestionario(){
     this.cuestionario=true;
   }
 
+  //Elige y obtiene el valor de la opción A
   opA(e:any){
     this.puntaje+=e;
     this.seguir=true;
   }
+  //Elige y obtiene el valor de la opción B
   opB(e:any){
     this.puntaje+=e;
     this.seguir=true;
   }
+  //Elige y obtiene el valor de la opción C
   opC(e:any){
     this.puntaje+=e;
     this.seguir=true;
   }
 
+  //Envia hacía la siguiente pregunta
   siguientePregunta(){
+    //Evalua si no es la ultima pregunta, son 10 preguntas en total
     if(this.seguir===true){
       if(this.selector < 9){
         this.selector=this.selector+1;
@@ -169,7 +83,6 @@ export class LunaComponent implements OnInit,AfterViewInit{
             this.imprimirResultados();
             this.cuestionario=false;
           } else if (result.isDenied) {
-
             this.irSistema();
           }
         })
@@ -185,16 +98,18 @@ export class LunaComponent implements OnInit,AfterViewInit{
 
   }
 
+  //Este metodo lleva al componente sistema-solar
   irSistema(){
     this.router.navigate(['/sistema-solar']);
   }
 
-
+  //Este metodo crea u PDF con los resultados obtenidos
   imprimirResultados(){
+    //Si el puntaje obtenido es mayor a 8 desbloquea la pizarra
     if(this.puntaje>8){
       this.hiddenGame=true;
     }
-
+    //En esta variable se guarda el contenido que imprime el PDF
     const pdf:any = {
       content:[
         {
@@ -240,7 +155,7 @@ export class LunaComponent implements OnInit,AfterViewInit{
           ]
           },
         {
-          image:this.lunaDatos[10].imagen,
+          image:this.lunaDatos[5].imagen,
           width: 500
         },
         {

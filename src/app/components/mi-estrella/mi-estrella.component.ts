@@ -9,19 +9,25 @@ import miEstrella from '../../files/miEstrella.json';
   styleUrls: ['./mi-estrella.component.scss']
 })
 export class MiEstrellaComponent implements OnInit {
-  miEstrellaDatos=miEstrella;
-  nombreEstrella='';
-  miEstrella=false;
-  mostrarEstrella=false;
+  //Json imagenes de estrellas y frase de atrofisicos
+  miEstrellaDatos:any=miEstrella;
+  nombreEstrella:String='';
+  miEstrella:Boolean=false;
+  mostrarEstrella:Boolean=false;
   rand:Number=0;
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  //Muestra la estrella
   mostrarMiEstrella(){
     this.miEstrella=true;
   }
+
+  //Recibe el nombre de la estrella lo valida
+  //Seleccionara un numero aleatorio y mostrara la estrella
   irEstrella(){
     if(this.nombreEstrella===''){
       Swal.fire({
@@ -32,10 +38,11 @@ export class MiEstrellaComponent implements OnInit {
     }else{
       this.miEstrella=false;
       this.mostrarEstrella=true;
-      this.rand = Math.floor(Math.random()*6);
-        console.log(this.rand);
+      this.rand = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+
     }
   }
+  //Mesyta el componente estrellas
   irEstrellas(){
     this.router.navigate(['/estrellas']);
   }

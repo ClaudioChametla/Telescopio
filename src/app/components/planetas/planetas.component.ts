@@ -22,10 +22,6 @@ export class PlanetasComponent implements OnInit {
   //Varibles Telescopio
   informacion:any = [];
   abrirTelescopio=false;
-  zoom:any=30;
-  zoomN:any=50;
-  windSize:Boolean=false;
-  superficie:Boolean=false;
 
 
   constructor(private router:Router,private cctService:CctServiceService) { }
@@ -77,6 +73,7 @@ export class PlanetasComponent implements OnInit {
 
   }
 
+  //Crea el pdf
   createPDF(){
     if(this.pdfText==''){
       Swal.fire({
@@ -126,67 +123,9 @@ export class PlanetasComponent implements OnInit {
     }
   }
 
-  ///////////////////////////////////////
+  //Muestra el componente telescopio en el DOM
 
-  //Detecta el cambio en el tamaño de la pantalla para cambiar las variables
-  windowsSize(e:any){
-    if(e.target.innerWidth>992){
-      this.windSize=false;
-    }else{
-      this.windSize=true;
-    }
-  }
-
-  //Hace zoom en una imagen
-  telescopio(e:any){
-    let x, y, x1, y1;
-      if(this.windSize===false){
-
-        if ( e===null){
-          e=window.event;
-        }else{
-          x = e.clientX;
-          y= e.clientY;
-          x1=150+(x);
-          y1=-100+(y);
-          var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
-          lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
-        }
-
-      }else{
-        if ( e===null){
-          e=window.event;
-        }else{
-          x = e.clientX;
-          y= e.clientY;
-          x1=100+(x);
-          y1=(y);
-          var lup :HTMLElement = <HTMLElement>document.getElementById('lupa');
-          lup.style.clipPath = "circle("+this.zoom+"% at "+x1+"px "+y1+"px)";
-        }
-      }
-    }
-
-  zoomA(){
-    if(this.zoomN<100){
-      this.zoom=this.zoom+5;
-    this.zoomN = this.zoomN+10;
-    }else{
-      alert('no');
-    }
-
-  }
-  zoomD(){
-    if(this.zoomN>10){
-      this.zoom=this.zoom-5;
-      this.zoomN = this.zoomN-10;
-    }else{
-      alert('no');
-    }
-
-  }
   mostrarTelescopio(){
-
     if(this.pdfText!==''){
       Swal.fire({
         title: '¿Desea continuar? perdera sus cambios',
@@ -203,6 +142,7 @@ export class PlanetasComponent implements OnInit {
       this.abrirTelescopio=true;
     }
   }
+  //Regresa la variable abrirTelescopio a false y muestra el planeta
   ocultarTelescopio(){
     this.abrirTelescopio=false;
   }

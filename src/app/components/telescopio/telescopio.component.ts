@@ -15,8 +15,6 @@ export class TelescopioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.datos);
-
     this.magnify("myimage");
   }
 
