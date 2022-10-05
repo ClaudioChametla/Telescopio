@@ -19,7 +19,8 @@ export class LunaComponent implements OnInit{
   cuestionario:Boolean=false;
   lunaDatos:any;
   selector:number=0;
-  puntaje:Number=0;
+  puntaje:number=0;
+  conteoPuntaje:number=0;
   seguir:Boolean=false;
   random:number=0;
 
@@ -34,7 +35,7 @@ export class LunaComponent implements OnInit{
     //Selecciona un numero aleatorio entre 1 y 4
     //Para seleccionar el cuestionario
     this.random = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-
+    /* console.log(this.puntaje); */
   }
 
   //oculta la pizarra
@@ -46,37 +47,37 @@ export class LunaComponent implements OnInit{
   //Muestra el cuestionario
   mostrarCuestionario(){
     this.cuestionario=true;
+    this.puntaje=0;
+    this.selector=0;
   }
 
   //Elige y obtiene el valor de la opción A
-  opA(e:any){
-    this.puntaje+=e;
-    this.seguir=true;
-  }
-  //Elige y obtiene el valor de la opción B
-  opB(e:any){
-    this.puntaje+=e;
-    this.seguir=true;
-  }
-  //Elige y obtiene el valor de la opción C
-  opC(e:any){
-    this.puntaje+=e;
-    this.seguir=true;
+  seleccionarOpcion(e:any){
+    if(e==1){
+      this.conteoPuntaje=1;
+      this.seguir=true;
+    }else{
+      this.conteoPuntaje=0
+      this.seguir=true;
+    }
   }
 
   //Envia hacía la siguiente pregunta
   siguientePregunta(){
     //Evalua si no es la ultima pregunta, son 10 preguntas en total
     if(this.seguir===true){
+        this.puntaje+=this.conteoPuntaje;
+        /* console.log('Puntaje',this.puntaje); */
       if(this.selector < 9){
         this.selector=this.selector+1;
         this.seguir=false;
+        /* console.log('Contador numero preguntas',this.selector); */
       }else{
         Swal.fire({
           title: '<strong>¡ Lo lograste! <u>Tu puntaje es de </u></strong>' + this.puntaje,
           icon: 'info',
           showDenyButton: true,
-          showCancelButton: true,
+          showCancelButton: false,
           confirmButtonText: 'Imprimir Resultado',
           denyButtonText: `Salir`,
         }).then((result) => {
@@ -85,7 +86,7 @@ export class LunaComponent implements OnInit{
             this.imprimirResultados();
             this.cuestionario=false;
           } else if (result.isDenied) {
-            this.irSistema();
+            this.salirCuestionario()
           }
         })
       }
@@ -104,6 +105,12 @@ export class LunaComponent implements OnInit{
   irSistema(){
     this.router.navigate(['/sistema-solar']);
   }
+
+   //Este metodo te muestra la pantalla de bienvenida del formulario
+  salirCuestionario(){
+    this.cuestionario=false;
+  }
+
 
   //Metodo para obtener la hoja de respuestas
   private obtenerHoja(ran:number){

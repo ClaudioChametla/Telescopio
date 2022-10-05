@@ -1,6 +1,7 @@
 <div class="luna" *ngIf="!hiddenGame">
 
   <div class="preguntas-container" *ngIf="cuestionario===false">
+  <!-- Pantalla de Bienvenido para inciar el cuestionario -->
     <h1>Bienvenido a la Luna</h1>
     <p>La Luna es el único satélite natural de la Tierra.
       Se encuentra en relación síncrona con la Tierra, siempre mostrando la misma cara hacia el planeta.</p>
@@ -12,23 +13,18 @@
 
 
   <div class="preguntas-container" *ngIf="cuestionario===true">
+  <!-- Cuestionario con preguntas aleatorias -->
     <p>{{lunaDatos[random][selector].pregunta}} </p>
-    <button class="btn btn-primary" (click)="opA(lunaDatos[random][selector].opciones[0].value)">{{lunaDatos[random][selector].opciones[0].opcion}} </button>
-    <button class="btn btn-primary" (click)="opB(lunaDatos[random][selector].opciones[1].value)">{{lunaDatos[random][selector].opciones[1].opcion}}</button>
-    <button class="btn btn-primary" (click)="opC(lunaDatos[random][selector].opciones[2].value)">{{lunaDatos[random][selector].opciones[2].opcion}}</button>
+    <button class="btn btn-primary" (click)="seleccionarOpcion(lunaDatos[random][selector].opciones[0].value)">{{lunaDatos[random][selector].opciones[0].opcion}} </button>
+    <button class="btn btn-primary" (click)="seleccionarOpcion(lunaDatos[random][selector].opciones[1].value)">{{lunaDatos[random][selector].opciones[1].opcion}}</button>
+    <button class="btn btn-primary" (click)="seleccionarOpcion(lunaDatos[random][selector].opciones[2].value)">{{lunaDatos[random][selector].opciones[2].opcion}}</button>
     <button class="btn btn-outline-success" (click)="siguientePregunta()"> Siguiente </button>
   </div>
 
 </div>
 
 <div class="luna" *ngIf="hiddenGame">
+  <!-- Pizarra para realizar un dibujo oculta -->
   <app-dibujo></app-dibujo>
-  <!-- <p>Felicidades haz descubierto el lado obscuro de la luna</p>
-  <canvas #canvasRef id="canvasId" width="800" height="800" style="border: solid 1px #FFF;"></canvas>
-  <h3 class="barra"></h3>
-  <button class="btn btn-outline-danger" (click)="limpiarCanvas()">Borrar </button>
-  <a id="dibujo"><button class="btn btn-outline-success" (click)="descargar($event)">Descargar </button></a> -->
-
   <button class="btn btn-outline-danger" (click)="salir()">Salir </button>
-
 </div>
