@@ -32,26 +32,30 @@ export class LunaComponent implements OnInit{
 
   ngOnInit(): void {
     this.lunaDatos=luna;
-    //Selecciona un numero aleatorio entre 1 y 4
-    //Para seleccionar el cuestionario
-    this.random = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+    /**Selecciona un numero aleatorio entre 1 y 4
+    Para seleccionar el cuestionario
+    */
+    this.random = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
     /* console.log(this.puntaje); */
+
   }
 
-  //oculta la pizarra
+  /** Oculta la pizarra*/
   salir(){
     this.hiddenGame=false;
     this.puntaje=0;
   }
 
-  //Muestra el cuestionario
+  /** Muestra el cuestionario */
   mostrarCuestionario(){
     this.cuestionario=true;
     this.puntaje=0;
     this.selector=0;
   }
 
-  //Elige y obtiene el valor de la opción A
+  /** Elige y obtiene el valor de la opción A
+  @param e Recibe por medio de un evento el valor de la pregunta
+  */
   seleccionarOpcion(e:any){
     if(e==1){
       this.conteoPuntaje=1;
@@ -112,7 +116,12 @@ export class LunaComponent implements OnInit{
   }
 
 
-  //Metodo para obtener la hoja de respuestas
+  /**
+   * @author ClaudioChametla
+   * @param ran el numero aleatorio para recorrer el arreglo
+   * @returns devuelve en un arreglo las preguntas y respuestas
+   * Metodo para obtener la hoja de respuestas */
+
   private obtenerHoja(ran:number){
     let answer=[];
     for (const element of this.lunaDatos[ran]) {
@@ -130,7 +139,7 @@ export class LunaComponent implements OnInit{
     return answer;
   }
 
-  //Este metodo crea u PDF con los resultados obtenidos
+  /**Este metodo crea un PDF con los resultados obtenidos*/
   imprimirResultados(){
     let mensajePuntaje: string = '';
 

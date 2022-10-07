@@ -29,13 +29,14 @@ export class GalaxiasComponent implements OnInit {
 
   ngOnInit(): void {
     this.galaxiasDatos=galaxias;
+    /**Inserta en un arreglo los datos que seran usados por el componente telescopio*/
     this.informacion.push(
       this.galaxiasDatos[this.galaxiaSelected].image,
       this.galaxiasDatos[this.galaxiaSelected].name
     )
   }
 
-  //Este metodo te lleva al componente sistema-solar
+  /**Este metodo te lleva al componente sistema-solar*/
   irSistema(){
     if(this.pdfText!==''){
       Swal.fire({
@@ -54,8 +55,8 @@ export class GalaxiasComponent implements OnInit {
     }
   }
 
-  //Carga la animacion de la nave
-  //para hacer la transicion
+  /** Carga la animacion de la nave
+  para hacer la transicion*/
   naveSistemaSolar(){
     this.cctService.$loader.emit(true);
     setTimeout(() => {
@@ -64,7 +65,7 @@ export class GalaxiasComponent implements OnInit {
     }, 1500);
   }
 
-  //Metodo que te lleva a conponente universo
+  /**Metodo que te lleva a conponente universo */
   irUniverso(){
     //Emite un TRUE para ocultar componente Galaxias
     if(this.pdfText!==''){
@@ -84,7 +85,7 @@ export class GalaxiasComponent implements OnInit {
     }
   }
 
-  //Función para crear el PDF
+  /**Genera el documento PDF asignandole el texto que a ingresado el usuario */
   createPDF(){
     if(this.pdfText==''){
       Swal.fire({
@@ -95,8 +96,8 @@ export class GalaxiasComponent implements OnInit {
         timer: 1500
       })
     }else{
-      //Se contruye el PDF
-      //La imagen que se le pasa esta en BASE 64
+      /**Se contruye el PDF
+       * La imagen que se le pasa esta en BASE 64*/
       const pdf:any = {
         content:[
           {
@@ -140,7 +141,7 @@ export class GalaxiasComponent implements OnInit {
 
 ///////////////////////////////////////
 
-  //Muestra la pantalla del telescopio
+  /**Muestra la pantalla del telescopio*/
   mostrarTelescopio(){
 
     if(this.pdfText!==''){
