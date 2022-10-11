@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CctServiceService } from 'src/app/service/cct-service.service';
 import { Router } from '@angular/router';
+import galaxias from '../../files/galaxias.json'
+import { Push } from 'tsparticles-engine';
 
 @Component({
   selector: 'app-universo',
@@ -13,6 +15,8 @@ export class UniversoComponent implements OnInit {
   //Id de galaxia a seleccionar
   selecGalaxia:Number;
 
+  datosGalaxias
+
   constructor(private cctService:CctServiceService, private router:Router) { }
 
   ngOnInit(): void {
@@ -20,6 +24,22 @@ export class UniversoComponent implements OnInit {
     this.cctService.$universo.subscribe((res:any)=>{
       this.mostrarUniverso=res;
     });
+
+    this.datosGalaxias = galaxias;
+    this.obtenerImagenes();
+  }
+
+  obtenerImagenes(){
+    console.log(galaxias);
+
+    let imagenesGalaxias = [];
+    galaxias.forEach(element => {
+      imagenesGalaxias.push(element.id);
+      imagenesGalaxias.push(element.image);
+    });
+    console.log(imagenesGalaxias);
+
+    return imagenesGalaxias;
   }
 
   /**Cambian la variable mostrarUniverso a false para cambiar la vista*/

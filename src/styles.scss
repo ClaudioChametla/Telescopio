@@ -7,3 +7,23 @@ body {
   color: azure;
   background-color: black;
 }
+h1{
+  font-size: 65px;
+  font-weight: bolder;
+}
+h2{
+  font-weight: 300;
+}
+
+@media screen and (max-width:992px) {
+
+  h1{
+    font-size: 40px;
+    font-weight: bolder;
+  }
+  h2{
+    font-size: 20px;
+    font-weight: 100;
+  }
+
+}

@@ -2,53 +2,105 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 20px;
+  background-image: url(../../../assets/Galaxias/esquinas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+
+h1{
+  color: #D835C9 ;
+  text-align: center;
+}
+h2{
+  width: 50%;
+  text-align: center;
+}
+.title{
+  display: flex;
+  align-self: end;
+  flex-direction: column;
+  align-items: center;
+  grid-area: 1/2/1/4;
+}
+
+
+.btn{
+  width: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color:#3EF1F2;
+  border: #3EF1F2 1px solid;
+  border-radius: 50px;
+  background-color: #5675d141;
+}
+.btn:hover{
+  background-color: #5675d1f8;
+  color: #3ef2f2;
+}
+
+
 .galaxias-container{
+  height: 100%;
   display: grid;
   justify-content: space-between;
   align-items: center;
-  grid-template-columns: 20% 20% 20%;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-gap: 5px;;
 }
 .galaxia-content{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 20px;
+}
+.galaxia-content:hover{
+  color: #3EF1F2;
 }
 .galaxia{
   height: auto;
-  width: 15vw;
+  width: 18vw;
 }
 .galaxia:hover{
   cursor: pointer;
 }
+
+
 .a{
+  align-self: stretch;
   animation-name: A;
   animation-duration: .6s;
 }
 .b{
+  align-self: stretch;
   animation-name: B;
   animation-duration: .5s;
 }
 .c{
+  align-self: start;
   animation-name: C;
   animation-duration: .4s;
 }
 .d{
+  align-self: stretch;
   animation-name: D;
   animation-duration: .3s;
 }
 .e{
+  align-self: stretch;
   animation-name: E;
   animation-duration: .2s;
 }
 .f{
+  align-self: start;
   animation-name: F;
   animation-duration: .1s;
 }
 
-/********** A N I M A T I O N ************/
+
+/** >>>>> A N I M A T I O N <<<< */
 @keyframes A {
   0%{transform: translateY(-120%);}
   100%{transform: translateY(0%);}
@@ -72,19 +124,69 @@
   0%{transform: translateY(-40%);}
   100%{transform: translateY(0%);}
 }
-
 @keyframes F {
   0%{transform: translateY(-5%);}
   100%{transform: translateY(0%);}
 }
 
 
+/** >>>>>>>>>>>>> Phone Design <<<<<<<<<<<<<  */
+
 @media screen and (max-width:992px) {
+
+  .btn{
+    width: 50%;
+    font-size: 13px;
+    font-weight: bold;
+    color:#3EF1F2;
+    border: #3EF1F2 1px solid;
+    border-radius: 50px;
+    background-color: #5675d141;
+  }
+
+  .galaxia{
+    height: auto;
+    width: 13vw;
+  }
+
+}
+
+@media screen and (max-width:768px) {
+
+  .title{
+    align-self: center;
+    order: 0;
+  }
+
+  .btn{
+    width: 70%;
+    font-size: 20px;
+    font-weight: bold;
+    color:#3EF1F2;
+    border: #3EF1F2 1px solid;
+    border-radius: 50px;
+    background-color: #5675d141;
+  }
+
   .galaxias-container{
     display: flex;
     flex-direction: column;
   }
+
+
   .galaxia{
-    width: 25vw;
+    width: 45vw;
+  }
+
+
+  .a,.b,.c,.d,.e,.f{
+    order: 1;
+  }
+  .c{
+    align-self: stretch;
+  }
+  .f{
+    align-self: stretch;
+    padding-bottom: 45px;
   }
 }
