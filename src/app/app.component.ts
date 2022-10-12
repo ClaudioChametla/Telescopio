@@ -42,7 +42,7 @@ export class AppComponent {
     },
     particles: {
       color: {
-        value: "#ffffff"
+        value: "#ffffff",
       },
       links: {
         color: "#ffffff",
@@ -72,7 +72,7 @@ export class AppComponent {
         value: 80
       },
       opacity: {
-        value: 0.8
+        value: 0.5
       },
       shape: {
         type: "circle"

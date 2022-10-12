@@ -5,10 +5,11 @@ import { SistemaSolarComponent } from './components/sistema-solar/sistema-solar.
 import { EstrellasComponent } from './components/estrellas/estrellas.component';
 import { LunaComponent } from './components/luna/luna.component';
 import { MiEstrellaComponent } from './components/mi-estrella/mi-estrella.component';
-
+import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'/universo',pathMatch:'full'},
+  {path:'', redirectTo:'/inicio',pathMatch:'full'},
+  {path:'inicio',component:InicioComponent },
   {path:'universo',component: UniversoComponent},
   {path: 'sistema-solar',component:SistemaSolarComponent},
   {path: 'estrellas',component:EstrellasComponent},

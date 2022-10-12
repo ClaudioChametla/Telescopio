@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~animate.css/animate.min';
 
+@font-face {
+  font-family: 'GoldplayAltBold';
+  src: url(./assets/fonts/GoldplayAltBold.otf);
+}
+@font-face {
+  font-family: 'GoldplayBold';
+  src: url(./assets/fonts/GoldplayBold.otf);
+}
+
 body {
   height: 100vh;
   font-family: 'Zonapro-Regular';
@@ -8,6 +17,7 @@ body {
   background-color: black;
 }
 h1{
+  font-family: 'GoldplayBold';
   font-size: 65px;
   font-weight: bolder;
 }

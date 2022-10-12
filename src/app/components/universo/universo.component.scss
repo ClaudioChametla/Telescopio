@@ -6,6 +6,7 @@
   background-image: url(../../../assets/Galaxias/esquinas.png);
   background-repeat: no-repeat;
   background-size: cover;
+  user-select: none;
 }
 
 
@@ -58,6 +59,7 @@ h2{
 }
 .galaxia-content:hover{
   color: #3EF1F2;
+  transform: scale(1.1);
 }
 .galaxia{
   height: auto;

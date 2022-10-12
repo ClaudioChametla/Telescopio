@@ -1,26 +1,72 @@
 .sistema{
   height: 100vh;
   display: flex;
-  padding: 20px;
+  padding: 0px;
   flex-direction: column;
-  justify-content: center;
   overflow-y: hidden;
   overflow-x: hidden;
   background-image: url(../../../assets/Planetas/trayectoria.png);
-  background-size: contain;
-  background-position: bottom;
+  background-size: 100% 75%;
+  background-position: bottom left;
   background-repeat: no-repeat;
-
+  user-select: none;
 }
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 2%;
+}
+.btn{
+  width: 2vw;
+  height: 2vw;
+  padding: 15px;
+  border: #9B62F3 solid 1px;
+  border-radius: 50px;
+  background-color: #9c62f370;
+  background-image: url(../../../assets/Planetas/flecha.png);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: center;
+}
+.btn-r{
+  margin-left: 20px;
+  transform: rotate(180deg);
+}
+.btn-r:hover{
+  transform: rotate(180deg) scale(1.2);
+}
+.btn-l:hover{
+  transform: scale(1.2);
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3%;
+}
+
+.title{
+  color: #FC8B62;
+}
+.subtitle{
+  color: #FFFFFF;
+}
+
+
+
 
 .planeta-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
 }
 .planeta{
-  margin: 10px;
+  margin: 0px;
 }
 .planeta:hover{
   cursor: pointer;
@@ -40,24 +86,27 @@
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
-  width: 13vw;
+  width: 22vw;
   margin-top: 0px;
+
 
 }
 .mercurio{
   animation-name: dos;
   animation-duration: 1s;
   height: auto;
-  width: 3vw;
+  width: 7vw;
   margin-top: 0px;
+
 
 }
 .venus{
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
-  width: 6vw;
+  width: 8vw;
   margin-top: 0px;
+
 
 }
 .tierra{
@@ -66,48 +115,72 @@
   height: auto;
   width: 8vw;
   margin-top: 0px;
-
 }
+
 .marte{
-  animation-name: uno;
-  animation-duration: 1s;
-  height: auto;
-  width: 6vw;
-  margin-top: 0px;
-
-}
-.jupiter{
-  animation-name: dos;
-  animation-duration: 1s;
-  height: auto;
-  width: 11vw;
-  margin-top: 0px;
-
-}
-.saturno{
-  animation-name: uno;
-  animation-duration: 1s;
-  height: auto;
-  width: 10vw;
-  margin-top: 0px;
-
-}
-.urano{
-  animation-name: dos;
-  animation-duration: 1s;
-  height: auto;
-  width: 9vw;
-  margin-top: 0px;
-
-}
-.neptuno{
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
   width: 8vw;
   margin-top: 0px;
 
+
 }
+.jupiter{
+  animation-name: dos;
+  animation-duration: 1s;
+  height: auto;
+  width: 13vw;
+  margin-top: 0px;
+
+
+}
+.saturno{
+  animation-name: uno;
+  animation-duration: 1s;
+  height: auto;
+  width: 24vw;
+  margin-top: 0px;
+
+
+
+}
+.urano{
+  animation-name: dos;
+  animation-duration: 1s;
+  height: auto;
+  width: 7vw;
+  margin-top: 0px;
+
+
+}
+.neptuno{
+  animation-name: uno;
+  animation-duration: 1s;
+  height: auto;
+  width: 7vw;
+  margin-top: 0px;
+}
+
+.sol:hover,.mercurio:hover,.venus:hover,.tierra:hover,.marte:hover,.jupiter:hover,.saturno:hover,.urano:hover,.neptuno:hover{
+  background-image: url(../../../assets/Planetas/hover_planeta.png);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  /*Se usa el padding y el scale para crear el efecto de aura en el hover*/
+  padding: 15px;
+  transform: scale(1.2);
+}
+
+.a{transform: translate(30%,35%);}
+.b{transform: translate(100%,50%);}
+.c{transform: translate(140%,40%);}
+.d{transform: translate(180%,60%);}
+.e{height:50%; transform: translate(35%,20%);}
+.f{transform: translate(55%,-2%);}
+.g{transform: translate(0%,55%);}
+.h{transform: translate(-145%,5%);}
+.i{transform: translate(-85%,30%);}
 /*****************Tamaños de Planetas***************/
 
 /*****************Animacion Planetas***************************/
@@ -125,25 +198,30 @@
 }
 /*****************Animacion Planetas***************************/
 
-@media screen and (max-width:575px) {
-  .sistema-content{
-    flex-direction: column;
-    margin-top: 1300px;
+
+/** >>>>> Responsive Design <<<<<<< */
+@media screen and (max-width:992px) {
+  .sistema{
+    background-image: none;
   }
-  .planetas-content{
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+}
+@media screen and (max-height:768px) {
+  .sistema{
+    background-image: none;
   }
+}
+
+@media screen and (max-width:768px) {
   .sistema{
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    justify-content: flex-start;
+    background-image: none;
   }
-
-
+  .sistema-content{
+    flex-direction: column;
+  }
   .sistema::-webkit-scrollbar{
     width: 13px;
     height: 10px;
@@ -169,61 +247,43 @@
     border-radius: 50px;
   }
 
+  .header{
+    margin-top: 30px;
+  }
+
+  .planetas-content{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  .planeta{
+    margin: 0px;
+  }
+  .planeta:hover{
+    cursor: pointer;
+  }
 
   label{
     font-size: small;
   }
-  .sol{
+  .sol,.mercurio,.venus,.tierra,.marte,.jupiter,.saturno,.urano,.neptuno{
     height: auto;
-    width: 25vw;
-  }
-  .mercurio{
-    height: auto;
-    width: 25vw;
-  }
-  .venus{
-    height: auto;
-    width: 25vw;
-  }
-  .tierra{
-    height: auto;
-    width: 25vw;
-  }
-  .marte{
-    height: auto;
-    width: 25vw;
-  }
-  .jupiter{
-    height: auto;
-    width: 25vw;
-  }
-  .saturno{
-    height: auto;
-    width: 25vw;
-  }
-  .urano{
-    height: auto;
-    width: 25vw;
-  }
-  .neptuno{
-    height: auto;
-    width: 25vw;
+    width: 50vw;
   }
 
+  .a{transform: translate(0px,0px);}
+  .b{transform: translate(0px,0px);}
+  .c{transform: translate(0px,0px);}
+  .d{transform: translate(0px,0px);}
+  .e{transform: translate(0px,0px);}
+  .f{transform: translate(0px,0px);}
+  .g{transform: translate(0px,0px);}
+  .h{transform: translate(0px,0px);}
+  .i{transform: translate(0px,0px);
+  margin-bottom: 25px;}
 }
 
-@media screen and (max-width:448px) {
-  .sistema-content{
-    margin-top: 1000px;
-  }
-}
-@media screen and (max-width:393px) {
-  .sistema-content{
-    margin-top: 800px;
-  }
-}
-@media screen and (max-width:280px) {
-  .sistema-content{
-    margin-top: 500px;
-  }
-}
+
+

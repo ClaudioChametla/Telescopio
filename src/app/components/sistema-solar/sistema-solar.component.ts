@@ -68,7 +68,8 @@ export class SistemaSolarComponent implements OnInit {
 
   //Te lleva al componente estrellas y carga la animacionde transicion
   naveSistemaSolar(){
-    this.cctService.$loader.emit(true)
+    this.cctService.$loader.emit(true);
+
     setTimeout(() => {
       this.cctService.$loader.emit(false);
       this.router.navigate(['/estrellas']);
