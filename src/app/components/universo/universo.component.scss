@@ -161,6 +161,34 @@ label{
 
 @media screen and (max-width:768px) {
 
+  .universo{
+    overflow-y: scroll;
+  }
+  .universo::-webkit-scrollbar{
+    width: 13px;
+    height: 10px;
+  }
+  .universo::-webkit-scrollbar-track-piece{
+    border-radius: 2px;
+      background-clip: content-box;
+      border-radius: 6px;
+      border: solid 4px transparent;
+  }
+  .universo::-webkit-scrollbar-track-piece:decrement {
+    background-clip: content-box;
+    border: solid 4px transparent;
+  }
+  .universo::-webkit-scrollbar-thumb {
+    background-color: #9c62f3e1;
+    width: 4px;
+    border-radius: 6px;
+  }
+  .universo::-webkit-scrollbar-track {
+    /*background: #EFF7F8;*/
+    background: #ffffff5e;
+    border-radius: 50px;
+  }
+
   .title{
     align-self: center;
     order: 0;

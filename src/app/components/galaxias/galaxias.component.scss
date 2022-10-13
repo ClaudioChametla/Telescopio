@@ -1,97 +1,86 @@
-.galaxia-universo{
+.galaxia-universo {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url(../../../assets/Galaxias/Fondo-Info.png);
+  background-size: 65% 100%;
+  background-position-x: right;
+  background-repeat: no-repeat;
   align-items: center;
-  justify-content: center;
-  padding: 50px
+  padding: 50px;
 }
-.galaxia-form{
-  width: 100%;
-}
-.galaxia-information{
-  width: 100%;
-}
-/******STAR Estilos para el telescopio*********/
-.imagen2{
-  position: relative;
-  width: 800px;
-  clip-path: circle(0% at 0px 0px);
-}
-.menu{
-  display: flex;
-  flex-direction: column;
-}
-.telescopio{
+header {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-items: baseline;
 }
-.telescopio-container{
+body {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  border: solid 1px #fff;
+  background: none;
 }
-
-/*******END********/
-
-p{
-  margin-bottom: 0px;
+.telescopio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 35%;
 }
-
-
+.galaxia-form {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+p {
+  color: #000;
+}
 /*******STAR********/
-@media screen and (max-width:1200px){
-  .imagen{
+@media screen and (max-width: 1200px) {
+  .imagen {
     width: 350px;
   }
 
-  .imagen2{
-
+  .imagen2 {
     width: 700px;
   }
 }
 
-@media screen and (max-width:992px){
-  .galaxia-universo{
+@media screen and (max-width: 992px) {
+  .galaxia-universo {
     align-items: baseline;
-  justify-content:baseline;
+    justify-content: baseline;
   }
-  .telescopio{
+  .telescopio {
     flex-direction: column;
     justify-content: baseline;
   }
-  .imagen{
+  .imagen {
     width: 300px;
   }
 
-  .imagen2{
-
+  .imagen2 {
     width: 600px;
-
   }
 }
 
-@media screen and (max-width:575px) {
-
-
-  .telescopio-container{
+@media screen and (max-width: 575px) {
+  .telescopio-container {
     padding: 0px;
   }
-  .imagen{
+  .imagen {
     width: 200px;
   }
 
-  .imagen2{
-
+  .imagen2 {
     width: 400px;
     transform: translateY(-100%);
     transform: translateX(-10%);
-
   }
-
 }
-  /*******END********/
-
+/*******END********/

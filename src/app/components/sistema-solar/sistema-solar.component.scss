@@ -224,9 +224,7 @@ label{
     justify-content: flex-start;
     background-image: none;
   }
-  .sistema-content{
-    flex-direction: column;
-  }
+
   .sistema::-webkit-scrollbar{
     width: 13px;
     height: 10px;
@@ -250,6 +248,9 @@ label{
     /*background: #EFF7F8;*/
     background: #ffffff5e;
     border-radius: 50px;
+  }
+  .sistema-content{
+    flex-direction: column;
   }
 
 

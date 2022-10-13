@@ -3,7 +3,7 @@
   height: 100vh;
   flex-direction: column;
   justify-content: center;
-  padding: 100px;
+  background-image: url(../../../assets/Estrellas/Fondo-Estrellas.png);
 }
 .estrellas-container{
   display: grid;
@@ -27,6 +27,9 @@
 .estrella-imagen:hover{
   transform: scale(1.1);
 }
+
+
+
 /********** Animacion estrellas ************/
 @keyframes estrella {
   0%{opacity: 0;}

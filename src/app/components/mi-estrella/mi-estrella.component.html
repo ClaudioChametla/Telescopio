@@ -1,43 +1,62 @@
-<div class="estrella-container" *ngIf="miEstrella===false" (click)="mostrarMiEstrella()">
+<div
+  class="estrella-container"
+  *ngIf="miEstrella === false"
+  (click)="mostrarMiEstrella()"
+>
   <!-- Audio de sonido espacial -->
   <audio autoplay loop>
-    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3">
-        Tu navegador no soporta audio HTML5.
+    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3" />
+    Tu navegador no soporta audio HTML5.
   </audio>
 
   <!-- Muestra tu estrella con tu nombre -->
-  <div class="estrellaMostrar" *ngIf="mostrarEstrella===true">
-    <p class="animation-a" >{{nombreEstrella}}</p>
+  <div class="estrellaMostrar" *ngIf="mostrarEstrella === true">
+    <p class="animation-a">{{ nombreEstrella }}</p>
     <!-- Frase aleatoria e imagen aleatoria -->
-    <img  class="animation-a" src={{miEstrellaDatos[rand].imagen}} width="250px">
-    <p class="animation-b" >{{miEstrellaDatos[rand].frase}}</p>
-    <p class="animation-c" > -{{miEstrellaDatos[rand].autor}}- </p>
-    <button class="btn btn-outline-danger animation-c" (click)="irEstrellas()"> Salir</button>
+    <img
+      class="animation-a"
+      src="{{ miEstrellaDatos[rand].imagen }}"
+      width="250px"
+    />
+    <p class="animation-b">{{ miEstrellaDatos[rand].frase }}</p>
+    <p class="animation-c">-{{ miEstrellaDatos[rand].autor }}-</p>
+    <button class="btn btn-outline-danger animation-c" (click)="irEstrellas()">
+      Salir
+    </button>
   </div>
 
   <!-- Boton para abrir el formulario -->
-  <div class="estrellaMostrar" *ngIf="mostrarEstrella===false">
+  <div class="estrellaMostrar" *ngIf="mostrarEstrella === false">
     <p>Crea una nueva estrella haciendo click</p>
   </div>
-
 </div>
 
-  <!-- Abre el formulario para nombrar a la estrella -->
-  <div class="estrella-container" *ngIf="miEstrella===true">
+<!-- Abre el formulario para nombrar a la estrella -->
+<div class="estrella-container" *ngIf="miEstrella === true">
+  <!-- Audio de sonido espacial -->
+  <audio autoplay>
+    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3" />
+    Tu navegador no soporta audio HTML5.
+  </audio>
 
-    <!-- Audio de sonido espacial -->
-    <audio autoplay>
-      <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3">
-          Tu navegador no soporta audio HTML5.
-    </audio>
+  <p>Nombra a tu estrella</p>
 
-    <p>Nombra a tu estrella</p>
-
-    <!-- Boton para crear la estrella -->
-    <div style="display:flex; justify-content: center;">
-      <input type="text" class="form-control" placeholder="Nombre de tu estrella" name="nombre" [(ngModel)]="nombreEstrella">
-      <button class="btn btn-outline-success" type="button" id="button-addon2" (click)="irEstrella()">Ir</button>
-    </div>
-
+  <!-- Boton para crear la estrella -->
+  <div style="display: flex; justify-content: center">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Nombre de tu estrella"
+      name="nombre"
+      [(ngModel)]="nombreEstrella"
+    />
+    <button
+      class="btn btn-outline-success"
+      type="button"
+      id="button-addon2"
+      (click)="irEstrella()"
+    >
+      Ir
+    </button>
   </div>
-
+</div>

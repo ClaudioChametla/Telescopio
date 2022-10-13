@@ -1,4 +1,4 @@
-.estrella-container{
+.estrella-container {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -6,50 +6,56 @@
   align-items: center;
   padding: 150px;
 }
-.estrellaMostrar{
+.estrellaMostrar {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 /* Animaciones mostrar los elementos en pantalla */
-.animation-a{
+.animation-a {
   animation-name: a;
   animation-duration: 5s;
 }
-.animation-b{
+.animation-b {
   animation-name: a;
   animation-duration: 13s;
 }
-.animation-c{
+.animation-c {
   animation-name: a;
   animation-duration: 15s;
 }
 
 /* Configuracion de animaciones mostrar los elementos en pantalla */
 @keyframes a {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{opacity: 1;}
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes b {
-  0%{
+  0% {
     opacity: 0;
   }
-  75%{
+  75% {
     opacity: 0;
   }
-  100%{opacity: 1;}
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes c {
-  0%{
+  0% {
     opacity: 0;
   }
-  75%{
+  75% {
     opacity: 0;
   }
-  100%{opacity: 1;}
+  100% {
+    opacity: 1;
+  }
 }
