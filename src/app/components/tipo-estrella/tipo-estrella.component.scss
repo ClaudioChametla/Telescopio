@@ -1,31 +1,30 @@
-.estrella{
+.estrella {
   padding: 5%;
 }
-.estrella-imagen{
+.estrella-imagen {
   width: 20vw;
   height: auto;
 }
-p{
+p {
   margin-bottom: 0px;
 }
 
-
 /******STAR*********/
-.imagen2{
+.imagen2 {
   position: relative;
   width: 800px;
   clip-path: circle(0% at 0px 0px);
 }
-.menu{
+.menu {
   display: flex;
   flex-direction: column;
 }
-.telescopio{
+.telescopio {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.telescopio-container{
+.telescopio-container {
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -34,52 +33,42 @@ p{
 
 /*******END********/
 
-
 /*******STAR********/
-@media screen and (max-width:1200px){
-  .imagen{
+@media screen and (max-width: 1200px) {
+  .imagen {
     width: 350px;
   }
 
-  .imagen2{
-
+  .imagen2 {
     width: 700px;
   }
 }
 
-@media screen and (max-width:992px){
-  .telescopio{
+@media screen and (max-width: 992px) {
+  .telescopio {
     flex-direction: column;
   }
-  .imagen{
+  .imagen {
     width: 300px;
   }
 
-  .imagen2{
-
+  .imagen2 {
     width: 600px;
-
   }
 }
 
-@media screen and (max-width:575px) {
-
-
-  .telescopio-container{
+@media screen and (max-width: 575px) {
+  .telescopio-container {
     padding: 0px;
   }
-  .imagen{
+  .imagen {
     width: 200px;
   }
 
-  .imagen2{
-
+  .imagen2 {
     width: 400px;
     transform: translateY(-100%);
     transform: translateX(-10%);
-
   }
-
 }
-  /*******END********/
-
+/*******END********/

@@ -1,23 +1,23 @@
-.luna{
+.luna {
   height: 100vh;
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.preguntas-container{
+.preguntas-container {
   display: flex;
   flex-direction: column;
 }
-.hidden-game{
+.hidden-game {
   width: 0;
   height: 0;
   border: none;
   opacity: 0;
 }
-.show-game{
+.show-game {
   width: 800px;
   height: 800px;
-  border: solid 1px #FFF;
+  border: solid 1px #fff;
   opacity: 0;
 }

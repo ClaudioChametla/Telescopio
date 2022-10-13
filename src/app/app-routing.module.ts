@@ -8,17 +8,17 @@ import { MiEstrellaComponent } from './components/mi-estrella/mi-estrella.compon
 import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'/inicio',pathMatch:'full'},
-  {path:'inicio',component:InicioComponent },
-  {path:'universo',component: UniversoComponent},
-  {path: 'sistema-solar',component:SistemaSolarComponent},
-  {path: 'estrellas',component:EstrellasComponent},
-  {path: 'luna',component:LunaComponent},
-  {path: 'mi-estrella', component:MiEstrellaComponent}
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: 'inicio', component: InicioComponent },
+  { path: 'universo', component: UniversoComponent },
+  { path: 'sistema-solar', component: SistemaSolarComponent },
+  { path: 'estrellas', component: EstrellasComponent },
+  { path: 'luna', component: LunaComponent },
+  { path: 'mi-estrella', component: MiEstrellaComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

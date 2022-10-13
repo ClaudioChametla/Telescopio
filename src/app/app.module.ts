@@ -1,7 +1,7 @@
-import { NgParticlesModule } from "ng-particles";
+import { NgParticlesModule } from 'ng-particles';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +18,6 @@ import { DibujoComponent } from './components/dibujo/dibujo.component';
 import { TelescopioComponent } from './components/telescopio/telescopio.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,15 +33,9 @@ import { InicioComponent } from './components/inicio/inicio.component';
     DibujoComponent,
     TelescopioComponent,
     InicioComponent,
-
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgParticlesModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, NgParticlesModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

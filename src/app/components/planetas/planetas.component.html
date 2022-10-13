@@ -1,55 +1,90 @@
 <div class="planeta">
-
   <!-- Contiene la informacion de cada planeta -->
-  <div class="planeta-information" *ngIf="abrirTelescopio===false">
-    <p >Nombre: {{planeta[planetaSelected].name}}</p>
-    <p >Velocidad: {{planeta[planetaSelected].velocity}}</p>
-    <p >Distancia: {{planeta[planetaSelected].distance}}</p>
-    <p >Descripción: {{planeta[planetaSelected].description}}</p>
+  <div class="planeta-information" *ngIf="abrirTelescopio === false">
+    <p>Nombre: {{ planeta[planetaSelected].name }}</p>
+    <p>Velocidad: {{ planeta[planetaSelected].velocity }}</p>
+    <p>Distancia: {{ planeta[planetaSelected].distance }}</p>
+    <p>Descripción: {{ planeta[planetaSelected].description }}</p>
   </div>
 
   <!-- Mostrar si la tierra esta seleccionada -->
-  <img *ngIf="planetaSelected===2" class="imagen imagen-luna"
+  <img
+    *ngIf="planetaSelected === 2"
+    class="imagen imagen-luna"
     src="https://bioagus.files.wordpress.com/2021/07/luna.png"
     height="50px"
     width="50px"
-    alt={{planeta[planetaSelected].name}}
-    (click)="irLuna()">
+    alt="{{ planeta[planetaSelected].name }}"
+    (click)="irLuna()"
+  />
 
   <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
   <!--Telescopio Oculto imagen del planeta y boton para abrir telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio===false">
-    <div class="menu" >
-      <img class="imagen" src={{planeta[planetaSelected].image}} height="250px" width="250px" alt={{planeta[planetaSelected].name}}>
-      <button class="btn btn-outline-success" type="button" (click)="mostrarTelescopio()"> Abrir telescopio</button>
+  <div class="telescopio" *ngIf="abrirTelescopio === false">
+    <div class="menu">
+      <img
+        class="imagen"
+        src="{{ planeta[planetaSelected].image }}"
+        height="250px"
+        width="250px"
+        alt="{{ planeta[planetaSelected].name }}"
+      />
+      <button
+        class="btn btn-outline-success"
+        type="button"
+        (click)="mostrarTelescopio()"
+      >
+        Abrir telescopio
+      </button>
     </div>
   </div>
 
   <!--Mostrando Telescopio-->
   <!--Mostrando Telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio===true">
+  <div class="telescopio" *ngIf="abrirTelescopio === true">
     <!-- Telescopio hereda la informacion -->
-    <app-telescopio [datos]="informacion" ></app-telescopio>
-    <button class="btn btn-outline-danger" type="button" (click)="ocultarTelescopio()"> Cerrar telescopio</button>
+    <app-telescopio [datos]="informacion"></app-telescopio>
+    <button
+      class="btn btn-outline-danger"
+      type="button"
+      (click)="ocultarTelescopio()"
+    >
+      Cerrar telescopio
+    </button>
   </div>
   <!--Mostrando Telescopio-->
   <!--Mostrando Telescopio-->
 
-
-<!------------------------------------T E L E S C O P I O-------------------------------------------------------->
+  <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
   <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
-  <div class="planeta-form" *ngIf="abrirTelescopio===false">
+  <div class="planeta-form" *ngIf="abrirTelescopio === false">
     <form>
       <!-- creacion del PDF -->
       <div class="mb-3 mt-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Escribe aquí</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Resumen" [(ngModel)]="pdfText"></textarea>
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >Escribe aquí</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          name="Resumen"
+          [(ngModel)]="pdfText"
+        ></textarea>
       </div>
-      <button class="btn btn-outline-danger" type="button" (click)="createPDF()" >Imrpimir PDF</button>
+      <button
+        class="btn btn-outline-danger"
+        type="button"
+        (click)="createPDF()"
+      >
+        Imrpimir PDF
+      </button>
     </form>
 
     <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
-      <button class="btn btn-outline-light" type="button" (click)="irSistema()">Zoom -</button>
+      <button class="btn btn-outline-light" type="button" (click)="irSistema()">
+        Zoom -
+      </button>
     </div>
-
+  </div>
 </div>

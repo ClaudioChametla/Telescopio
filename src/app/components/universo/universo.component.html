@@ -1,45 +1,49 @@
-<div class="universo" *ngIf="mostrarUniverso==true;">
+<div class="universo" *ngIf="mostrarUniverso == true">
   <!-- Todas las galaxias son contenidas en galaxias-container -->
   <div class="galaxias-container">
     <div class="galaxia-content a" (click)="viaLactea()">
-      <img class="galaxia " src={{datosGalaxias[0].image}} alt="" >
+      <img class="galaxia" src="{{ datosGalaxias[0].image }}" alt="" />
       <label>Via Lactea</label>
     </div>
 
     <section class="title">
       <h1 class="gpPlayBold">¡Bienvenido!</h1>
-      <h2 class="gpSemiBold">Viaja a diferentes galaxias con solo dar un clic.</h2>
-      <button class="btn gpSemiBold" type="button" (click)="zoomSolar()">Visita nuestro sistema solar</button>
+      <h2 class="gpSemiBold">
+        Viaja a diferentes galaxias con solo dar un clic.
+      </h2>
+      <button class="btn gpSemiBold" type="button" (click)="zoomSolar()">
+        Visita nuestro sistema solar
+      </button>
     </section>
 
     <div class="galaxia-content b" (click)="ngc1672()">
-      <img class="galaxia " src={{datosGalaxias[5].image}} alt="" >
+      <img class="galaxia" src="{{ datosGalaxias[5].image }}" alt="" />
       <label>NGC 1672</label>
     </div>
 
     <div class="galaxia-content c" (click)="magallanes()">
-      <img class="galaxia " src={{datosGalaxias[3].image}} alt="" >
+      <img class="galaxia" src="{{ datosGalaxias[3].image }}" alt="" />
       <label>Nube de Magallanes</label>
     </div>
 
     <div class="galaxia-content d" (click)="ngc2936()">
-      <img class="galaxia " src={{datosGalaxias[4].image}} alt="" >
+      <img class="galaxia" src="{{ datosGalaxias[4].image }}" alt="" />
       <label>NGC 2936</label>
     </div>
 
-
     <div class="galaxia-content e" (click)="andromeda()">
-      <img class="galaxia " src={{datosGalaxias[1].image}} alt="" >
+      <img class="galaxia" src="{{ datosGalaxias[1].image }}" alt="" />
       <label>Andrómeda</label>
     </div>
 
     <div class="galaxia-content f" (click)="m3()">
-      <img class="galaxia " src={{datosGalaxias[2].image}} alt="" >
+      <img class="galaxia" src="{{ datosGalaxias[2].image }}" alt="" />
       <label>M32</label>
     </div>
   </div>
-
-
 </div>
 <!-- Se pasa de la galaxia seleccionada de un padre a un hijo -->
-<app-galaxias *ngIf="mostrarUniverso==false;" [galaxiaSelected]="selecGalaxia"></app-galaxias>
+<app-galaxias
+  *ngIf="mostrarUniverso == false"
+  [galaxiaSelected]="selecGalaxia"
+></app-galaxias>

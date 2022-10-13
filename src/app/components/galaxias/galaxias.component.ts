@@ -1,44 +1,44 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CctServiceService } from 'src/app/service/cct-service.service';
 import { Router } from '@angular/router';
-import galaxias from '../../files/galaxias.json'
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
+import galaxias from '../../files/galaxias.json';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
 import Swal from 'sweetalert2';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-galaxias',
   templateUrl: './galaxias.component.html',
-  styleUrls: ['./galaxias.component.scss']
+  styleUrls: ['./galaxias.component.scss'],
 })
 export class GalaxiasComponent implements OnInit {
   //Valor de la Galaxia seleccionada
-  @Input() galaxiaSelected:any;
+  @Input() galaxiaSelected: any;
   //Recibe los datos del JSON galaxias
-  galaxiasDatos:any;
+  galaxiasDatos: any;
   //Recibe el texto ingresado del usuario
-  pdfText='';
+  pdfText = '';
 
   //Telescopio
-  informacion=[];
+  informacion = [];
   //Varibles Telescopio
-  abrirTelescopio=false;
+  abrirTelescopio = false;
 
-  constructor(private router:Router,private cctService:CctServiceService) { }
+  constructor(private router: Router, private cctService: CctServiceService) {}
 
   ngOnInit(): void {
-    this.galaxiasDatos=galaxias;
+    this.galaxiasDatos = galaxias;
     /**Inserta en un arreglo los datos que seran usados por el componente telescopio*/
     this.informacion.push(
       this.galaxiasDatos[this.galaxiaSelected].image,
       this.galaxiasDatos[this.galaxiaSelected].name
-    )
+    );
   }
 
   /**Este metodo te lleva al componente sistema-solar*/
-  irSistema(){
-    if(this.pdfText!==''){
+  irSistema() {
+    if (this.pdfText !== '') {
       Swal.fire({
         title: '¿Desea continuar? perdera sus cambios',
         showDenyButton: true,
@@ -49,15 +49,15 @@ export class GalaxiasComponent implements OnInit {
           this.naveSistemaSolar();
         } else if (result.isDenied) {
         }
-      })
-    }else{
+      });
+    } else {
       this.naveSistemaSolar();
     }
   }
 
   /** Carga la animacion de la nave
   para hacer la transicion*/
-  naveSistemaSolar(){
+  naveSistemaSolar() {
     this.cctService.$loader.emit(true);
     setTimeout(() => {
       this.cctService.$loader.emit(false);
@@ -66,9 +66,9 @@ export class GalaxiasComponent implements OnInit {
   }
 
   /**Metodo que te lleva a conponente universo */
-  irUniverso(){
+  irUniverso() {
     //Emite un TRUE para ocultar componente Galaxias
-    if(this.pdfText!==''){
+    if (this.pdfText !== '') {
       Swal.fire({
         title: '¿Desea continuar? perdera sus cambios',
         showDenyButton: true,
@@ -79,72 +79,70 @@ export class GalaxiasComponent implements OnInit {
           this.cctService.$universo.emit(true);
         } else if (result.isDenied) {
         }
-      })
-    }else{
+      });
+    } else {
       this.cctService.$universo.emit(true);
     }
   }
 
   /**Genera el documento PDF asignandole el texto que a ingresado el usuario */
-  createPDF(){
-    if(this.pdfText==''){
+  createPDF() {
+    if (this.pdfText == '') {
       Swal.fire({
         icon: 'error',
         title: 'Texto vacío',
         text: 'Parece que nos haz escrito nada aún',
         footer: ':)',
-        timer: 1500
-      })
-    }else{
+        timer: 1500,
+      });
+    } else {
       /**Se contruye el PDF
        * La imagen que se le pasa esta en BASE 64*/
-      const pdf:any = {
-        content:[
+      const pdf: any = {
+        content: [
           {
-            text:this.galaxiasDatos[this.galaxiaSelected].name,
-          style:'header'
+            text: this.galaxiasDatos[this.galaxiaSelected].name,
+            style: 'header',
           },
           {
-          text:this.pdfText
+            text: this.pdfText,
+          },
+          {
+            image: this.galaxiasDatos[this.galaxiaSelected].image,
+            width: 500,
+          },
+          {
+            text: 'Plandi - Plataformas Educativas ©',
+            style: ['quote', 'small'],
+          },
+        ],
+        styles: {
+          header: {
+            fontSize: 18,
+            bold: true,
+          },
+          subheader: {
+            fontSize: 14,
+            bold: true,
+          },
+          quote: {
+            italics: true,
+          },
+          small: {
+            fontSize: 8,
+          },
         },
-        {
-          image:this.galaxiasDatos[this.galaxiaSelected].image,
-	        width: 500
-        },
-        {
-          text: 'Plandi - Plataformas Educativas ©',
-          style: ['quote', 'small']
-        }
-      ],
-      styles: {
-        header: {
-          fontSize: 18,
-          bold: true
-        },
-        subheader: {
-          fontSize: 14,
-          bold: true
-        },
-        quote: {
-          italics: true
-        },
-        small: {
-          fontSize: 8
-        }
-      }
-      }
+      };
       //Crea y abre el PDF en nueva ventana
       pdfMake.createPdf(pdf).open();
     }
   }
 
-
-///////////////////////////////////////
+  ///////////////////////////////////////
 
   /**Muestra la pantalla del telescopio*/
-  mostrarTelescopio(){
-
-    if(this.pdfText!==''){
+  mostrarTelescopio() {
+    if (this.pdfText !== '') {
       Swal.fire({
         title: '¿Desea continuar? perdera sus cambios',
         showDenyButton: true,
@@ -152,16 +150,16 @@ export class GalaxiasComponent implements OnInit {
         denyButtonText: `No`,
       }).then((result) => {
         if (result.isConfirmed) {
-          this.abrirTelescopio=true;
+          this.abrirTelescopio = true;
         } else if (result.isDenied) {
         }
-      })
-    }else{
-      this.abrirTelescopio=true;
+      });
+    } else {
+      this.abrirTelescopio = true;
     }
   }
-  ocultarTelescopio(){
-    this.abrirTelescopio=false;
+  ocultarTelescopio() {
+    this.abrirTelescopio = false;
   }
-///////////////////////////////////////
+  ///////////////////////////////////////
 }

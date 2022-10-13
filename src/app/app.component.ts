@@ -1,16 +1,22 @@
-import { MoveDirection, ClickMode, HoverMode, OutMode, Container, Engine } from "tsparticles-engine";
-import { loadFull } from "tsparticles";
+import {
+  MoveDirection,
+  ClickMode,
+  HoverMode,
+  OutMode,
+  Container,
+  Engine,
+} from 'tsparticles-engine';
+import { loadFull } from 'tsparticles';
 import { Component } from '@angular/core';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'Telescopio';
-  id = "tsparticles";
+  id = 'tsparticles';
   particlesOptions = {
     /* background: {
       color: {
@@ -22,66 +28,66 @@ export class AppComponent {
       events: {
         onClick: {
           enable: true,
-          mode: ClickMode.push
+          mode: ClickMode.push,
         },
         onHover: {
           enable: true,
-          mode: HoverMode.repulse
+          mode: HoverMode.repulse,
         },
-        resize: true
+        resize: true,
       },
       modes: {
         push: {
-          quantity: 4
+          quantity: 4,
         },
         repulse: {
           distance: 50,
-          duration: 1
-        }
-      }
+          duration: 1,
+        },
+      },
     },
     particles: {
       color: {
-        value: "#ffffff",
+        value: '#ffffff',
       },
       links: {
-        color: "#ffffff",
+        color: '#ffffff',
         distance: 150,
         enable: false,
         opacity: 1,
-        width: 1
+        width: 1,
       },
       collisions: {
-        enable: false
+        enable: false,
       },
       move: {
         direction: MoveDirection.none,
         enable: true,
         outModes: {
-          default: OutMode.bounce
+          default: OutMode.bounce,
         },
         random: true,
-        speed: .1,
-        straight: true
+        speed: 0.1,
+        straight: true,
       },
       number: {
         density: {
           enable: true,
-          area: 800
+          area: 800,
         },
-        value: 80
+        value: 80,
       },
       opacity: {
-        value: 0.5
+        value: 0.5,
       },
       shape: {
-        type: "circle"
+        type: 'circle',
       },
       size: {
-        value: {min: 1, max: 5 },
-      }
+        value: { min: 1, max: 5 },
+      },
     },
-    detectRetina: true
+    detectRetina: true,
   };
 
   particlesLoaded(container: Container): void {
@@ -92,11 +98,4 @@ export class AppComponent {
     //console.log(engine);
     await loadFull(engine);
   }
-
-
-
-
-
-
-
 }

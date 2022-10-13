@@ -1,4 +1,4 @@
-.sistema{
+.sistema {
   height: 100vh;
   display: flex;
   padding: 0px;
@@ -13,19 +13,17 @@
   position: fixed;
 }
 
-
-
-.navbar{
+.navbar {
   display: flex;
   flex-direction: row;
   justify-content: start;
   padding: 2%;
 }
-.btn{
+.btn {
   width: 2vw;
   height: 2vw;
   padding: 15px;
-  border: #9B62F3 solid 1px;
+  border: #9b62f3 solid 1px;
   border-radius: 50px;
   background-color: #9c62f370;
   background-image: url(../../../assets/Planetas/flecha.png);
@@ -33,130 +31,121 @@
   background-size: 50% 50%;
   background-position: center;
 }
-.btn-r{
+.btn-r {
   margin-left: 20px;
   transform: rotate(180deg);
 }
-.btn-r:hover{
+.btn-r:hover {
   transform: rotate(180deg) scale(1.2);
 }
-.btn-l:hover{
+.btn-l:hover {
   transform: scale(1.2);
 }
 
-
-
-
-.header{
+.header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 2%;
 }
-.title{
+.title {
   width: 30%;
   font-size: 2vw;
   text-align: center;
   align-self: center;
-  color: #FC8B62;
+  color: #fc8b62;
 }
-.subtitle{
+.subtitle {
   font-size: 2vw;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-label{
+label {
   font-size: 1.3vw;
-  font-family: 'GoldplaySemiBold';
+  font-family: "GoldplaySemiBold";
 }
 
-
-.planeta-content{
+.planeta-content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.planeta-content:hover{
-  color: #3EF1F2;
+.planeta-content:hover {
+  color: #3ef1f2;
 }
 
-
-.planeta{
+.planeta {
   margin: 0px;
 }
-.planeta:hover{
+.planeta:hover {
   cursor: pointer;
 }
 
-
-
 /************* Contenedor de los planetas******************/
-.sistema-content{
+.sistema-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-
-
 /*****************Tamaños de Planetas***************/
-.sol{
+.sol {
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
   width: 22vw;
   margin-top: 0px;
 }
-.mercurio{
+.mercurio {
   animation-name: dos;
   animation-duration: 1s;
   height: auto;
   width: 7vw;
   margin-top: 0px;
 }
-.venus{
+.venus {
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
   width: 8vw;
   margin-top: 0px;
 }
-.tierra{
+.tierra {
   animation-name: dos;
   animation-duration: 1s;
   height: auto;
   width: 8vw;
   margin-top: 0px;
 }
-.marte{
+.marte {
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
   width: 8vw;
   margin-top: 0px;
 }
-.jupiter{
+.jupiter {
   animation-name: dos;
   animation-duration: 1s;
   height: auto;
   width: 13vw;
   margin-top: 0px;
 }
-.saturno{
+.saturno {
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
   width: 24vw;
   margin-top: 0px;
 }
-.urano{
+.urano {
   animation-name: dos;
   animation-duration: 1s;
   height: auto;
   width: 7vw;
   margin-top: 0px;
 }
-.neptuno{
+.neptuno {
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
@@ -164,7 +153,15 @@ label{
   margin-top: 0px;
 }
 
-.sol:hover,.mercurio:hover,.venus:hover,.tierra:hover,.marte:hover,.jupiter:hover,.saturno:hover,.urano:hover,.neptuno:hover{
+.sol:hover,
+.mercurio:hover,
+.venus:hover,
+.tierra:hover,
+.marte:hover,
+.jupiter:hover,
+.saturno:hover,
+.urano:hover,
+.neptuno:hover {
   background-image: url(../../../assets/Planetas/hover_planeta.png);
   background-position: center;
   background-size: 100% 100%;
@@ -174,50 +171,83 @@ label{
   transform: scale(1.2);
 }
 
-.a{transform: translate(30%,35%);}
-.b{transform: translate(100%,50%);}
-.c{transform: translate(140%,40%);}
-.d{transform: translate(180%,60%);}
-.e{height:50%; transform: translate(35%,20%);}
-.f{transform: translate(55%,-2%);}
-.g{transform: translate(0%,55%);}
-.h{transform: translate(-145%,5%);}
-.i{transform: translate(-85%,30%);}
+.a {
+  transform: translate(30%, 35%);
+}
+.b {
+  transform: translate(100%, 50%);
+}
+.c {
+  transform: translate(140%, 40%);
+}
+.d {
+  transform: translate(180%, 60%);
+}
+.e {
+  height: 50%;
+  transform: translate(35%, 20%);
+}
+.f {
+  transform: translate(55%, -2%);
+}
+.g {
+  transform: translate(0%, 55%);
+}
+.h {
+  transform: translate(-145%, 5%);
+}
+.i {
+  transform: translate(-85%, 30%);
+}
 /*****************Tamaños de Planetas***************/
 
 /*****************Animacion Planetas***************************/
 @keyframes uno {
-  0%{transform: translateY(10%);}
-  25%{transform: translateY(-10%);}
-  75%{transform: translateY(2%);}
-  100%{transform: translateY(0%);}
+  0% {
+    transform: translateY(10%);
+  }
+  25% {
+    transform: translateY(-10%);
+  }
+  75% {
+    transform: translateY(2%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 @keyframes dos {
-  0%{transform: translateY(-10%);}
-  25%{transform: translateY(10%);}
-  75%{transform: translateY(-1%);}
-  100%{transform: translateY(0%);}
+  0% {
+    transform: translateY(-10%);
+  }
+  25% {
+    transform: translateY(10%);
+  }
+  75% {
+    transform: translateY(-1%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 /*****************Animacion Planetas***************************/
 
-
 /** >>>>> Responsive Design <<<<<<< */
-@media screen and (max-width:992px) {
-  .sistema{
+@media screen and (max-width: 992px) {
+  .sistema {
     background-image: none;
   }
 }
-@media screen and (max-height:768px) {
-  .sistema{
+@media screen and (max-height: 768px) {
+  .sistema {
     overflow-y: scroll;
     overflow-x: hidden;
     background-image: none;
   }
-
 }
 
-@media screen and (max-width:768px) {
-  .sistema{
+@media screen and (max-width: 768px) {
+  .sistema {
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -225,15 +255,15 @@ label{
     background-image: none;
   }
 
-  .sistema::-webkit-scrollbar{
+  .sistema::-webkit-scrollbar {
     width: 13px;
     height: 10px;
   }
-  .sistema::-webkit-scrollbar-track-piece{
+  .sistema::-webkit-scrollbar-track-piece {
     border-radius: 2px;
-      background-clip: content-box;
-      border-radius: 6px;
-      border: solid 4px transparent;
+    background-clip: content-box;
+    border-radius: 6px;
+    border: solid 4px transparent;
   }
   .sistema::-webkit-scrollbar-track-piece:decrement {
     background-clip: content-box;
@@ -249,65 +279,85 @@ label{
     background: #ffffff5e;
     border-radius: 50px;
   }
-  .sistema-content{
+  .sistema-content {
     flex-direction: column;
   }
 
-
-  .header{
+  .header {
     margin-top: 30px;
   }
-  .title{
+  .title {
     width: 100%;
     font-size: 5vw;
   }
-  .subtitle{
+  .subtitle {
     font-size: 3vw;
   }
-  label{
+  label {
     font-size: 3vw;
   }
 
-
-
-  .planeta-content{
+  .planeta-content {
     margin-top: 50px;
   }
-  .saturno,.jupiter{
+  .saturno,
+  .jupiter {
     order: 1;
   }
 
-
-  .planetas-content{
+  .planetas-content {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
-  .planeta{
+  .planeta {
     margin: 0px;
   }
-  .planeta:hover{
+  .planeta:hover {
     cursor: pointer;
   }
 
-  .sol,.mercurio,.venus,.tierra,.marte,.jupiter,.saturno,.urano,.neptuno{
+  .sol,
+  .mercurio,
+  .venus,
+  .tierra,
+  .marte,
+  .jupiter,
+  .saturno,
+  .urano,
+  .neptuno {
     height: auto;
     width: 50vw;
   }
 
-  .a{transform: translate(0px,0px);}
-  .b{transform: translate(0px,0px);}
-  .c{transform: translate(0px,0px);}
-  .d{transform: translate(0px,0px);}
-  .e{transform: translate(0px,0px);}
-  .f{transform: translate(0px,0px);}
-  .g{transform: translate(0px,0px);}
-  .h{transform: translate(0px,0px);}
-  .i{transform: translate(0px,0px);
-  margin-bottom: 25px;}
+  .a {
+    transform: translate(0px, 0px);
+  }
+  .b {
+    transform: translate(0px, 0px);
+  }
+  .c {
+    transform: translate(0px, 0px);
+  }
+  .d {
+    transform: translate(0px, 0px);
+  }
+  .e {
+    transform: translate(0px, 0px);
+  }
+  .f {
+    transform: translate(0px, 0px);
+  }
+  .g {
+    transform: translate(0px, 0px);
+  }
+  .h {
+    transform: translate(0px, 0px);
+  }
+  .i {
+    transform: translate(0px, 0px);
+    margin-bottom: 25px;
+  }
 }
-
-
-

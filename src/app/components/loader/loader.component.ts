@@ -5,16 +5,17 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.scss']
+  styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent implements OnInit {
+  show: Boolean = false;
 
-  show:Boolean=false;
-
-  constructor(private router:Router,private service:CctServiceService) {}
+  constructor(private router: Router, private service: CctServiceService) {}
 
   ngOnInit(): void {
-    this.service.$loader.subscribe((res:any)=>{this.show=res});
+    this.service.$loader.subscribe((res: any) => {
+      this.show = res;
+    });
     /* this.router.events.subscribe(event =>{
       if(event instanceof NavigationStart){
         this.show = true;
@@ -23,5 +24,4 @@ export class LoaderComponent implements OnInit {
       }
     }) */
   }
-
 }

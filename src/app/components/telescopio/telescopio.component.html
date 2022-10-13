@@ -1,16 +1,22 @@
 <div class="telescopio-container">
-  <h1>{{datos[1]}}</h1>
+  <h1>{{ datos[1] }}</h1>
 
   <div class="img-magnifier-container">
-    <img id="myimage" src={{datos[0]}} width="500" height="500">
+    <img id="myimage" src="{{ datos[0] }}" width="500" height="500" />
   </div>
 
-  <p>Feel free to change the strength of the magnifier glass when initiating the magnify function.</p>
+  <p>
+    Feel free to change the strength of the magnifier glass when initiating the
+    magnify function.
+  </p>
 
-  <button  id="open" class="btn btn-danger " style="margin-top:50px ;"> Abrir</button>
-  <button id="close" class="btn btn-danger" > Cerrar </button>
+  <button id="open" class="btn btn-danger" style="margin-top: 50px">
+    Abrir
+  </button>
+  <button id="close" class="btn btn-danger">Cerrar</button>
 
-  <button  id="aumentar" class="btn btn-danger " style="margin-top:150px ;"> Zoom +</button>
-  <button id="disminuir" class="btn btn-danger" > Zoom - </button>
-
+  <button id="aumentar" class="btn btn-danger" style="margin-top: 150px">
+    Zoom +
+  </button>
+  <button id="disminuir" class="btn btn-danger">Zoom -</button>
 </div>

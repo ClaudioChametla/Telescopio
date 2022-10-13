@@ -37,9 +37,26 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
-p {
-  color: #000;
+
+/** >>>Buttons<<< */
+.btn {
+  width: 2vw;
+  height: 2vw;
+  padding: 15px;
+  border: #9b62f3 solid 1px;
+  border-radius: 50px;
+  background-color: #9c62f370;
+  background-image: url(../../../assets/Planetas/flecha.png);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: center;
 }
+
+/** >>>Fonts<<< */
+p {
+  color: #000000;
+}
+
 /*******STAR********/
 @media screen and (max-width: 1200px) {
   .imagen {

@@ -1,5 +1,4 @@
-.telescopio-container{
-
+.telescopio-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,10 +7,12 @@
 p {
   font-family: Lato;
 }
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .img-magnifier-container {
-  position:relative;
+  position: relative;
 }
 
 ::ng-deep .img-magnifier-glass {
@@ -23,4 +24,3 @@ p {
   width: 300px;
   height: 300px;
 }
-

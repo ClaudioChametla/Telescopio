@@ -1,20 +1,14 @@
 <div class="galaxia-universo">
   <header>
     <!-- botones de ir a galaxia o a sistema solar -->
+    <button class="btn" type="button" (click)="irUniverso()"></button>
     <button
-      class="btn btn-outline-warning"
+      class=""
       type="button"
       *ngIf="galaxiaSelected == 0"
       (click)="irSistema()"
     >
       Visitar nuestro sistema solar
-    </button>
-    <button
-      class="btn btn-outline-primary"
-      type="button"
-      (click)="irUniverso()"
-    >
-      Regresar
     </button>
   </header>
 
@@ -29,11 +23,7 @@
           src="{{ galaxiasDatos[galaxiaSelected].image }}"
           alt="{{ galaxiasDatos[galaxiaSelected].name }}"
         />
-        <button
-          class="btn btn-outline-success"
-          type="button"
-          (click)="mostrarTelescopio()"
-        >
+        <button class="" type="button" (click)="mostrarTelescopio()">
           Abrir telescopio
         </button>
       </div>
@@ -43,7 +33,7 @@
     <div class="galaxia-form" *ngIf="abrirTelescopio === false">
       <!-- contiene la informacion de cada galaxia -->
       <div class="galaxia-information" *ngIf="abrirTelescopio === false">
-        <p>{{ galaxiasDatos[galaxiaSelected].name }}</p>
+        <p class="gpPlayBold">{{ galaxiasDatos[galaxiaSelected].name }}</p>
         <p>Tipo: {{ galaxiasDatos[galaxiaSelected].tipo }}</p>
         <p>Radio: {{ galaxiasDatos[galaxiaSelected].radio }}</p>
         <p>Descripción: {{ galaxiasDatos[galaxiaSelected].description }}</p>
@@ -62,11 +52,7 @@
           ></textarea>
         </form>
       </div>
-      <button
-        class="btn btn-outline-danger"
-        type="button"
-        (click)="createPDF()"
-      >
+      <button class="b" type="button" (click)="createPDF()">
         Imrpimir PDF
       </button>
     </div>
@@ -74,13 +60,9 @@
 
   <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
   <!--Mostrando Telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio === true">
+  <div class="telescopio-under" *ngIf="abrirTelescopio === true">
     <app-telescopio [datos]="informacion"></app-telescopio>
-    <button
-      class="btn btn-outline-danger"
-      type="button"
-      (click)="ocultarTelescopio()"
-    >
+    <button class="" type="button" (click)="ocultarTelescopio()">
       Cerrar telescopio
     </button>
   </div>

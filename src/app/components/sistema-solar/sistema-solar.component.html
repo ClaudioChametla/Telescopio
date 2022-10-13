@@ -1,55 +1,105 @@
-<div class="sistema" *ngIf="mostrarPlaneta===false" >
+<div class="sistema" *ngIf="mostrarPlaneta === false">
   <!--Menu-->
   <div class="navbar">
     <button class="btn btn-l" type="button" (click)="irUniverso()"></button>
     <button class="btn btn-r" type="button" (click)="estrellas()"></button>
   </div>
   <section class="header">
-    <h2 class="title gpSemiBold">Con este mapa interactivo podrás explorar los planetas</h2>
-    <h2 class="subtitle gpRegular">Da clic en el planeta que quieras explorar</h2>
+    <h2 class="title gpSemiBold">
+      Con este mapa interactivo podrás explorar los planetas
+    </h2>
+    <h2 class="subtitle gpRegular">
+      Da clic en el planeta que quieras explorar
+    </h2>
   </section>
 
   <!--Contenedor de los planetas-->
   <div class="sistema-content">
-    <div class="planeta-content a " >
+    <div class="planeta-content a">
       <label>Sol</label>
-      <img class="planeta sol" src="../assets/Planetas/sol.png" alt="" (click)="sol()" >
+      <img
+        class="planeta sol"
+        src="../assets/Planetas/sol.png"
+        alt=""
+        (click)="sol()"
+      />
     </div>
-    <div class="planeta-content b" >
+    <div class="planeta-content b">
       <label>Mercurio</label>
-      <img class="planeta mercurio" src="../assets/Planetas/mercurio.png" alt="" (click)="mercurio()">
+      <img
+        class="planeta mercurio"
+        src="../assets/Planetas/mercurio.png"
+        alt=""
+        (click)="mercurio()"
+      />
     </div>
-    <div class="planeta-content c" >
+    <div class="planeta-content c">
       <label>Venus</label>
-      <img class="planeta venus" src="../assets/Planetas/venus.png" alt="" (click)="venus()">
+      <img
+        class="planeta venus"
+        src="../assets/Planetas/venus.png"
+        alt=""
+        (click)="venus()"
+      />
     </div>
-    <div class="planeta-content d" >
+    <div class="planeta-content d">
       <label>Tierra</label>
-      <img class="planeta tierra" src="../assets/Planetas/tierra.png" alt="" (click)="tierra()">
+      <img
+        class="planeta tierra"
+        src="../assets/Planetas/tierra.png"
+        alt=""
+        (click)="tierra()"
+      />
     </div>
     <div class="planeta-content e">
       <label>Marte</label>
-      <img class="planeta marte" src="../assets/Planetas/marte.png" alt=""  (click)="marte()" >
+      <img
+        class="planeta marte"
+        src="../assets/Planetas/marte.png"
+        alt=""
+        (click)="marte()"
+      />
     </div>
-    <div class="planeta-content f" >
-      <img class="planeta jupiter" src="../assets/Planetas/jupiter.png" alt="" (click)="jupiter()">
+    <div class="planeta-content f">
+      <img
+        class="planeta jupiter"
+        src="../assets/Planetas/jupiter.png"
+        alt=""
+        (click)="jupiter()"
+      />
       <label>Jupiter</label>
     </div>
-    <div class="planeta-content g" >
-      <img class="planeta saturno" src="../assets/Planetas/saturno.png" alt="" (click)="saturno()">
+    <div class="planeta-content g">
+      <img
+        class="planeta saturno"
+        src="../assets/Planetas/saturno.png"
+        alt=""
+        (click)="saturno()"
+      />
       <label>Saturno</label>
     </div>
-    <div class="planeta-content h" >
+    <div class="planeta-content h">
       <label>Urano</label>
-      <img class="planeta urano" src="../assets/Planetas/urano.png" alt="" (click)="urano()">
+      <img
+        class="planeta urano"
+        src="../assets/Planetas/urano.png"
+        alt=""
+        (click)="urano()"
+      />
     </div>
-    <div class="planeta-content i" >
+    <div class="planeta-content i">
       <label>Neptuno</label>
-      <img class="planeta neptuno" src="../assets/Planetas/neptuno.png" alt="" (click)="neptuno()">
+      <img
+        class="planeta neptuno"
+        src="../assets/Planetas/neptuno.png"
+        alt=""
+        (click)="neptuno()"
+      />
     </div>
   </div>
-
 </div>
 
-<app-planetas *ngIf="mostrarPlaneta==true" [planetaSelected]="planetaSelec"></app-planetas>
-
+<app-planetas
+  *ngIf="mostrarPlaneta == true"
+  [planetaSelected]="planetaSelec"
+></app-planetas>
