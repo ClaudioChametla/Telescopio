@@ -9,20 +9,44 @@
   font-family: 'GoldplayBold';
   src: url(./assets/fonts/GoldplayBold.otf);
 }
+@font-face {
+  font-family: 'GoldplaySemiBold';
+  src: url(./assets/fonts/GoldplaySemiBold.otf);
+}
+@font-face {
+  font-family: 'GoldplayBlack';
+  src: url(./assets/fonts/GoldplayBlack.otf);
+}
+@font-face {
+  font-family: 'GoldplayRegular';
+  src: url(./assets/fonts/GoldplayRegular.otf);
+}
+.gpBlack{
+  color: #FFFFFF;
+  font-family: 'GoldplayBlack';
+}
+
+.gpPlayBold{
+  font-family: 'GoldplayBold';
+  font-size: 65px;
+}
+
+.gpSemiBold{
+  font-family: 'GoldplaySemiBold';
+}
+.gpRegular{
+  font-family: 'GoldplayRegular';
+}
+
+h1{
+  font-size: 65px;
+}
 
 body {
   height: 100vh;
   font-family: 'Zonapro-Regular';
   color: azure;
   background-color: black;
-}
-h1{
-  font-family: 'GoldplayBold';
-  font-size: 65px;
-  font-weight: bolder;
-}
-h2{
-  font-weight: 300;
 }
 
 @media screen and (max-width:992px) {

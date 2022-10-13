@@ -10,7 +10,10 @@
   background-position: bottom left;
   background-repeat: no-repeat;
   user-select: none;
+  position: fixed;
 }
+
+
 
 .navbar{
   display: flex;
@@ -41,42 +44,57 @@
   transform: scale(1.2);
 }
 
+
+
+
 .header{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3%;
+  margin: 2%;
 }
-
 .title{
+  width: 30%;
+  font-size: 2vw;
+  text-align: center;
+  align-self: center;
   color: #FC8B62;
 }
 .subtitle{
+  font-size: 2vw;
   color: #FFFFFF;
 }
-
-
+label{
+  font-size: 1.3vw;
+  font-family: 'GoldplaySemiBold';
+}
 
 
 .planeta-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
+.planeta-content:hover{
+  color: #3EF1F2;
+}
+
+
 .planeta{
   margin: 0px;
 }
 .planeta:hover{
   cursor: pointer;
 }
+
+
+
 /************* Contenedor de los planetas******************/
 .sistema-content{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 
@@ -88,8 +106,6 @@
   height: auto;
   width: 22vw;
   margin-top: 0px;
-
-
 }
 .mercurio{
   animation-name: dos;
@@ -97,8 +113,6 @@
   height: auto;
   width: 7vw;
   margin-top: 0px;
-
-
 }
 .venus{
   animation-name: uno;
@@ -106,8 +120,6 @@
   height: auto;
   width: 8vw;
   margin-top: 0px;
-
-
 }
 .tierra{
   animation-name: dos;
@@ -116,15 +128,12 @@
   width: 8vw;
   margin-top: 0px;
 }
-
 .marte{
   animation-name: uno;
   animation-duration: 1s;
   height: auto;
   width: 8vw;
   margin-top: 0px;
-
-
 }
 .jupiter{
   animation-name: dos;
@@ -132,8 +141,6 @@
   height: auto;
   width: 13vw;
   margin-top: 0px;
-
-
 }
 .saturno{
   animation-name: uno;
@@ -141,9 +148,6 @@
   height: auto;
   width: 24vw;
   margin-top: 0px;
-
-
-
 }
 .urano{
   animation-name: dos;
@@ -151,8 +155,6 @@
   height: auto;
   width: 7vw;
   margin-top: 0px;
-
-
 }
 .neptuno{
   animation-name: uno;
@@ -207,8 +209,11 @@
 }
 @media screen and (max-height:768px) {
   .sistema{
+    overflow-y: scroll;
+    overflow-x: hidden;
     background-image: none;
   }
+
 }
 
 @media screen and (max-width:768px) {
@@ -237,19 +242,40 @@
     border: solid 4px transparent;
   }
   .sistema::-webkit-scrollbar-thumb {
-    background-color: #130D3D;
+    background-color: #9c62f3e1;
     width: 4px;
     border-radius: 6px;
   }
   .sistema::-webkit-scrollbar-track {
     /*background: #EFF7F8;*/
-    background: #cecece;
+    background: #ffffff5e;
     border-radius: 50px;
   }
+
 
   .header{
     margin-top: 30px;
   }
+  .title{
+    width: 100%;
+    font-size: 5vw;
+  }
+  .subtitle{
+    font-size: 3vw;
+  }
+  label{
+    font-size: 3vw;
+  }
+
+
+
+  .planeta-content{
+    margin-top: 50px;
+  }
+  .saturno,.jupiter{
+    order: 1;
+  }
+
 
   .planetas-content{
     display: flex;
@@ -265,9 +291,6 @@
     cursor: pointer;
   }
 
-  label{
-    font-size: small;
-  }
   .sol,.mercurio,.venus,.tierra,.marte,.jupiter,.saturno,.urano,.neptuno{
     height: auto;
     width: 50vw;
