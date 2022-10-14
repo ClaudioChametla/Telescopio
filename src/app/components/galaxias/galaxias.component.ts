@@ -30,6 +30,8 @@ export class GalaxiasComponent implements OnInit {
   ngOnInit(): void {
     this.galaxiasDatos = galaxias;
     /**Inserta en un arreglo los datos que seran usados por el componente telescopio*/
+    console.log(this.galaxiasDatos[this.galaxiaSelected].description);
+
     this.informacion.push(
       this.galaxiasDatos[this.galaxiaSelected].image,
       this.galaxiasDatos[this.galaxiaSelected].name

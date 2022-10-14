@@ -1,63 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~animate.css/animate.min';
+@import "~animate.css/animate.min";
 
 @font-face {
-  font-family: 'GoldplayAltBold';
+  font-family: "GoldplayAltBold";
   src: url(./assets/fonts/GoldplayAltBold.otf);
 }
 @font-face {
-  font-family: 'GoldplayBold';
+  font-family: "GoldplayBold";
   src: url(./assets/fonts/GoldplayBold.otf);
 }
 @font-face {
-  font-family: 'GoldplaySemiBold';
+  font-family: "GoldplaySemiBold";
   src: url(./assets/fonts/GoldplaySemiBold.otf);
 }
 @font-face {
-  font-family: 'GoldplayBlack';
+  font-family: "GoldplayBlack";
   src: url(./assets/fonts/GoldplayBlack.otf);
 }
 @font-face {
-  font-family: 'GoldplayRegular';
+  font-family: "GoldplayRegular";
   src: url(./assets/fonts/GoldplayRegular.otf);
 }
-.gpBlack{
-  color: #FFFFFF;
-  font-family: 'GoldplayBlack';
+@font-face {
+  font-family: "GoldplayMedium";
+  src: url(./assets/fonts/GoldplayMedium.otf);
+}
+.gpBlack {
+  color: #ffffff;
+  font-family: "GoldplayBlack";
 }
 
-.gpPlayBold{
-  font-family: 'GoldplayBold';
+.gpPlayBold {
+  font-family: "GoldplayBold";
   font-size: 65px;
 }
 
-.gpSemiBold{
-  font-family: 'GoldplaySemiBold';
+.gpSemiBold {
+  font-family: "GoldplaySemiBold";
 }
-.gpRegular{
-  font-family: 'GoldplayRegular';
+.gpRegular {
+  font-family: "GoldplayRegular";
+}
+.gpMedium {
+  font-family: "GoldplayMedium";
 }
 
-h1{
+h1 {
   font-size: 65px;
 }
 
 body {
   height: 100vh;
-  font-family: 'Zonapro-Regular';
+  font-family: "Zonapro-Regular";
   color: azure;
   background-color: black;
 }
 
-@media screen and (max-width:992px) {
-
-  h1{
+@media screen and (max-width: 992px) {
+  h1 {
     font-size: 40px;
     font-weight: bolder;
   }
-  h2{
+  h2 {
     font-size: 20px;
     font-weight: 100;
   }
-
 }
