@@ -1,15 +1,15 @@
 /* Crea el dondo */
-.container-load{
+.container-load {
   width: 100vw;
   height: 100vh;
   position: fixed;
   background-image: url(https://revistadiscomania.files.wordpress.com/2013/01/polvo-de-estrellas.gif?w=396);
-  background-color:rgba(0, 0, 0, 0.356);
+  background-color: rgba(0, 0, 0, 0.356);
   z-index: 100;
 }
 
 /* alinea la nave al centro */
-.center-load{
+.center-load {
   height: 100%;
   width: 100%;
   display: flex;
@@ -18,7 +18,7 @@
 }
 
 /* Crea la imagen de la nave */
-.loader{
+.loader {
   width: 800px;
   height: 800px;
   animation-name: nave;
@@ -27,15 +27,15 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  transform:translateX(800%);
+  transform: translateX(800%);
 }
 
 /* Mueve la nave de un punto a otro */
 @keyframes nave {
-  0%{
-    transform:translateX(-100%);
+  0% {
+    transform: translateX(-100%);
   }
-  100%{
-    transform:translateX(500%);
+  100% {
+    transform: translateX(500%);
   }
 }

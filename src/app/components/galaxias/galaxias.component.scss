@@ -1,27 +1,15 @@
 .galaxia-universo {
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  background-image: url(../../../assets/images/Fondo-Info.png);
-  background-size: 65% 100%;
-  background-position-x: right;
-  background-repeat: no-repeat;
-  align-items: center;
-  position: fixed;
+  flex-direction: row;
 }
-header {
+/** >>>>> Componentes <<<<< */
+.navbar {
   width: 100%;
   display: flex;
-  padding: 20px 0px 0px 20px;
+  padding: 20px;
   flex-direction: row;
-  justify-items: baseline;
-}
-body {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background: none;
+  justify-content: flex-start;
 }
 .telescopio {
   height: 100%;
@@ -32,28 +20,33 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
-.image-galaxia {
+.image {
   width: 80%;
 }
-.galaxia-form {
+.form {
   width: 65%;
-  height: 100%;
-  padding: 0px 30px 0px 30px;
+  height: 100vh;
+  padding: 65px 30px 0px 30px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-size: cover;
+  background-image: url(../../../assets/images/Fondo-Info.png);
+  background-size: 100% 100vh;
+  background-position-x: right;
+  background-repeat: repeat;
 }
-.galaxia-information {
+.information {
   margin-top: 3%;
 }
-.galaxia-writer {
-  margin-top: 3%;
+.writer {
+  width: 100%;
+  margin-top: 1%;
 }
 /** >>>Buttons<<< */
 .btn {
-  width: 2vw;
-  height: 2vw;
+  width: 2.1vw;
+  height: 2.1vw;
   padding: 15px;
   border: #9b62f3 solid 1px;
   border-radius: 50px;
@@ -66,9 +59,35 @@ body {
 .btn:hover {
   transform: scale(1.1);
 }
+/** Exclusive */
+.btn-r {
+  margin-left: 20px;
+  transform: rotate(180deg);
+}
+.btn-r:hover {
+  transform: rotate(180deg) scale(1.2);
+}
+
 .btn-ot {
+  background-color: #8dae15;
+}
+.btn-imprimir {
+  border-radius: 50px;
+  width: 8vw;
+  border: none;
+  background-color: #5a65fc;
+  color: #ffffff;
+  font-size: 1.5vw;
+  justify-self: center;
+  text-align: center;
+  margin: 15px;
+  transform: translateY(-167%);
 }
 /** >>>Fonts<<< */
+.titles {
+  display: flex;
+  flex-direction: row;
+}
 span {
   display: flex;
   flex-direction: row;
@@ -76,56 +95,72 @@ span {
 .title {
   font-size: 5vw;
   color: #000000;
+  margin-right: 15px;
+}
+.title-purple {
+  color: #5a65fc;
 }
 .semiBold {
   font-family: "GoldplaySemiBold";
+  font-weight: bolder;
+  color: #030233;
+  margin-right: 5px;
+}
+.info-desc {
+  font-size: 1vw;
+  color: #5a65fc;
+}
+.desc {
+  color: #585e99;
 }
 p {
   font-family: "GoldplayMedium";
   color: #000000;
 }
-
-/*******STAR********/
-@media screen and (max-width: 1200px) {
-  .imagen {
-    width: 350px;
-  }
-
-  .imagen2 {
-    width: 700px;
-  }
+.form-control {
+  height: 22vh;
+  background-color: #f8f8f8;
+  color: #a0a8bc;
+  font-family: "GoldplayMedium";
+  font-style: italic;
+  border-radius: 0.5rem;
+}
+.form-control:focus {
+  color: #000000;
+  font-family: "GoldplayMedium";
+  font-style: normal;
 }
 
-@media screen and (max-width: 992px) {
+/** >>>>> Responsive Design <<<<<*/
+
+@media screen and (max-width: 768px) {
   .galaxia-universo {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* background-image: url(../../../assets/images/Fondo-Info.png); */
+    background-image: none;
     align-items: baseline;
-    justify-content: baseline;
+    position: relative;
+  }
+  header {
+    margin-bottom: 25%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
   }
   .telescopio {
-    flex-direction: column;
-    justify-content: baseline;
+    width: 100%;
   }
-  .imagen {
-    width: 300px;
+  .form {
+    width: 100%;
+    background-image: url(../../../assets/images/Fondo-Info.png);
   }
-
-  .imagen2 {
-    width: 600px;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  .telescopio-container {
-    padding: 0px;
-  }
-  .imagen {
-    width: 200px;
-  }
-
-  .imagen2 {
-    width: 400px;
-    transform: translateY(-100%);
-    transform: translateX(-10%);
+  .image {
+    width: 45%;
   }
 }
-/*******END********/

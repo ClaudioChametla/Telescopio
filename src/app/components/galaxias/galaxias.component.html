@@ -1,74 +1,76 @@
 <div class="galaxia-universo" *ngIf="!abrirTelescopio">
-  <header>
-    <!-- botones de ir a galaxia o a sistema solar -->
-    <button class="btn" type="button" (click)="irUniverso()"></button>
-    <button
-      class=""
-      type="button"
-      *ngIf="galaxiaSelected == 0"
-      (click)="irSistema()"
-    >
-      Visitar nuestro sistema solar
+  <!--Telescopio Oculto imagen de la galaxia y boton para abrir telescopio-->
+  <div class="telescopio">
+    <div class="navbar">
+      <!-- botones de ir a galaxia o a sistema solar -->
+      <button class="btn" type="button" (click)="irUniverso()"></button>
+      <button
+        class="btn btn-r"
+        type="button"
+        *ngIf="galaxiaSelected == 0"
+        (click)="irSistema()"
+      ></button>
+    </div>
+    <img
+      class="image"
+      src="{{ galaxiasDatos[galaxiaSelected].image }}"
+      alt="{{ galaxiasDatos[galaxiaSelected].name }}"
+    />
+    <button class="btn-ot" type="button" (click)="mostrarTelescopio()">
+      Abrir telescopio
     </button>
-  </header>
+  </div>
 
-  <body>
-    <!--Telescopio Oculto imagen de la galaxia y boton para abrir telescopio-->
-    <div class="telescopio">
-      <img
-        class="image-galaxia"
-        src="{{ galaxiasDatos[galaxiaSelected].image }}"
-        alt="{{ galaxiasDatos[galaxiaSelected].name }}"
-      />
-      <button class="btn-ot" type="button" (click)="mostrarTelescopio()">
-        Abrir telescopio
-      </button>
+  <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
+  <div class="form">
+    <!-- contiene la informacion de cada galaxia -->
+    <div class="titles">
+      <h1 class="gpPlayBold title title-purple">{{ title[0] }}</h1>
+      <h1 class="gpPlayBold title">{{ title[1] }}</h1>
+      <h1 class="gpPlayBold title">{{ title[2] }}</h1>
     </div>
 
-    <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
-    <div class="galaxia-form">
-      <!-- contiene la informacion de cada galaxia -->
-      <h1 class="gpPlayBold title">
-        {{ galaxiasDatos[galaxiaSelected].name }}
-      </h1>
-      <div class="galaxia-information">
-        <span>
-          <p class="semiBold">Tipo:</p>
-          <p>{{ galaxiasDatos[galaxiaSelected].tipo }}</p></span
-        >
-        <span>
-          <p class="semiBold">Radio:</p>
-          <p>{{ galaxiasDatos[galaxiaSelected].radio }}</p></span
-        >
-        <p class="semiBold">Descripción:</p>
-        <!-- Adding a newline in JSON object -->
-        <!-- Make use of angular innerHtml binding. Replace \n with br -->
-        <div style="width: 100%">
-          <p [innerHtml]="galaxiasDatos[galaxiaSelected].description"></p>
-        </div>
+    <section class="information">
+      <span>
+        <p class="semiBold">Tipo:</p>
+        <p>{{ galaxiasDatos[galaxiaSelected].tipo }}</p></span
+      >
+      <span>
+        <p class="semiBold">Radio:</p>
+        <p>{{ galaxiasDatos[galaxiaSelected].radio }}</p></span
+      >
+      <p class="semiBold info-desc">Descripción:</p>
+      <!-- Adding a newline in JSON object -->
+      <!-- Make use of angular innerHtml binding. Replace \n with br -->
+      <div style="width: 100%">
+        <p
+          class="desc"
+          [innerHtml]="galaxiasDatos[galaxiaSelected].description"
+        ></p>
       </div>
+    </section>
 
-      <div class="galaxia-writer">
-        <!-- creacion del PDF -->
-        <form>
-          <textarea
-            class="form-control"
-            id="resumenGalaxia"
-            rows="3"
-            name="Resumen"
-            placeholder="Escribe aquí"
-            [(ngModel)]="pdfText"
-          >
-          </textarea>
-          <button class="b" type="button" (click)="createPDF()">
-            Imrpimir PDF
+    <div class="writer">
+      <!-- creacion del PDF -->
+      <form>
+        <textarea
+          class="form-control"
+          id="resumen"
+          rows="3"
+          name="Resumen"
+          placeholder="Escribe aquí"
+          [(ngModel)]="pdfText"
+        >
+        </textarea>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn-imprimir" type="button" (click)="createPDF()">
+            Imprimir
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
-  </body>
+  </div>
 </div>
-
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
 <!--Mostrando Telescopio-->
 <div class="telescopio" *ngIf="abrirTelescopio">

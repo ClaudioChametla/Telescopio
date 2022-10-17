@@ -18,24 +18,27 @@ export class GalaxiasComponent implements OnInit {
   //Recibe los datos del JSON galaxias
   galaxiasDatos: any;
   //Recibe el texto ingresado del usuario
-  pdfText = '';
-
+  pdfText: string = '';
+  //estilo de textbox
+  textBoxStyle: Boolean = false;
   //Telescopio
   informacion = [];
   //Varibles Telescopio
   abrirTelescopio = false;
+
+  title: String = '';
 
   constructor(private router: Router, private cctService: CctServiceService) {}
 
   ngOnInit(): void {
     this.galaxiasDatos = galaxias;
     /**Inserta en un arreglo los datos que seran usados por el componente telescopio*/
-    console.log(this.galaxiasDatos[this.galaxiaSelected].description);
-
     this.informacion.push(
       this.galaxiasDatos[this.galaxiaSelected].image,
       this.galaxiasDatos[this.galaxiaSelected].name
     );
+    /**Separar letras para pintarlas de diferentes colores*/
+    this.title = this.galaxiasDatos[this.galaxiaSelected].name.split(' ');
   }
 
   /**Este metodo te lleva al componente sistema-solar*/
@@ -111,7 +114,7 @@ export class GalaxiasComponent implements OnInit {
           },
           {
             image: this.galaxiasDatos[this.galaxiaSelected].image,
-            width: 500,
+            width: 300,
           },
           {
             text: 'Plandi - Plataformas Educativas ©',
@@ -163,5 +166,4 @@ export class GalaxiasComponent implements OnInit {
   ocultarTelescopio() {
     this.abrirTelescopio = false;
   }
-  ///////////////////////////////////////
 }
