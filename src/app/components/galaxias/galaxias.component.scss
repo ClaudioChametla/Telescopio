@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
 }
+
 /** >>>>> Componentes <<<<< */
 .navbar {
   width: 100%;
@@ -43,6 +44,7 @@
   width: 100%;
   margin-top: 1%;
 }
+
 /** >>>Buttons<<< */
 .btn {
   width: 2.1vw;
@@ -64,12 +66,13 @@
   margin-left: 20px;
   transform: rotate(180deg);
 }
+/** Exclusive */
 .btn-r:hover {
   transform: rotate(180deg) scale(1.2);
 }
-
 .btn-ot {
   background-color: #8dae15;
+  background-image: url(../../../assets/images/abrir-telescopio.png);
 }
 .btn-imprimir {
   border-radius: 50px;
