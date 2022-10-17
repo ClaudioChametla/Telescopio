@@ -16,9 +16,15 @@
       src="{{ galaxiasDatos[galaxiaSelected].image }}"
       alt="{{ galaxiasDatos[galaxiaSelected].name }}"
     />
-    <button class="btn-ot" type="button" (click)="mostrarTelescopio()">
+    <!-- <button class="btn-ot" type="button" (click)="mostrarTelescopio()">
       Abrir telescopio
-    </button>
+    </button> -->
+    <img
+      class="btn-ot"
+      src="../../../assets/images/abrir-telescopio.png"
+      alt=""
+      (click)="mostrarTelescopio()"
+    />
   </div>
 
   <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->

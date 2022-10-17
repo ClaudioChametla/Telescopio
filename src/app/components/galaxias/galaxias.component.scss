@@ -71,8 +71,13 @@
   transform: rotate(180deg) scale(1.2);
 }
 .btn-ot {
-  background-color: #8dae15;
-  background-image: url(../../../assets/images/abrir-telescopio.png);
+  width: 15vw;
+  /* background-color: #8dae15;
+  background-image: url(../../../assets/images/abrir-telescopio.png); */
+}
+.btn-ot:hover {
+  transform: scale(1.5);
+  cursor: pointer;
 }
 .btn-imprimir {
   border-radius: 50px;
