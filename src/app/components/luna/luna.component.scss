@@ -24,6 +24,52 @@
 /**>>>>>> botones <<<<<<*/
 .btn-salir {
   align-self: flex-start;
+  width: 2.1vw;
+  height: 2.1vw;
+  padding: 15px;
+  border: #9b62f3 solid 1px;
+  border-radius: 50px;
+  background-color: #9c62f370;
+  background-image: url(../../../assets/Planetas/flecha.png);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: center;
+}
+.btn-salir:hover {
+  transform: scale(1.1);
+}
+.btn-inicio {
+  width: 15vw;
+  font-size: 2vw;
+  font-family: "GoldplaySemiBold";
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #ca2eb3;
+}
+
+/**Fonts*/
+.text-bienvenida {
+  font-family: "GoldplayBold" !important;
+  color: #2ad3ce;
+  font-size: 4vw;
+  margin-bottom: 0px;
+}
+.text-parrafo {
+  font-family: "GoldplaySemiBold";
+  font-size: 1.5vw;
+  text-align: center;
+  width: 55%;
+}
+.text-pregunta {
+  font-family: "GoldplaySemiBold";
+  font-size: 2vw;
+  color: #28bdf8;
+  margin-bottom: 0px;
+}
+.text-invitacion {
+  font-family: "GoldplayMedium";
+  font-size: 1.5vw;
 }
 /* .preguntas-container {
   display: flex;
@@ -42,3 +88,24 @@
   opacity: 0;
 }
  */
+
+/** >>>>>>> Responsive Design <<<<<<<*/
+@media screen and (max-width: 768px) {
+  /**Fonts*/
+  .text-bienvenida {
+    font-size: 6vw;
+  }
+  .text-parrafo {
+    font-size: 3vw;
+  }
+  .text-pregunta {
+    font-size: 4vw;
+  }
+  .text-invitacion {
+    font-size: 3vw;
+  }
+  .btn-inicio {
+    width: 30vw;
+    font-size: 4vw;
+  }
+}

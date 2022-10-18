@@ -1,15 +1,15 @@
 <div class="luna" *ngIf="!hiddenGame">
   <!-- Bienvenida -->
   <div class="bienvenida" *ngIf="cuestionario === false">
-    <button class="btn-salir" (click)="irSistema()">Ir al sistema solar</button>
-    <h1>¡Bienvenido a la Luna!</h1>
-    <p>
+    <button class="btn-salir" (click)="irSistema()"></button>
+    <h1 class="text-bienvenida">¡Bienvenido a la Luna!</h1>
+    <p class="text-parrafo">
       La Luna es el único satélite natural de la Tierra. Se encuentra en
       relación síncrona con la Tierra, siempre mostrando la misma cara hacia el
       planeta.
     </p>
-    <p>¿Te gustaría reforzar tus conocimientos?</p>
-    <p>Contesta correctamente el siguiente Quizz.</p>
+    <p class="text-pregunta">¿Te gustaría reforzar tus conocimientos?</p>
+    <p class="text-invitacion">Contesta correctamente el siguiente Quizz.</p>
     <button class="btn-inicio" (click)="mostrarCuestionario()">
       Iniciar Quizz
     </button>
