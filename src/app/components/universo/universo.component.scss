@@ -7,6 +7,32 @@
   background-repeat: no-repeat;
   background-size: cover;
   user-select: none;
+  overflow-y: auto;
+}
+/** >>>>>> Scrollbar <<<<<< */
+.universo::-webkit-scrollbar {
+  width: 13px;
+  height: 10px;
+}
+.universo::-webkit-scrollbar-track-piece {
+  border-radius: 2px;
+  background-clip: content-box;
+  border-radius: 6px;
+  border: solid 4px transparent;
+}
+.universo::-webkit-scrollbar-track-piece:decrement {
+  background-clip: content-box;
+  border: solid 4px transparent;
+}
+.universo::-webkit-scrollbar-thumb {
+  background-color: #9c62f3e1;
+  width: 4px;
+  border-radius: 6px;
+}
+.universo::-webkit-scrollbar-track {
+  /*background: #EFF7F8;*/
+  background: #ffffff5e;
+  border-radius: 50px;
 }
 
 h1 {
@@ -180,6 +206,7 @@ label {
   .universo {
     overflow-y: scroll;
   }
+  /** >>>>>> Scrollbar <<<<<< */
   .universo::-webkit-scrollbar {
     width: 13px;
     height: 10px;

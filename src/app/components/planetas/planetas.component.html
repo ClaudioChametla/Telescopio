@@ -1,90 +1,103 @@
-<div class="planeta">
-  <!-- Contiene la informacion de cada planeta -->
-  <div class="planeta-information" *ngIf="abrirTelescopio === false">
-    <p>Nombre: {{ planeta[planetaSelected].name }}</p>
-    <p>Velocidad: {{ planeta[planetaSelected].velocity }}</p>
-    <p>Distancia: {{ planeta[planetaSelected].distance }}</p>
-    <p>Descripción: {{ planeta[planetaSelected].description }}</p>
-  </div>
-
-  <!-- Mostrar si la tierra esta seleccionada -->
-  <img
-    *ngIf="planetaSelected === 2"
-    class="imagen imagen-luna"
-    src="https://bioagus.files.wordpress.com/2021/07/luna.png"
-    height="50px"
-    width="50px"
-    alt="{{ planeta[planetaSelected].name }}"
-    (click)="irLuna()"
-  />
-
-  <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
-  <!--Telescopio Oculto imagen del planeta y boton para abrir telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio === false">
-    <div class="menu">
-      <img
-        class="imagen"
-        src="{{ planeta[planetaSelected].image }}"
-        height="250px"
-        width="250px"
-        alt="{{ planeta[planetaSelected].name }}"
-      />
+<div class="planeta" *ngIf="!abrirTelescopio">
+  <!--Telescopio Oculto imagen de la galaxia y boton para abrir telescopio-->
+  <div class="telescopio">
+    <div class="navbar">
+      <!-- botones de ir a galaxia o a sistema solar -->
+      <button class="btn" type="button" (click)="irSistema()"></button>
       <button
-        class="btn btn-outline-success"
+        class="btn btn-r"
         type="button"
-        (click)="mostrarTelescopio()"
-      >
-        Abrir telescopio
-      </button>
+        *ngIf="galaxiaSelected == 0"
+        (click)="irSistema()"
+      ></button>
     </div>
+
+    <!-- Mostrar si la tierra esta seleccionada -->
+    <img
+      *ngIf="planetaSelected === 2"
+      class="imagen moon"
+      src="https://bioagus.files.wordpress.com/2021/07/luna.png"
+      height="50px"
+      width="50px"
+      alt="{{ planeta[planetaSelected].name }}"
+      (click)="irLuna()"
+    />
+
+    <img
+      class="image"
+      src="{{ planeta[planetaSelected].image }}"
+      alt="{{ planeta[planetaSelected].name }}"
+    />
+    <!-- <button class="btn-ot" type="button" (click)="mostrarTelescopio()">
+      Abrir telescopio
+    </button> -->
+    <img
+      class="btn-ot"
+      src="../../../assets/images/abrir-telescopio.png"
+      alt=""
+      (click)="mostrarTelescopio()"
+    />
   </div>
 
-  <!--Mostrando Telescopio-->
-  <!--Mostrando Telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio === true">
-    <!-- Telescopio hereda la informacion -->
-    <app-telescopio [datos]="informacion"></app-telescopio>
-    <button
-      class="btn btn-outline-danger"
-      type="button"
-      (click)="ocultarTelescopio()"
-    >
-      Cerrar telescopio
-    </button>
-  </div>
-  <!--Mostrando Telescopio-->
-  <!--Mostrando Telescopio-->
-
-  <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
   <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
-  <div class="planeta-form" *ngIf="abrirTelescopio === false">
-    <form>
+  <div class="form">
+    <!-- contiene la informacion de cada galaxia -->
+    <div class="titles">
+      <!-- <h1 class="gpPlayBold title title-purple">{{ title[0] }}</h1> -->
+      <h1 class="gpPlayBold title">{{ planeta[planetaSelected].name }}</h1>
+      <!-- <h1 class="gpPlayBold title">{{ title[2] }}</h1> -->
+    </div>
+
+    <section class="information">
+      <span
+        ><p class="semiBold">Velocidad:</p>
+        <p>{{ planeta[planetaSelected].velocity }}</p></span
+      >
+      <span
+        ><p class="semiBold">Distancia:</p>
+        <p>{{ planeta[planetaSelected].distance }}</p></span
+      >
+
+      <p class="semiBold info-desc">Descripción:</p>
+      <!-- Adding a newline in JSON object -->
+      <!-- Make use of angular innerHtml binding. Replace \n with br -->
+      <div style="width: 100%">
+        <p class="desc">{{ planeta[planetaSelected].description }}</p>
+      </div>
+    </section>
+
+    <div class="writer">
       <!-- creacion del PDF -->
-      <div class="mb-3 mt-3">
-        <label for="exampleFormControlTextarea1" class="form-label"
-          >Escribe aquí</label
-        >
+      <form>
         <textarea
           class="form-control"
-          id="exampleFormControlTextarea1"
+          id="resumen"
           rows="3"
           name="Resumen"
+          placeholder="Escribe aquí"
           [(ngModel)]="pdfText"
-        ></textarea>
-      </div>
-      <button
-        class="btn btn-outline-danger"
-        type="button"
-        (click)="createPDF()"
-      >
-        Imrpimir PDF
-      </button>
-    </form>
-
-    <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
-      <button class="btn btn-outline-light" type="button" (click)="irSistema()">
-        Zoom -
-      </button>
+        >
+        </textarea>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn-imprimir" type="button" (click)="createPDF()">
+            Imprimir
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+
+<!--Mostrando Telescopio-->
+<div class="telescopio" *ngIf="abrirTelescopio">
+  <!-- Telescopio hereda la informacion -->
+  <app-telescopio [datos]="informacion"></app-telescopio>
+  <button
+    class="btn btn-outline-danger"
+    type="button"
+    (click)="ocultarTelescopio()"
+  >
+    Cerrar telescopio
+  </button>
+</div>
+<!--Mostrando Telescopio-->
