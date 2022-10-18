@@ -1,5 +1,5 @@
-<div class="luna" *ngIf="!hiddenGame">
-  <!-- Bienvenida -->
+<!-- Bienvenida -->
+<div class="luna" *ngIf="!hiddenGame && !cuestionario">
   <div class="bienvenida" *ngIf="cuestionario === false">
     <button class="btn-salir" (click)="irSistema()"></button>
     <h1 class="text-bienvenida">¡Bienvenido a la Luna!</h1>
@@ -14,35 +14,57 @@
       Iniciar Quizz
     </button>
   </div>
-  <!-- cuestionario -->
-  <div class="preguntas" *ngIf="cuestionario === true">
-    <!-- Cuestionario con preguntas aleatorias -->
-    <p>{{ lunaDatos[random][selector].pregunta }}</p>
-    <button
-      class="btn-opcion"
-      (click)="seleccionarOpcion(lunaDatos[random][selector].opciones[0].value)"
-    >
-      {{ lunaDatos[random][selector].opciones[0].opcion }}
-    </button>
-    <button
-      class="btn-opcion"
-      (click)="seleccionarOpcion(lunaDatos[random][selector].opciones[1].value)"
-    >
-      {{ lunaDatos[random][selector].opciones[1].opcion }}
-    </button>
-    <button
-      class="btn-opcion"
-      (click)="seleccionarOpcion(lunaDatos[random][selector].opciones[2].value)"
-    >
-      {{ lunaDatos[random][selector].opciones[2].opcion }}
-    </button>
-    <button class="btn-siguiente" (click)="siguientePregunta()">
-      Siguiente
-    </button>
-  </div>
+</div>
+<!-- cuestionario -->
+<div class="quizz-container" *ngIf="cuestionario">
+  <header>
+    <button class="btn-salir"></button>
+  </header>
+  <body>
+    <div class="preguntas-container">
+      <div class="preguntas">
+        <!-- Cuestionario con preguntas aleatorias -->
+        <div id="preguntas-title">
+          <h1 class="pregunta-title">Quizz Espacial</h1>
+          <p class="pregunta-response">
+            {{ lunaDatos[random][selector].pregunta }}
+          </p>
+        </div>
+
+        <button
+          class="btn-opcion"
+          (click)="
+            seleccionarOpcion(lunaDatos[random][selector].opciones[0].value)
+          "
+        >
+          {{ lunaDatos[random][selector].opciones[0].opcion }}
+        </button>
+        <button
+          class="btn-opcion"
+          (click)="
+            seleccionarOpcion(lunaDatos[random][selector].opciones[1].value)
+          "
+        >
+          {{ lunaDatos[random][selector].opciones[1].opcion }}
+        </button>
+        <button
+          class="btn-opcion"
+          (click)="
+            seleccionarOpcion(lunaDatos[random][selector].opciones[2].value)
+          "
+        >
+          {{ lunaDatos[random][selector].opciones[2].opcion }}
+        </button>
+        <button class="btn-siguiente" (click)="siguientePregunta()">
+          Siguiente
+        </button>
+      </div>
+      <div class="preguntas-imagen"></div>
+    </div>
+  </body>
 </div>
 <!-- hiddenGame -->
-<div class="luna" *ngIf="hiddenGame">
+<div class="dibujo" *ngIf="hiddenGame">
   <!-- Pizarra para realizar un dibujo oculta -->
   <app-dibujo></app-dibujo>
   <button class="btn-salir" (click)="salir()">Salir</button>
