@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: row;
 }
-
 /** >>>>> Componentes <<<<< */
 .navbar {
   width: 100%;
@@ -76,7 +75,7 @@
   background-image: url(../../../assets/images/abrir-telescopio.png); */
 }
 .btn-ot:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
   cursor: pointer;
 }
 .btn-imprimir {
