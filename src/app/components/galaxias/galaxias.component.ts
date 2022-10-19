@@ -21,7 +21,7 @@ export class GalaxiasComponent implements OnInit {
   pdfText: string = '';
   //estilo de textbox
   textBoxStyle: Boolean = false;
-  //Telescopio
+  //Informacion para Telescopio
   informacion = [];
   //Varibles Telescopio
   abrirTelescopio = false;
@@ -35,7 +35,8 @@ export class GalaxiasComponent implements OnInit {
     /**Inserta en un arreglo los datos que seran usados por el componente telescopio*/
     this.informacion.push(
       this.galaxiasDatos[this.galaxiaSelected].image,
-      this.galaxiasDatos[this.galaxiaSelected].name
+      this.galaxiasDatos[this.galaxiaSelected].name,
+      this.galaxiasDatos[this.galaxiaSelected].desc
     );
     /**Separar letras para pintarlas de diferentes colores*/
     this.title = this.galaxiasDatos[this.galaxiaSelected].name.split(' ');

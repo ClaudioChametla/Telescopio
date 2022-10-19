@@ -89,9 +89,8 @@
 </div>
 
 <!--Mostrando Telescopio-->
-<div class="telescopio" *ngIf="abrirTelescopio">
-  <!-- Telescopio hereda la informacion -->
-  <app-telescopio [datos]="informacion"></app-telescopio>
+<div class="telescopio-container" *ngIf="abrirTelescopio">
   <button class="btn" type="button" (click)="ocultarTelescopio()"></button>
+  <app-telescopio [datos]="informacion"></app-telescopio>
 </div>
 <!--Mostrando Telescopio-->
