@@ -1,20 +1,10 @@
-.telescopio-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-p {
-  font-family: Lato;
-}
-* {
-  box-sizing: border-box;
-}
-
 .img-magnifier-container {
   position: relative;
 }
-
+#myimage {
+  width: 500px;
+  height: 500px;
+}
 ::ng-deep .img-magnifier-glass {
   position: absolute;
   border: 3px solid #000;
@@ -23,4 +13,12 @@ p {
   /*Set the size of the magnifier glass:*/
   width: 300px;
   height: 300px;
+}
+.telescopio-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: green;
 }
