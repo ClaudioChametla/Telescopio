@@ -41,8 +41,11 @@ export class TelescopioComponent implements OnInit {
     /*set background properties for the magnifier glass:*/
     glass.style.backgroundImage = "url('" + this.datos[0] + "')";
     glass.style.backgroundRepeat = 'no-repeat';
+    /**Cuando inicia el componente tomar el mismo tamaño del ancho
+     * de la imagen
+     */
     glass.style.backgroundSize =
-      img.width * zoom + 'px ' + img.height * zoom + 'px';
+      img.width * zoom + 'px ' + img.width * zoom + 'px';
     bw = 3;
     w = glass.offsetWidth / 2;
     h = glass.offsetHeight / 2;
