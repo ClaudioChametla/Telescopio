@@ -1,20 +1,9 @@
-.telescopio-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-p {
-  font-family: Lato;
-}
-* {
-  box-sizing: border-box;
-}
-
 .img-magnifier-container {
   position: relative;
 }
-
+#myimage {
+  width: 30vw;
+}
 ::ng-deep .img-magnifier-glass {
   position: absolute;
   border: 3px solid #000;
@@ -23,4 +12,120 @@ p {
   /*Set the size of the magnifier glass:*/
   width: 300px;
   height: 300px;
+}
+.telescopio-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/** >>>>>> Scrollbar <<<<<< */
+.telescopio-container::-webkit-scrollbar {
+  width: 13px;
+  height: 10px;
+}
+.telescopio-container::-webkit-scrollbar-track-piece {
+  border-radius: 2px;
+  background-clip: content-box;
+  border-radius: 6px;
+  border: solid 4px transparent;
+}
+.telescopio-container::-webkit-scrollbar-track-piece:decrement {
+  background-clip: content-box;
+  border: solid 4px transparent;
+}
+.telescopio-container::-webkit-scrollbar-thumb {
+  background-color: #9c62f3e1;
+  width: 4px;
+  border-radius: 6px;
+}
+.telescopio-container::-webkit-scrollbar-track {
+  /*background: #EFF7F8;*/
+  background: #ffffff5e;
+  border-radius: 50px;
+}
+
+.telescopio {
+  width: 50vw;
+  display: flex;
+  flex-direction: inherit;
+  justify-content: center;
+}
+.menu {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-family: "GoldplayBold";
+  font-size: 3vw;
+  margin-left: 15%;
+}
+.descripcion {
+  width: 50%;
+  font-family: "GoldplayMedium";
+  text-align: left;
+}
+/**Buttons*/
+.btn-container {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 50% 50%;
+  grid-gap: 5px;
+}
+.btn {
+  width: 10vw;
+  margin: 10px;
+  font-size: 1.2vw;
+  font-family: "GoldplaySemiBold";
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.left {
+  background-color: #5a65fc;
+}
+.right {
+  background-color: #28bdf8;
+}
+
+/** >>>>>> Responsive Design <<<<<<*/
+@media screen and (max-width: 768px) {
+  .telescopio-container {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .telescopio {
+    width: 100%;
+    margin-top: 25%;
+    align-items: center;
+  }
+  h1 {
+    margin-top: 15%;
+    font-size: 8vw;
+  }
+  .descripcion {
+    width: 80%;
+    text-align: center;
+  }
+  .menu {
+    width: 100%;
+    margin-top: 25%;
+  }
+  .btn {
+    width: 20vw;
+    font-size: 3.2vw;
+  }
 }

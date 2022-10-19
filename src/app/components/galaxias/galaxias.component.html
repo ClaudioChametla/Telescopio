@@ -79,11 +79,9 @@
 </div>
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
 <!--Mostrando Telescopio-->
-<div class="telescopio" *ngIf="abrirTelescopio">
+<div class="telescopio-container" *ngIf="abrirTelescopio">
+  <button class="btn" type="button" (click)="ocultarTelescopio()"></button>
   <app-telescopio [datos]="informacion"></app-telescopio>
-  <button class="" type="button" (click)="ocultarTelescopio()">
-    Cerrar telescopio
-  </button>
 </div>
 <!--Mostrando Telescopio-->
 <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
