@@ -1,23 +1,167 @@
+/**-----------------Luna viewport-----------------------*/
 .luna {
   height: 100vh;
   flex-direction: column;
   display: flex;
+  align-items: center;
+  background-image: url(../../../assets/Luna/luna-fondo.png);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+/**>>>>>> components <<<<<<*/
+.bienvenida {
+  height: 100%;
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../../../assets/Luna/luna-giant.png);
+  background-size: 85%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+/**>>>>>> botones <<<<<<*/
+.btn-salir {
+  align-self: flex-start;
+  width: 2.1vw;
+  height: 2.1vw;
+  padding: 15px;
+  border: #9b62f3 solid 1px;
+  border-radius: 50px;
+  background-color: #9c62f370;
+  background-image: url(../../../assets/Planetas/flecha.png);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: center;
+}
+.btn-salir:hover {
+  transform: scale(1.1);
+}
+.btn-inicio {
+  width: 15vw;
+  font-size: 2vw;
+  font-family: "GoldplaySemiBold";
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #ca2eb3;
+}
+.btn-inicio:hover {
+  transform: scale(1.1);
+}
+
+/**Fonts*/
+.text-bienvenida {
+  font-family: "GoldplayBold" !important;
+  color: #2ad3ce;
+  font-size: 4vw;
+  margin-bottom: 0px;
+}
+.text-parrafo {
+  font-family: "GoldplaySemiBold";
+  font-size: 1.5vw;
+  text-align: center;
+  width: 55%;
+}
+.text-pregunta {
+  font-family: "GoldplaySemiBold";
+  font-size: 2vw;
+  color: #28bdf8;
+  margin-bottom: 0px;
+}
+.text-invitacion {
+  font-family: "GoldplayMedium";
+  font-size: 1.5vw;
+}
+/**-----------------Quizz viewport-----------------------*/
+.quizz-container {
+  height: 100vh;
+  padding: 50px;
+  background-image: linear-gradient(
+    to right bottom,
+    #341739ff,
+    #311b3fff,
+    #2c1e45e6,
+    #25224bd9,
+    #1c2650e6,
+    #1a2755cc,
+    #182959cc,
+    #142a5ee6,
+    #222963cc,
+    #2f2667cc,
+    #3d236aff,
+    #4b1d6bff
+  );
+}
+head {
+  background: none;
+}
+body {
+  height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
+  background: none;
 }
 .preguntas-container {
   display: flex;
-  flex-direction: column;
-}
-.hidden-game {
-  width: 0;
-  height: 0;
+  flex-direction: row;
+  height: 80%;
+  width: 70%;
+
+  background-color: #ffffff;
   border: none;
-  opacity: 0;
+  border-radius: 25px;
 }
-.show-game {
-  width: 800px;
-  height: 800px;
-  border: solid 1px #fff;
-  opacity: 0;
+.preguntas {
+  width: 70%;
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.preguntas-imagen {
+  width: 30%;
+  background-image: linear-gradient(
+    to left bottom,
+    #270677,
+    #24046c,
+    #210260,
+    #1d0156,
+    #1a004b
+  );
+  border-radius: 0px 20px 20px 0px;
+  -moz-border-radius: 0px 20px 20px 0px;
+  -webkit-border-radius: 0px 20px 20px 0px;
+  border: 0px solid transparent;
+}
+/**>>>>>>>>> Quizz fonts <<<<<<<<<*/
+.pregunta-title {
+  color: #030233;
+}
+.pregunta-response {
+  color: #030233;
+}
+/** >>>>>>> Responsive Design <<<<<<<*/
+@media screen and (max-width: 768px) {
+  /**Fonts*/
+  .text-bienvenida {
+    font-size: 6vw;
+  }
+  .text-parrafo {
+    font-size: 3vw;
+  }
+  .text-pregunta {
+    font-size: 4vw;
+  }
+  .text-invitacion {
+    font-size: 3vw;
+  }
+  .btn-inicio {
+    width: 30vw;
+    font-size: 4vw;
+  }
 }
