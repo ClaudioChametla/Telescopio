@@ -18,7 +18,7 @@
 <!-- cuestionario -->
 <div class="quizz-container" *ngIf="cuestionario">
   <header>
-    <button class="btn-salir"></button>
+    <button class="btn-salir" (click)="salirCuestionario()"></button>
   </header>
   <body>
     <div class="preguntas-container">
@@ -55,11 +55,15 @@
         >
           {{ lunaDatos[random][selector].opciones[2].opcion }}
         </button>
-        <button class="btn-siguiente" (click)="siguientePregunta()">
-          Siguiente
-        </button>
+        <button class="btn-opcion">Siguiente</button>
       </div>
-      <div class="preguntas-imagen"></div>
+      <div class="preguntas-imagen">
+        <img
+          class="planetas-quizz"
+          src="../../../assets/Luna/planetas-quizz.png"
+          alt="Imagenes de planetas"
+        />
+      </div>
     </div>
   </body>
 </div>

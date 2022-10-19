@@ -34,11 +34,6 @@ export class LunaComponent implements OnInit {
 
   ngOnInit(): void {
     this.lunaDatos = luna;
-    /**Selecciona un numero aleatorio entre 1 y 4
-    Para seleccionar el cuestionario
-    */
-    this.random = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
-    /* console.log(this.puntaje); */
   }
 
   /** Oculta la pizarra*/
@@ -49,6 +44,11 @@ export class LunaComponent implements OnInit {
 
   /** Muestra el cuestionario */
   mostrarCuestionario() {
+    /**Selecciona un numero aleatorio entre 1 y 4
+    Para seleccionar el cuestionario
+    */
+    this.random = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+    /* console.log(this.puntaje); */
     this.cuestionario = true;
     this.puntaje = 0;
     this.selector = 0;
@@ -61,13 +61,21 @@ export class LunaComponent implements OnInit {
     if (e == 1) {
       this.conteoPuntaje = 1;
       this.seguir = true;
+      setTimeout(() => {
+        this.siguientePregunta();
+      }, 100);
     } else {
       this.conteoPuntaje = 0;
       this.seguir = true;
+      setTimeout(() => {
+        this.siguientePregunta();
+      }, 100);
     }
   }
 
-  //Envia hacía la siguiente pregunta
+  /** Este metodo contea el número de respuestas
+   * y suma el puntaje del usuario
+   */
   siguientePregunta() {
     //Evalua si no es la ultima pregunta, son 10 preguntas en total
     if (this.seguir === true) {
@@ -85,6 +93,7 @@ export class LunaComponent implements OnInit {
           icon: 'info',
           showDenyButton: true,
           showCancelButton: false,
+          allowOutsideClick: false,
           confirmButtonText: 'Imprimir Resultado',
           denyButtonText: `Salir`,
         }).then((result) => {
@@ -107,14 +116,15 @@ export class LunaComponent implements OnInit {
     }
   }
 
-  //Este metodo lleva al componente sistema-solar
+  /**Este metodo lleva al componente sistema-solar*/
   irSistema() {
     this.router.navigate(['/sistema-solar']);
   }
 
-  //Este metodo te muestra la pantalla de bienvenida del formulario
+  /**Este metodo te muestra la pantalla de bienvenida del formulario*/
   salirCuestionario() {
     this.cuestionario = false;
+    this.puntaje = 0;
   }
 
   /**
