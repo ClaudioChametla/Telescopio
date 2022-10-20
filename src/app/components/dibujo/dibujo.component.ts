@@ -38,18 +38,29 @@ export class DibujoComponent implements OnInit, AfterViewInit {
       this.write(e);
     }
   };
-
   //Detecta el click sobre el canvas y habilita si se dibuja o no
   @HostListener('mousedown', ['$event'])
   onClick = (e: any) => {
     this.points = [];
     this.isAvaible = true;
   };
+  //Soltar click
   @HostListener('mouseup', ['$event'])
   outClick = (e: any) => {
     this.points = [];
     this.isAvaible = false;
   };
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event: any) {
+    //debounce resize, wait for resize to finish before doing stuff
+    console.log(event.target.innerWidth);
+  }
+  @HostListener('window:load', ['$event'])
+  onWindowLoad(event: any) {
+    //debounce resize, wait for resize to finish before doing stuff
+    console.log(event.currentTarget.innerWidth);
+  }
 
   constructor() {}
 
