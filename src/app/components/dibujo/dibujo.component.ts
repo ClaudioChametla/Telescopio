@@ -18,14 +18,15 @@ export class DibujoComponent implements OnInit, AfterViewInit {
   canvasCopy: any;
   //Variable para color
   color: string = '#FFFFFF';
+  grosor: number = 5;
 
   //Obtiene el elemento canvas
   //El elemento no es estatico
   //Asignamos la variable canvasRef de tipo 'any'
   @ViewChild('canvasRef', { static: false }) canvasRef: any;
   isAvaible: Boolean;
-  public width: number = 700;
-  public height: number = 700;
+  public width: number = 500;
+  public height: number = 500;
   private points: Array<any> = [];
   cx: CanvasRenderingContext2D;
 
@@ -38,12 +39,15 @@ export class DibujoComponent implements OnInit, AfterViewInit {
   };
 
   //Detecta el click sobre el canvas y habilita si se dibuja o no
-  @HostListener('click', ['$event'])
+  @HostListener('mousedown', ['$event'])
   onClick = (e: any) => {
     this.points = [];
-    if (e.target.id === 'canvasId') {
-      this.isAvaible = !this.isAvaible;
-    }
+    this.isAvaible = true;
+  };
+  @HostListener('mouseup', ['$event'])
+  outClick = (e: any) => {
+    this.points = [];
+    this.isAvaible = false;
   };
 
   constructor() {}
@@ -62,14 +66,17 @@ export class DibujoComponent implements OnInit, AfterViewInit {
   render() {
     const canvasEl = this.canvasRef.nativeElement;
     this.cx = canvasEl.getContext('2d');
+    this.cx.fillStyle = '#09112B';
+    this.cx.fillRect(0, 0, this.width, this.height);
     this.cx.lineWidth = 5;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = this.color;
   }
 
-  //Limpia lo que esta en el canvas
+  //Limpia lo que esta en el canvas y vuelve a poner el fondo
   limpiarCanvas() {
     this.cx.clearRect(0, 0, this.width, this.height);
+    this.cx.fillRect(0, 0, this.width, this.height);
   }
 
   //Descarga lo que esta dibujado en el canvas
@@ -80,7 +87,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     const canvasEl = this.canvasRef.nativeElement;
     this.image.src = canvasEl.toDataURL('img/png');
     dibujo!.href = this.image.src;
-    dibujo!.download = 'ElLadoOscuroDeLaLuna.png';
+    dibujo!.download = 'Mi dibujo en la luna.png';
     console.log(this.image);
   }
 
@@ -123,15 +130,14 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     }
   }
 
-  //Obtiene el color seleccionado del input y cambia el color del pincel del canvas
-  colorSelected() {
+  //Obtiene el color seleccionado del input y cambia el color del pincel del canvas y Grosor de pincel
+  configSelected() {
     let color: any = document.getElementById('selectorColor');
     this.color = color.value;
     console.log(this.color);
-
     const canvasEl = this.canvasRef.nativeElement;
     this.cx = canvasEl.getContext('2d');
-    this.cx.lineWidth = 5;
+    this.cx.lineWidth = this.grosor;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = this.color;
   }

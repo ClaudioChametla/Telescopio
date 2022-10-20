@@ -55,7 +55,14 @@
         >
           {{ lunaDatos[random][selector].opciones[2].opcion }}
         </button>
-        <button class="btn-opcion">Siguiente</button>
+        <button
+          class="btn-opcion"
+          (click)="
+            seleccionarOpcion(lunaDatos[random][selector].opciones[3].value)
+          "
+        >
+          {{ lunaDatos[random][selector].opciones[3].opcion }}
+        </button>
       </div>
       <div class="preguntas-imagen">
         <img
@@ -69,7 +76,7 @@
 </div>
 <!-- hiddenGame -->
 <div class="dibujo" *ngIf="hiddenGame">
+  <button class="btn-salir" (click)="salir()"></button>
   <!-- Pizarra para realizar un dibujo oculta -->
   <app-dibujo></app-dibujo>
-  <button class="btn-salir" (click)="salir()">Salir</button>
 </div>

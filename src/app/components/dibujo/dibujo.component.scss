@@ -1,10 +1,66 @@
-.clickOn {
-  width: 30px;
-  height: 30px;
-  background-color: green;
+.dibujo-container {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.clickOut {
-  width: 30px;
-  height: 30px;
-  background-color: red;
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.controles {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 5;
+}
+#canvasId {
+  border: solid 1px #fff;
+  background-color: #09112b;
+  border-radius: 25px;
+}
+
+/** >>>>> Botones <<<<<*/
+.btn {
+  width: 10vw;
+  margin: 10px;
+  font-size: 1.2vw;
+  font-family: "GoldplaySemiBold";
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.left {
+  background-color: #28bdf8;
+}
+.right {
+  background-color: #ca2eb3;
+}
+
+/** >>>>> Fonts <<<<<*/
+h1 {
+  font-family: "GoldplayBold";
+  font-size: 3.8vw;
+  color: #5a65fc;
+}
+.subtitulo {
+  text-align: center;
+  font-family: "GoldplaySemiBold";
+  font-size: 1.5vw;
+  color: #030233;
+  margin: 0px;
+}
+.descripcion {
+  width: 55%;
+  margin: 0px;
+  font-family: "GoldplayMedium";
+  font-size: 1.2vw;
+  text-align: center;
+  color: #585e99;
 }

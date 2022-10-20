@@ -30,7 +30,7 @@
   transform: translateX(-100px);
 }
 .moon:hover {
-  transform: scale(1.1) translate(-100px, 10px);
+  /* transform: scale(1.1) translate(-100px, 10px); */
   cursor: pointer;
 }
 /** Exclusive */
@@ -104,6 +104,9 @@
   text-align: center;
   margin: 15px;
   transform: translateY(-167%);
+}
+.btn-imprimir:hover {
+  transform: translateY(-167%) scale(1.1);
 }
 /** >>>Fonts<<< */
 .titles {
@@ -242,6 +245,9 @@ p {
     width: 50vw;
     font-size: 3.5vw;
     transform: translateY(0%);
+  }
+  .btn-imprimir:hover {
+    transform: translateY(0%) scale(1.1);
   }
   .btn-ot {
     width: 23vw;
