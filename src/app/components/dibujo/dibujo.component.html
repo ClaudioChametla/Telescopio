@@ -8,20 +8,49 @@
     </p>
     <div class="controles">
       <!-- Cambia el color del lapiz -->
-      <input
-        id="selectorColor"
-        type="color"
-        value="#FFFFFF"
-        (change)="configSelected()"
-      />
-      <input
-        id="selectorGrosor"
-        type="number"
-        value="3"
-        name="grosor"
-        [(ngModel)]="grosor"
-        (change)="configSelected()"
-      />
+      <div class="colores">
+        >
+        <!-- Tamaño en  -->
+        <button>6</button
+        ><!-- Tamaño en  -->
+        <button>5</button
+        ><!-- Tamaño en  -->
+        <button>4</button
+        ><!-- Tamaño en  -->
+        <button>3</button
+        ><!-- Tamaño en  -->
+        <button>2</button
+        ><!-- Tamaño en  -->
+        <button>1</button
+        ><!-- Tamaño en  -->
+        <input
+          id="selectorColor"
+          type="color"
+          value="#FFFFFF"
+          (change)="configSelected()"
+        />
+      </div>
+
+      <!-- Cambia el grosor del lapiz -->
+      <div class="tamanos">
+        <button>4</button
+        ><!-- Tamaño en  -->
+        <button>3</button
+        ><!-- Tamaño en  -->
+        <button>2</button
+        ><!-- Tamaño en  -->
+        <button>1</button
+        ><!-- Tamaño en  -->
+        <!-- <input
+          id="selectorGrosor"
+          type="number"
+          value="3"
+          name="grosor"
+          [(ngModel)]="grosor"
+          (change)="configSelected()"
+        /> -->
+      </div>
+
       <!-- Boton que limpia el contenido del canvas -->
       <button class="btn left" (click)="limpiarCanvas()">Borrar</button>
       <!-- Boton para descargar la imagen dibujada -->

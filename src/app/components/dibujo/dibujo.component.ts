@@ -5,6 +5,7 @@ import {
   ViewChild,
   HostListener,
 } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dibujo',
@@ -25,8 +26,8 @@ export class DibujoComponent implements OnInit, AfterViewInit {
   //Asignamos la variable canvasRef de tipo 'any'
   @ViewChild('canvasRef', { static: false }) canvasRef: any;
   isAvaible: Boolean;
-  public width: number = 500;
-  public height: number = 500;
+  public width: number = 700;
+  public height: number = 700;
   private points: Array<any> = [];
   cx: CanvasRenderingContext2D;
 
@@ -75,8 +76,21 @@ export class DibujoComponent implements OnInit, AfterViewInit {
 
   //Limpia lo que esta en el canvas y vuelve a poner el fondo
   limpiarCanvas() {
-    this.cx.clearRect(0, 0, this.width, this.height);
-    this.cx.fillRect(0, 0, this.width, this.height);
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.cx.clearRect(0, 0, this.width, this.height);
+        this.cx.fillRect(0, 0, this.width, this.height);
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info');
+      }
+    });
   }
 
   //Descarga lo que esta dibujado en el canvas
@@ -141,4 +155,13 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = this.color;
   }
+
+  /* borrar() {
+    this.color = '#09112B';
+    const canvasEl = this.canvasRef.nativeElement;
+    this.cx = canvasEl.getContext('2d');
+    this.cx.lineWidth = this.grosor;
+    this.cx.lineCap = 'round';
+    this.cx.strokeStyle = this.color;
+  } */
 }
