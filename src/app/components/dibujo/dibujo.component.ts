@@ -51,15 +51,60 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     this.isAvaible = false;
   };
 
+  /**Detecta el cambio tamaño de la pantalla y ajusta el canvas
+   * @param $event
+   */
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any) {
     //debounce resize, wait for resize to finish before doing stuff
     console.log(event.target.innerWidth);
+    let key = event.target.innerWidth;
+    if (key > 1400) {
+      this.width = 700;
+      this.height = 700;
+    } else if (key > 1200) {
+      this.width = 600;
+      this.height = 600;
+    } else if (key > 992) {
+      this.width = 500;
+      this.height = 500;
+    } else if (key > 768) {
+      this.width = 400;
+      this.height = 400;
+    } else if (key > 576) {
+      this.width = 300;
+      this.height = 300;
+    } else {
+      this.width = 200;
+      this.height = 200;
+    }
   }
+  /**Detecta el tamaño de la pantalla y ajusta el canvas
+   * @param $event
+   */
   @HostListener('window:load', ['$event'])
   onWindowLoad(event: any) {
     //debounce resize, wait for resize to finish before doing stuff
-    console.log(event.currentTarget.innerWidth);
+    let key = event.currentTarget.innerWidth;
+    if (key > 1400) {
+      this.width = 700;
+      this.height = 700;
+    } else if (key > 1200) {
+      this.width = 600;
+      this.height = 600;
+    } else if (key > 992) {
+      this.width = 500;
+      this.height = 500;
+    } else if (key > 768) {
+      this.width = 400;
+      this.height = 400;
+    } else if (key > 576) {
+      this.width = 300;
+      this.height = 300;
+    } else {
+      this.width = 200;
+      this.height = 200;
+    }
   }
 
   constructor() {}
@@ -68,13 +113,13 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     console.log(this.color);
   }
   ngAfterViewInit(): void {
-    //Llama al metodo que renderiza el canvas en este ciclo
-    //de vida para que primero cargue la vista y asi
-    //obtener luego el elemento
+    /**Llama al metodo que renderiza el canvas en este
+     * ciclo de vida para que primero cargue la vista
+     * y asi obtener luego el elemento*/
     this.render();
   }
 
-  //Renderiza el canvas
+  /**Renderiza el canvas*/
   render() {
     const canvasEl = this.canvasRef.nativeElement;
     this.cx = canvasEl.getContext('2d');
@@ -85,7 +130,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     this.cx.strokeStyle = this.color;
   }
 
-  //Limpia lo que esta en el canvas y vuelve a poner el fondo
+  /**Limpia lo que esta en el canvas y vuelve a poner el fondo*/
   limpiarCanvas() {
     Swal.fire({
       title: 'Do you want to save the changes?',
@@ -104,7 +149,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     });
   }
 
-  //Descarga lo que esta dibujado en el canvas
+  /**escarga lo que esta dibujado en el canvas*/
   descargar(e: any) {
     e.stopPropagation();
     let dibujo: any = document.getElementById('dibujo');
@@ -120,7 +165,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     /* this.hiddenGame=false; */
   }
 
-  //Calcula las coordenadas del canvas
+  /**Calcula las coordenadas del canvas*/
   private write(res): any {
     const canvasEl: any = this.canvasRef.nativeElement;
     const rect = canvasEl.getBoundingClientRect();
@@ -128,11 +173,11 @@ export class DibujoComponent implements OnInit, AfterViewInit {
       x: res.clientX - rect.left,
       y: res.clientY - rect.top,
     };
-    //Llama al metodo que dibuja en el canvas
+    /**lama al metodo que dibuja en el canvas*/
     this.writeSingle(prevPos);
   }
 
-  //Crea un arreglo donde va ir insertando las coordenadas para general el dibujo
+  /**Crea un arreglo donde va ir insertando las coordenadas para general el dibujo*/
   private writeSingle(prevPos) {
     this.points.push(prevPos);
     if (this.points.length > 3) {
@@ -142,7 +187,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     }
   }
 
-  //Genera las lineas y las dibuja en el canvas de acuerdo a la posicion obtenida
+  /**Genera las lineas y las dibuja en el canvas de acuerdo a la posicion obtenida*/
   private drawOnCanvas(prevPos: any, currentPos: any) {
     if (!this.cx) {
       return;
@@ -155,7 +200,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     }
   }
 
-  //Obtiene el color seleccionado del input y cambia el color del pincel del canvas y Grosor de pincel
+  /**btiene el color seleccionado del input y cambia el color del pincel del canvas y Grosor de pincel*/
   configSelected() {
     let color: any = document.getElementById('selectorColor');
     this.color = color.value;
