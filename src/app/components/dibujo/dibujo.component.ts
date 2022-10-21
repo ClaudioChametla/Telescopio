@@ -197,6 +197,10 @@ export class DibujoComponent implements OnInit, AfterViewInit {
       this.cx.moveTo(prevPos.x, prevPos.y);
       this.cx.lineTo(currentPos.x, currentPos.y);
       this.cx.stroke();
+      this.cx.save();
+      const canvasEl = this.canvasRef.nativeElement;
+      let base64 = canvasEl.toDataURL('image/png', 1);
+      console.log(base64);
     }
   }
 
@@ -206,6 +210,8 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     this.color = color.value;
     console.log(this.color);
     const canvasEl = this.canvasRef.nativeElement;
+    console.log(canvasEl.width);
+
     this.cx = canvasEl.getContext('2d');
     this.cx.lineWidth = this.grosor;
     this.cx.lineCap = 'round';
