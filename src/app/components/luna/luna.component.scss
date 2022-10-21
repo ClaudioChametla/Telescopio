@@ -8,6 +8,7 @@
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
+  user-select: none;
 }
 /**>>>>>> components <<<<<<*/
 .bienvenida {
@@ -67,6 +68,19 @@
   transform: scale(1.1);
 }
 
+.btn-success {
+  background-color: #8cff00;
+}
+.btn-success:hover {
+  background-color: #60af00;
+}
+.btn-fail {
+  background-color: #ff0033;
+}
+.btn-fail:hover {
+  background-color: #d4002a;
+}
+
 /**Fonts*/
 .text-bienvenida {
   font-family: "GoldplayBold" !important;
@@ -95,6 +109,7 @@
 .quizz-container {
   height: 100vh;
   padding: 50px;
+  user-select: none;
   background-image: linear-gradient(
     to right bottom,
     #341739ff,

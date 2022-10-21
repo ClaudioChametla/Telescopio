@@ -32,33 +32,53 @@
         </div>
 
         <button
+          id="A"
           class="btn-opcion"
+          [disabled]="btnAvaible"
           (click)="
-            seleccionarOpcion(lunaDatos[random][selector].opciones[0].value)
+            seleccionarOpcion(
+              lunaDatos[random][selector].opciones[0].value,
+              $event
+            )
           "
         >
           {{ lunaDatos[random][selector].opciones[0].opcion }}
         </button>
         <button
+          id="B"
           class="btn-opcion"
+          [disabled]="btnAvaible"
           (click)="
-            seleccionarOpcion(lunaDatos[random][selector].opciones[1].value)
+            seleccionarOpcion(
+              lunaDatos[random][selector].opciones[1].value,
+              $event
+            )
           "
         >
           {{ lunaDatos[random][selector].opciones[1].opcion }}
         </button>
         <button
+          id="C"
           class="btn-opcion"
+          [disabled]="btnAvaible"
           (click)="
-            seleccionarOpcion(lunaDatos[random][selector].opciones[2].value)
+            seleccionarOpcion(
+              lunaDatos[random][selector].opciones[2].value,
+              $event
+            )
           "
         >
           {{ lunaDatos[random][selector].opciones[2].opcion }}
         </button>
         <button
+          id="D"
           class="btn-opcion"
+          [disabled]="btnAvaible"
           (click)="
-            seleccionarOpcion(lunaDatos[random][selector].opciones[3].value)
+            seleccionarOpcion(
+              lunaDatos[random][selector].opciones[3].value,
+              $event
+            )
           "
         >
           {{ lunaDatos[random][selector].opciones[3].opcion }}

@@ -28,12 +28,14 @@ export class LunaComponent implements OnInit {
   random: number = 0;
 
   //Para mostrar u ocultar la pizarra
-  hiddenGame: Boolean = true;
+  hiddenGame: Boolean = false;
+  btnAvaible: boolean = false;
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.lunaDatos = luna;
+    console.log(this.lunaDatos[6].imagen);
   }
 
   /** Oculta la pizarra*/
@@ -57,19 +59,29 @@ export class LunaComponent implements OnInit {
   /** Elige y obtiene el valor de la opción A
   @param e Recibe por medio de un evento el valor de la pregunta
   */
-  seleccionarOpcion(e: any) {
+  seleccionarOpcion(e: any, id: any) {
+    let opcionId = id.target.id;
+    let retro = document.getElementById(opcionId);
     if (e == 1) {
+      retro.classList.add('btn-success');
       this.conteoPuntaje = 1;
       this.seguir = true;
+      this.btnAvaible = true;
       setTimeout(() => {
+        retro.classList.remove('btn-success');
+        this.btnAvaible = false;
         this.siguientePregunta();
-      }, 100);
+      }, 1000);
     } else {
+      retro.classList.add('btn-fail');
       this.conteoPuntaje = 0;
       this.seguir = true;
+      this.btnAvaible = true;
       setTimeout(() => {
+        retro.classList.remove('btn-fail');
+        this.btnAvaible = false;
         this.siguientePregunta();
-      }, 100);
+      }, 1000);
     }
   }
 
@@ -177,6 +189,13 @@ export class LunaComponent implements OnInit {
 
     //En esta variable se guarda el contenido que imprime el PDF
     const pdf: any = {
+      background: [
+        {
+          image: this.lunaDatos[6].imagen,
+          width: 600,
+          height: 845,
+        },
+      ],
       content: [
         {
           text: 'Hoja de resultados:\n\n',
@@ -227,11 +246,6 @@ export class LunaComponent implements OnInit {
           image: this.lunaDatos[5].imagen,
           width: 460,
         },
-
-        {
-          text: 'Plandi - Plataformas Educativas ©',
-          style: ['quote', 'small'],
-        },
       ],
       styles: {
         header: {
@@ -253,3 +267,7 @@ export class LunaComponent implements OnInit {
     pdfMake.createPdf(pdf).open();
   }
 }
+/* {
+  text: 'Plandi - Plataformas Educativas ©',
+  style: ['quote', 'small'],
+}, */
