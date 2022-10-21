@@ -58,6 +58,9 @@ export class LunaComponent implements OnInit {
 
   /** Elige y obtiene el valor de la opción A
   @param e Recibe por medio de un evento el valor de la pregunta
+  @param i Resibe el evento que despues se usa para extraer el nombre
+  del boton al que se le esta haciendo click para poder agregarle estilos
+  dependiendo si la respuesta es correcta o no
   */
   seleccionarOpcion(e: any, id: any) {
     let opcionId = id.target.id;
@@ -67,7 +70,9 @@ export class LunaComponent implements OnInit {
       this.conteoPuntaje = 1;
       this.seguir = true;
       this.btnAvaible = true;
+      //Espera para pasar a la siguiente pregunta
       setTimeout(() => {
+        this.fadein();
         retro.classList.remove('btn-success');
         this.btnAvaible = false;
         this.siguientePregunta();
@@ -77,12 +82,23 @@ export class LunaComponent implements OnInit {
       this.conteoPuntaje = 0;
       this.seguir = true;
       this.btnAvaible = true;
+      //Espera para pasar a la siguiente pregunta
       setTimeout(() => {
+        this.fadein();
         retro.classList.remove('btn-fail');
         this.btnAvaible = false;
         this.siguientePregunta();
       }, 1000);
     }
+  }
+
+  //fadein
+  fadein() {
+    let preguntas = document.getElementById('preguntas');
+    preguntas.classList.add('fadein');
+    setTimeout(() => {
+      preguntas.classList.remove('fadein');
+    }, 1000);
   }
 
   /** Este metodo contea el número de respuestas

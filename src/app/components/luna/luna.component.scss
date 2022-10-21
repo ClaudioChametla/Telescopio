@@ -67,6 +67,19 @@
   border: #b1b1b1 solid 1px;
   transform: scale(1.1);
 }
+.fadein {
+  animation-name: fadein;
+  animation-duration: 1s;
+}
+/* Mueve la nave de un punto a otro */
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .btn-success {
   background-color: #8cff00;
