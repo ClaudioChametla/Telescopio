@@ -95,8 +95,11 @@ export class LunaComponent implements OnInit {
   fadein() {
     let preguntas = document.getElementById('preguntas');
     preguntas.classList.add('fadein');
+    let opciones = document.getElementById('opciones');
+    opciones.classList.add('fadein');
     setTimeout(() => {
       preguntas.classList.remove('fadein');
+      opciones.classList.remove('fadein');
     }, 1000);
   }
 
