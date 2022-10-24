@@ -35,7 +35,6 @@ export class LunaComponent implements OnInit {
 
   ngOnInit(): void {
     this.lunaDatos = luna;
-    console.log(this.lunaDatos[6].imagen);
   }
 
   /** Oculta la pizarra*/

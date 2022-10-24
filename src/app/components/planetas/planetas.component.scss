@@ -257,4 +257,26 @@ p {
   .btn-ot:hover {
     transform: scale(1.1);
   }
+  /** >>>Fonts<<< */
+  .titles {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+  }
+  .semiBold {
+    margin-right: 10px;
+  }
+  .info-desc {
+    font-size: 3vw;
+  }
+  .desc {
+    font-size: 3vw;
+  }
+  p {
+    font-size: 3vw;
+  }
 }
