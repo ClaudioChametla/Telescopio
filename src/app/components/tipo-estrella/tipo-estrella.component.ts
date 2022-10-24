@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import estrellas from '../../files/estrellas.json';
 import { CctServiceService } from 'src/app/service/cct-service.service';
+import estrellas from '../../files/estrellas.json';
+import luna from '../../files/luna.json';
 import Swal from 'sweetalert2';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
@@ -46,6 +47,13 @@ export class TipoEstrellaComponent implements OnInit {
       });
     } else {
       const pdf: any = {
+        background: [
+          {
+            image: luna[6].imagen,
+            width: 600,
+            height: 845,
+          },
+        ],
         content: [
           {
             text:

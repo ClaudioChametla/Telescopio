@@ -29,6 +29,7 @@ export class LunaComponent implements OnInit {
 
   //Para mostrar u ocultar la pizarra
   hiddenGame: Boolean = false;
+  btnAvaible: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -56,21 +57,50 @@ export class LunaComponent implements OnInit {
 
   /** Elige y obtiene el valor de la opción A
   @param e Recibe por medio de un evento el valor de la pregunta
+  @param i Resibe el evento que despues se usa para extraer el nombre
+  del boton al que se le esta haciendo click para poder agregarle estilos
+  dependiendo si la respuesta es correcta o no
   */
-  seleccionarOpcion(e: any) {
+  seleccionarOpcion(e: any, id: any) {
+    let opcionId = id.target.id;
+    let retro = document.getElementById(opcionId);
     if (e == 1) {
+      retro.classList.add('btn-success');
       this.conteoPuntaje = 1;
       this.seguir = true;
+      this.btnAvaible = true;
+      //Espera para pasar a la siguiente pregunta
       setTimeout(() => {
+        this.fadein();
+        retro.classList.remove('btn-success');
+        this.btnAvaible = false;
         this.siguientePregunta();
-      }, 100);
+      }, 1000);
     } else {
+      retro.classList.add('btn-fail');
       this.conteoPuntaje = 0;
       this.seguir = true;
+      this.btnAvaible = true;
+      //Espera para pasar a la siguiente pregunta
       setTimeout(() => {
+        this.fadein();
+        retro.classList.remove('btn-fail');
+        this.btnAvaible = false;
         this.siguientePregunta();
-      }, 100);
+      }, 1000);
     }
+  }
+
+  //fadein
+  fadein() {
+    let preguntas = document.getElementById('preguntas');
+    preguntas.classList.add('fadein');
+    let opciones = document.getElementById('opciones');
+    opciones.classList.add('fadein');
+    setTimeout(() => {
+      preguntas.classList.remove('fadein');
+      opciones.classList.remove('fadein');
+    }, 1000);
   }
 
   /** Este metodo contea el número de respuestas
@@ -177,6 +207,13 @@ export class LunaComponent implements OnInit {
 
     //En esta variable se guarda el contenido que imprime el PDF
     const pdf: any = {
+      background: [
+        {
+          image: this.lunaDatos[6].imagen,
+          width: 600,
+          height: 845,
+        },
+      ],
       content: [
         {
           text: 'Hoja de resultados:\n\n',
@@ -227,11 +264,6 @@ export class LunaComponent implements OnInit {
           image: this.lunaDatos[5].imagen,
           width: 460,
         },
-
-        {
-          text: 'Plandi - Plataformas Educativas ©',
-          style: ['quote', 'small'],
-        },
       ],
       styles: {
         header: {
@@ -253,3 +285,7 @@ export class LunaComponent implements OnInit {
     pdfMake.createPdf(pdf).open();
   }
 }
+/* {
+  text: 'Plandi - Plataformas Educativas ©',
+  style: ['quote', 'small'],
+}, */

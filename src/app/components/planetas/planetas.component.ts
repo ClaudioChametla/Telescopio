@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CctServiceService } from 'src/app/service/cct-service.service';
 import { Router } from '@angular/router';
 import planetas from '../../files/planetas.json';
+import luna from '../../files/luna.json';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import Swal from 'sweetalert2';
@@ -82,6 +83,13 @@ export class PlanetasComponent implements OnInit {
       });
     } else {
       const pdf: any = {
+        background: [
+          {
+            image: luna[6].imagen,
+            width: 600,
+            height: 845,
+          },
+        ],
         content: [
           {
             text: this.planeta[this.planetaSelected].name,

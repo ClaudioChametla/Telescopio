@@ -1,28 +1,73 @@
-<!-- Descripción -->
-<p>Felicidades haz llegado al lado obscuro de la luna</p>
-<p>A continuación realiza un dibujo de lo que para ti es el universo</p>
-<!-- Canvas sobre el cual se realizara el dibujo -->
-<canvas
-  #canvasRef
-  id="canvasId"
-  width="700"
-  height="700"
-  style="border: solid 1px #fff"
-></canvas>
-<!-- Cambia de imagen dependdiendo si se esta dibujando o no -->
-<div [ngClass]="isAvaible ? 'clickOn' : 'clickOut'"></div>
-<!-- Cambia el color del lapiz -->
-<input
-  id="selectorColor"
-  type="color"
-  value="#FFFFFF"
-  (change)="colorSelected()"
-/>
-<!-- Boton que limpia el contenido del canvas -->
-<button class="btn btn-outline-danger" (click)="limpiarCanvas()">Borrar</button>
-<!-- Boton para descargar la imagen dibujada -->
-<a id="dibujo"
-  ><button class="btn btn-outline-success" (click)="descargar($event)">
-    Descargar
-  </button></a
->
+<div class="dibujo-container">
+  <section class="menu">
+    <!-- Descripción -->
+    <h1>¡Felicidades!</h1>
+    <p class="subtitulo">Haz llegado al lado obscuro de la luna</p>
+    <p class="descripcion">
+      A continuación realiza un dibujo de lo que para ti es el universo.
+    </p>
+    <div class="controles">
+      <!-- Cambia el color del lapiz -->
+      <div class="colores">
+        >
+        <!-- Tamaño en  -->
+        <button>6</button
+        ><!-- Tamaño en  -->
+        <button>5</button
+        ><!-- Tamaño en  -->
+        <button>4</button
+        ><!-- Tamaño en  -->
+        <button>3</button
+        ><!-- Tamaño en  -->
+        <button>2</button
+        ><!-- Tamaño en  -->
+        <button>1</button
+        ><!-- Tamaño en  -->
+        <input
+          id="selectorColor"
+          type="color"
+          value="#FFFFFF"
+          (change)="configSelected()"
+        />
+      </div>
+
+      <!-- Cambia el grosor del lapiz -->
+      <div class="tamanos">
+        <button>4</button
+        ><!-- Tamaño en  -->
+        <button>3</button
+        ><!-- Tamaño en  -->
+        <button>2</button
+        ><!-- Tamaño en  -->
+        <button>1</button
+        ><!-- Tamaño en  -->
+        <!-- <input
+          id="selectorGrosor"
+          type="number"
+          value="3"
+          name="grosor"
+          [(ngModel)]="grosor"
+          (change)="configSelected()"
+        /> -->
+      </div>
+
+      <!-- Boton que limpia el contenido del canvas -->
+      <button class="btn left" (click)="limpiarCanvas()">Borrar</button>
+      <!-- Boton para descargar la imagen dibujada -->
+      <a id="dibujo"
+        ><button class="btn right" (click)="descargar($event)">
+          Descargar
+        </button></a
+      >
+    </div>
+  </section>
+  <section class="dibujo">
+    <!-- Canvas sobre el cual se realizara el dibujo -->
+    <canvas
+      #canvasRef
+      id="canvasId"
+      width="{{ width }}"
+      height="{{ height }}"
+    ></canvas>
+  </section>
+</div>

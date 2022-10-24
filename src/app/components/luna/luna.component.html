@@ -26,36 +26,65 @@
         <!-- Cuestionario con preguntas aleatorias -->
         <div id="preguntas-title">
           <h1 class="pregunta-title">Quizz Espacial</h1>
-          <p class="pregunta-response">
+          <p id="preguntas" class="pregunta-response">
             {{ lunaDatos[random][selector].pregunta }}
           </p>
         </div>
 
-        <button
-          class="btn-opcion"
-          (click)="
-            seleccionarOpcion(lunaDatos[random][selector].opciones[0].value)
-          "
-        >
-          {{ lunaDatos[random][selector].opciones[0].opcion }}
-        </button>
-        <button
-          class="btn-opcion"
-          (click)="
-            seleccionarOpcion(lunaDatos[random][selector].opciones[1].value)
-          "
-        >
-          {{ lunaDatos[random][selector].opciones[1].opcion }}
-        </button>
-        <button
-          class="btn-opcion"
-          (click)="
-            seleccionarOpcion(lunaDatos[random][selector].opciones[2].value)
-          "
-        >
-          {{ lunaDatos[random][selector].opciones[2].opcion }}
-        </button>
-        <button class="btn-opcion">Siguiente</button>
+        <div id="opciones" class="opciones-container">
+          <button
+            id="A"
+            class="btn-opcion"
+            [disabled]="btnAvaible"
+            (click)="
+              seleccionarOpcion(
+                lunaDatos[random][selector].opciones[0].value,
+                $event
+              )
+            "
+          >
+            {{ lunaDatos[random][selector].opciones[0].opcion }}
+          </button>
+          <button
+            id="B"
+            class="btn-opcion"
+            [disabled]="btnAvaible"
+            (click)="
+              seleccionarOpcion(
+                lunaDatos[random][selector].opciones[1].value,
+                $event
+              )
+            "
+          >
+            {{ lunaDatos[random][selector].opciones[1].opcion }}
+          </button>
+          <button
+            id="C"
+            class="btn-opcion"
+            [disabled]="btnAvaible"
+            (click)="
+              seleccionarOpcion(
+                lunaDatos[random][selector].opciones[2].value,
+                $event
+              )
+            "
+          >
+            {{ lunaDatos[random][selector].opciones[2].opcion }}
+          </button>
+          <button
+            id="D"
+            class="btn-opcion"
+            [disabled]="btnAvaible"
+            (click)="
+              seleccionarOpcion(
+                lunaDatos[random][selector].opciones[3].value,
+                $event
+              )
+            "
+          >
+            {{ lunaDatos[random][selector].opciones[3].opcion }}
+          </button>
+        </div>
       </div>
       <div class="preguntas-imagen">
         <img
@@ -69,7 +98,7 @@
 </div>
 <!-- hiddenGame -->
 <div class="dibujo" *ngIf="hiddenGame">
+  <button class="btn-salir" (click)="salir()"></button>
   <!-- Pizarra para realizar un dibujo oculta -->
   <app-dibujo></app-dibujo>
-  <button class="btn-salir" (click)="salir()">Salir</button>
 </div>

@@ -30,7 +30,7 @@
   transform: translateX(-100px);
 }
 .moon:hover {
-  transform: scale(1.1) translate(-100px, 10px);
+  /* transform: scale(1.1) translate(-100px, 10px); */
   cursor: pointer;
 }
 /** Exclusive */
@@ -105,6 +105,9 @@
   margin: 15px;
   transform: translateY(-167%);
 }
+.btn-imprimir:hover {
+  transform: translateY(-167%) scale(1.1);
+}
 /** >>>Fonts<<< */
 .titles {
   display: flex;
@@ -134,10 +137,12 @@ span {
 }
 .desc {
   color: #585e99;
+  font-size: 1vw;
 }
 p {
   font-family: "GoldplayMedium";
   color: #000000;
+  font-size: 1vw;
 }
 .form-control {
   height: 22vh;
@@ -243,10 +248,35 @@ p {
     font-size: 3.5vw;
     transform: translateY(0%);
   }
+  .btn-imprimir:hover {
+    transform: translateY(0%) scale(1.1);
+  }
   .btn-ot {
     width: 23vw;
   }
   .btn-ot:hover {
     transform: scale(1.1);
+  }
+  /** >>>Fonts<<< */
+  .titles {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+  }
+  .semiBold {
+    margin-right: 10px;
+  }
+  .info-desc {
+    font-size: 3vw;
+  }
+  .desc {
+    font-size: 3vw;
+  }
+  p {
+    font-size: 3vw;
   }
 }

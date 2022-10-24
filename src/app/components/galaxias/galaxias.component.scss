@@ -26,7 +26,7 @@
 .form {
   width: 65%;
   height: 100vh;
-  padding: 65px 30px 0px 30px;
+  padding: 30px 100px 0px 100px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -90,6 +90,9 @@
   margin: 15px;
   transform: translateY(-167%);
 }
+.btn-imprimir:hover {
+  scale: 1.1;
+}
 /** >>>Fonts<<< */
 .titles {
   display: flex;
@@ -119,10 +122,12 @@ span {
 }
 .desc {
   color: #585e99;
+  font-size: 1vw;
 }
 p {
   font-family: "GoldplayMedium";
   color: #000000;
+  font-size: 1vw;
 }
 .form-control {
   height: 22vh;
@@ -207,5 +212,28 @@ p {
   }
   .btn-ot:hover {
     transform: scale(1.1);
+  }
+
+  /** >>>Fonts<<< */
+  .titles {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+  }
+  .semiBold {
+    margin-right: 10px;
+  }
+  .info-desc {
+    font-size: 3vw;
+  }
+  .desc {
+    font-size: 3vw;
+  }
+  p {
+    font-size: 3vw;
   }
 }
