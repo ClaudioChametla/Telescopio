@@ -1,4 +1,7 @@
 <div class="estrella" *ngIf="mostrarEstrellas === true">
+  <div class="">
+    <button class="btn-salir" type="button" (click)="irSistema()"></button>
+  </div>
   <div class="estrellas-container">
     <!-- informacion de las estrellas -->
     <div class="estrella-item" *ngFor="let item of estrellasDatos">
@@ -30,11 +33,6 @@
   </div>
 
   <!-- Menu de navegacion -->
-  <div class="d-grid justify-content-sm-end">
-    <button class="btn btn-outline-light" type="button" (click)="irSistema()">
-      Zoom-
-    </button>
-  </div>
 </div>
 <app-tipo-estrella
   [selecEstrella]="estrellasSelec"

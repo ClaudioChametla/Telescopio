@@ -5,6 +5,18 @@
   justify-content: center;
   background-image: url(../../../assets/Estrellas/Fondo-Estrellas.png);
 }
+.btn-salir {
+  width: 2.1vw;
+  height: 2.1vw;
+  padding: 15px;
+  border: #9b62f3 solid 1px;
+  border-radius: 50px;
+  background-color: #9c62f370;
+  background-image: url(../../../assets/Planetas/flecha.png);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: center;
+}
 .estrellas-container {
   display: grid;
   justify-content: center;
