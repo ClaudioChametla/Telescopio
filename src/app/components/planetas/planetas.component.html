@@ -13,15 +13,17 @@
     </div>
 
     <!-- Mostrar si la tierra esta seleccionada -->
-    <img
-      *ngIf="planetaSelected === 2"
-      class="imagen moon"
-      src="https://bioagus.files.wordpress.com/2021/07/luna.png"
-      height="50px"
-      width="50px"
-      alt="{{ planeta[planetaSelected].name }}"
-      (click)="irLuna()"
-    />
+    <div class="luna-container">
+      <img
+        *ngIf="planetaSelected === 2"
+        class="imagen moon animate__animated animate__heartBeat animate__infinite"
+        src="https://bioagus.files.wordpress.com/2021/07/luna.png"
+        height="50px"
+        width="50px"
+        alt="{{ planeta[planetaSelected].name }}"
+        (click)="irLuna()"
+      />
+    </div>
 
     <img
       class="image"
@@ -32,7 +34,7 @@
       Abrir telescopio
     </button> -->
     <img
-      class="btn-ot"
+      class="btn-ot animate__animated animate__bounce"
       src="../../../assets/images/abrir-telescopio.png"
       alt=""
       (click)="mostrarTelescopio()"

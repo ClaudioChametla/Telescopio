@@ -10,7 +10,10 @@
     </p>
     <p class="text-pregunta">¿Te gustaría reforzar tus conocimientos?</p>
     <p class="text-invitacion">Contesta correctamente el siguiente Quizz.</p>
-    <button class="btn-inicio" (click)="mostrarCuestionario()">
+    <button
+      class="btn-inicio animate__animated animate__pulse animate__infinite"
+      (click)="mostrarCuestionario()"
+    >
       Iniciar Quizz
     </button>
   </div>
@@ -21,7 +24,7 @@
     <button class="btn-salir" (click)="salirCuestionario()"></button>
   </header>
   <body>
-    <div class="preguntas-container">
+    <div class="preguntas-container animate__animated animate__bounceInLeft">
       <div class="preguntas">
         <!-- Cuestionario con preguntas aleatorias -->
         <div id="preguntas-title">
