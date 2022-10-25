@@ -5,14 +5,14 @@
   <div class="estrellas-container">
     <!-- informacion de las estrellas -->
     <div class="estrella-grid">
-      <div class="estrella-item" *ngFor="let item of estrellasDatos">
+      <div
+        class="estrella-item"
+        *ngFor="let item of estrellasDatos"
+        (click)="seleccion(item.id)"
+      >
         <!-- Haciendo click sobre la imagen se muestra la estrella seleccionada -->
         <div class="estrella-imgContainer">
-          <img
-            class="estrella-imagen"
-            src="{{ item.image }}"
-            (click)="seleccion(item.id)"
-          />
+          <img class="estrella-imagen" src="{{ item.image }}" />
         </div>
         <div class="estrella-desc">
           <p class="title">Clase: {{ item.clase }}</p>

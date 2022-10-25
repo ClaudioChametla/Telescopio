@@ -1,11 +1,38 @@
 .estrella {
   display: flex;
   height: 100vh;
-  padding: 15px;
+  padding: 40px;
   flex-direction: column;
   background-image: url(../../../assets/Estrellas/Fondo-Estrellas.png);
   user-select: none;
+  overflow-y: auto;
 }
+
+.estrella::-webkit-scrollbar {
+  width: 13px;
+  height: 10px;
+}
+.estrella::-webkit-scrollbar-track-piece {
+  border-radius: 2px;
+  background-clip: content-box;
+  border-radius: 6px;
+  border: solid 4px transparent;
+}
+.estrella::-webkit-scrollbar-track-piece:decrement {
+  background-clip: content-box;
+  border: solid 4px transparent;
+}
+.estrella::-webkit-scrollbar-thumb {
+  background-color: #9c62f3e1;
+  width: 4px;
+  border-radius: 6px;
+}
+.estrella::-webkit-scrollbar-track {
+  /*background: #EFF7F8;*/
+  background: #ffffff5e;
+  border-radius: 50px;
+}
+
 .estrellas-container {
   height: 100vh;
   display: flex;
@@ -14,15 +41,30 @@
   padding: 15px;
 }
 .estrella-grid {
-  height: 100%;
-  width: 80%;
+  height: 85%;
+  width: 85%;
   display: grid;
   grid-template-columns: 33% 33% 33%;
 }
 .estrella-item {
+  height: 95%;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.estrella-item:hover {
+  .estrella-imgContainer {
+    cursor: pointer;
+    box-shadow: 3px 1px 30px 5px rgba(56, 220, 222, 0.69);
+    -webkit-box-shadow: 3px 1px 30px 5px rgba(56, 220, 222, 0.69);
+    -moz-box-shadow: 3px 1px 30px 5px rgba(56, 220, 222, 0.69);
+  }
+  .estrella-desc {
+    cursor: pointer;
+    box-shadow: 3px 1px 30px 5px rgba(56, 220, 222, 0.69);
+    -webkit-box-shadow: 3px 1px 30px 5px rgba(56, 220, 222, 0.69);
+    -moz-box-shadow: 3px 1px 30px 5px rgba(56, 220, 222, 0.69);
+  }
 }
 .estrella-imgContainer {
   width: 250px;
@@ -64,14 +106,18 @@
   background-position: center;
 }
 .btn-miEstrella {
-  width: 10vw;
+  width: 13vw;
   margin: 10px;
-  font-size: 1.2vw;
+  padding: 10px;
+  font-size: 1.5vw;
   font-family: "GoldplaySemiBold";
   color: #ffffff;
   border: none;
   border-radius: 50px;
   background-color: #ca2eb3;
+}
+.btn-miEstrella:hover {
+  transform: scale(1.1);
 }
 /** >>>>>>>> Fonts <<<<<<<<*/
 p {
@@ -84,4 +130,63 @@ p {
 .title {
   font-family: "GoldplaySemiBold";
   color: #28bdf8;
+}
+
+/** >>>>>>>>>> Responsive Design <<<<<<<<<<*/
+
+@media screen and (max-width: 768px) {
+  .estrella-grid {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  .estrella-grid::-webkit-scrollbar {
+    width: 13px;
+    height: 10px;
+  }
+  .estrella-grid::-webkit-scrollbar-track-piece {
+    border-radius: 2px;
+    background-clip: content-box;
+    border-radius: 6px;
+    border: solid 4px transparent;
+  }
+  .estrella-grid::-webkit-scrollbar-track-piece:decrement {
+    background-clip: content-box;
+    border: solid 4px transparent;
+  }
+  .estrella-grid::-webkit-scrollbar-thumb {
+    background-color: #9c62f3e1;
+    width: 4px;
+    border-radius: 6px;
+  }
+  .estrella-grid::-webkit-scrollbar-track {
+    /*background: #EFF7F8;*/
+    background: #ffffff5e;
+    border-radius: 50px;
+  }
+
+  .estrella-imgContainer {
+    width: 150px;
+    height: 100px;
+  }
+  .estrella-item {
+    margin: 15px 5px;
+    width: 90%;
+  }
+  .estrella-desc {
+    height: 85px;
+  }
+  .btn-miEstrella {
+    margin-top: 15%;
+    width: 100%;
+    font-size: 3vw;
+  }
+  p {
+    width: 25vw;
+    font-size: 2vw;
+  }
 }
