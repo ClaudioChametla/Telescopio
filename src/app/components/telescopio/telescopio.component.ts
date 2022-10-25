@@ -20,12 +20,13 @@ export class TelescopioComponent implements OnInit {
   }
  */
   //imgID = 'https://images8.alphacoders.com/601/601973.jpg';
+  zoomValue: number = 3;
+  zoomAvaible: Boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {
     this.magnify('myimage');
-    console.log(this.datos);
   }
 
   magnify(imgID) {
@@ -52,10 +53,10 @@ export class TelescopioComponent implements OnInit {
     h = glass.offsetHeight / 2;
 
     //Se abre o se cierra el circulo
-    let open = document.getElementById('open');
+    /* let open = document.getElementById('open');
     open.addEventListener('click', abrir);
     let close = document.getElementById('close');
-    close.addEventListener('click', cerrar);
+    close.addEventListener('click', cerrar); */
     //zoom
     let aumentar = document.getElementById('aumentar');
     aumentar.addEventListener('click', zoomMas);
@@ -133,7 +134,12 @@ export class TelescopioComponent implements OnInit {
     }
 
     function zoomMas() {
-      zoom = 4;
+      if (zoom < 4) {
+        zoom += 0.5;
+      } else {
+        zoom = 4;
+      }
+
       glass.style.backgroundSize =
         img.width * zoom + 'px ' + img.height * zoom + 'px';
       bw = 3;
@@ -142,7 +148,11 @@ export class TelescopioComponent implements OnInit {
     }
 
     function zoomMenos() {
-      zoom = 2;
+      if (zoom > 2) {
+        zoom -= 0.5;
+      } else {
+        zoom = 2;
+      }
       glass.style.backgroundSize =
         img.width * zoom + 'px ' + img.height * zoom + 'px';
       bw = 3;
@@ -155,12 +165,26 @@ export class TelescopioComponent implements OnInit {
      * @return void
      */
     window.onresize = function resize() {
-      console.log('changing . . .');
       glass.style.backgroundSize =
         img.width * zoom + 'px ' + img.height * zoom + 'px';
       bw = 3;
       w = glass.offsetWidth / 2;
       h = glass.offsetHeight / 2;
     };
+  }
+
+  zoomLevelMas() {
+    if (this.zoomValue < 5) {
+      this.zoomValue += 1;
+    } else {
+      this.zoomValue = 5;
+    }
+  }
+  zoomLevelMenos() {
+    if (this.zoomValue > 1) {
+      this.zoomValue -= 1;
+    } else {
+      this.zoomValue = 1;
+    }
   }
 }

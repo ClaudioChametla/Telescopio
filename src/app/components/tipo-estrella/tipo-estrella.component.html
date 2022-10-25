@@ -1,81 +1,85 @@
-<div class="container-fliud estrella">
-  <div class="estrella-content">
-    <!-- Contiene la informacion de la estrella -->
-    <div class="estrella-datos" *ngIf="abrirTelescopio == false">
-      <p>Clase: {{ estrellaSelecDatos[selecEstrella].clase }}</p>
-      <p>Color: {{ estrellaSelecDatos[selecEstrella].color }}</p>
-      <p>Temperatura: {{ estrellaSelecDatos[selecEstrella].temperatura }}</p>
-      <p>Masa: {{ estrellaSelecDatos[selecEstrella].masa }}</p>
-      <p>Descripción: {{ estrellaSelecDatos[selecEstrella].desc }}</p>
+<div class="planeta" *ngIf="!abrirTelescopio">
+  <!--Telescopio Oculto imagen de la galaxia y boton para abrir telescopio-->
+  <div class="telescopio">
+    <div class="navbar">
+      <!-- botones de ir a galaxia o a sistema solar -->
+      <button class="btn" type="button" (click)="irEstrellas()"></button>
     </div>
-  </div>
 
-  <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
-  <!--Telescopio Oculto imagen del planeta y boton para abrir telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio === false">
-    <div class="menu">
-      <img
-        class="estrella-imagen"
-        src="{{ estrellaSelecDatos[selecEstrella].image }}"
-        alt="{{ estrellaSelecDatos[selecEstrella].clase }}"
-      />
-      <button
-        class="btn btn-outline-success"
-        type="button"
-        (click)="mostrarTelescopio()"
-      >
-        Abrir telescopio
-      </button>
-    </div>
+    <img
+      class="image"
+      src="{{ estrellaSelecDatos[selecEstrella].image }}"
+      alt="{{ estrellaSelecDatos[selecEstrella].clase }}"
+    />
+    <!-- <button class="btn-ot" type="button" (click)="mostrarTelescopio()">
+      Abrir telescopio
+    </button> -->
+    <img
+      class="btn-ot animate__animated animate__bounce"
+      src="../../../assets/images/abrir-telescopio.png"
+      alt=""
+      (click)="mostrarTelescopio()"
+    />
   </div>
-
-  <!--Mostrando Telescopio-->
-  <!--Mostrando Telescopio-->
-  <div class="telescopio" *ngIf="abrirTelescopio === true">
-    <!-- Telescopio hereda la informacion -->
-    <app-telescopio [datos]="informacion"></app-telescopio>
-    <button
-      class="btn btn-outline-danger"
-      type="button"
-      (click)="ocultarTelescopio()"
-    >
-      Cerrar telescopio
-    </button>
-  </div>
-  <!--Mostrando Telescopio-->
-  <!--Mostrando Telescopio-->
-
-  <!------------------------------------T E L E S C O P I O-------------------------------------------------------->
 
   <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
-  <div class="estrellas-form" *ngIf="abrirTelescopio == false">
-    <form>
-      <!--Creacion del PDF-->
-      <div class="mb-3 mt-3">
-        <label for="exampleFormControlTextarea1" class="form-label"
-          >Escribe aquí</label
-        >
+  <div class="form">
+    <!-- contiene la informacion de cada galaxia -->
+    <div class="titles">
+      <!-- <h1 class="gpPlayBold title title-purple">{{ title[0] }}</h1> -->
+      <h1 class="gpPlayBold title">
+        {{ estrellaSelecDatos[selecEstrella].clase }}
+      </h1>
+      <!-- <h1 class="gpPlayBold title">{{ title[2] }}</h1> -->
+    </div>
+
+    <section class="information">
+      <span
+        ><p class="semiBold">Color:</p>
+        <p>{{ estrellaSelecDatos[selecEstrella].color }}</p></span
+      >
+      <span
+        ><p class="semiBold">Temperatura:</p>
+        <p>{{ estrellaSelecDatos[selecEstrella].temperatura }}</p></span
+      >
+      <span
+        ><p class="semiBold">Masa:</p>
+        <p>{{ estrellaSelecDatos[selecEstrella].masa }}</p></span
+      >
+
+      <p class="semiBold info-desc">Descripción:</p>
+      <!-- Adding a newline in JSON object -->
+      <!-- Make use of angular innerHtml binding. Replace \n with br -->
+      <div style="width: 100%">
+        <p class="desc">{{ estrellaSelecDatos[selecEstrella].desc }}</p>
+      </div>
+    </section>
+
+    <div class="writer">
+      <!-- creacion del PDF -->
+      <form>
         <textarea
           class="form-control"
-          id="exampleFormControlTextarea1"
+          id="resumen"
           rows="3"
           name="Resumen"
+          placeholder="Escribe aquí"
           [(ngModel)]="pdfText"
-        ></textarea>
-      </div>
-      <button
-        class="btn btn-outline-danger"
-        type="button"
-        (click)="createPDF()"
-      >
-        Imrpimir PDF
-      </button>
-    </form>
-    <!-- Menu -->
-    <div class="d-grid gap-2 d-md-flex justify-content-sm-end">
-      <button class="btn btn-outline-light" (click)="irEstrellas()">
-        Zoom -
-      </button>
+        >
+        </textarea>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn-imprimir" type="button" (click)="createPDF()">
+            Imprimir
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+
+<!--Mostrando Telescopio-->
+<div class="telescopio-container" *ngIf="abrirTelescopio">
+  <button class="btn" type="button" (click)="ocultarTelescopio()"></button>
+  <app-telescopio [datos]="informacion"></app-telescopio>
+</div>
+<!--Mostrando Telescopio-->

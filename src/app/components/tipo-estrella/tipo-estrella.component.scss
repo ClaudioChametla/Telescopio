@@ -1,74 +1,286 @@
-.estrella {
-  padding: 5%;
-}
-.estrella-imagen {
-  width: 20vw;
-  height: auto;
-}
-p {
-  margin-bottom: 0px;
-}
-
-/******STAR*********/
-.imagen2 {
-  position: relative;
-  width: 800px;
-  clip-path: circle(0% at 0px 0px);
-}
-.menu {
-  display: flex;
-  flex-direction: column;
-}
-.telescopio {
+.planeta {
+  height: 100vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  overflow: hidden;
 }
-.telescopio-container {
+
+/** >>>>> Componentes <<<<< */
+.navbar {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.telescopio {
+  height: 100%;
+  width: 35%;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border: solid 1px #fff;
+  user-select: none;
+}
+/** Exclusive */
+.moon {
+  user-select: none;
+  align-self: flex-end;
+}
+.moon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.luna-container {
+  display: flex;
+  width: 80%;
+  flex-direction: row-reverse;
+}
+/** Exclusive */
+.image {
+  width: 70%;
+}
+.form {
+  width: 65%;
+  height: 100vh;
+  padding: 65px 30px 0px 30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url(../../../assets/images/Fondo-Info.png);
+  background-size: 100% 100vh;
+  background-position-x: right;
+  background-repeat: repeat;
+}
+.information {
+  margin-top: 3%;
+}
+.writer {
+  width: 100%;
+  margin-top: 1%;
+}
+/**Telescopio Design*/
+.telescopio-container {
+  height: 100vh;
+  width: 100vw;
+  padding: 50px;
 }
 
-/*******END********/
-
-/*******STAR********/
-@media screen and (max-width: 1200px) {
-  .imagen {
-    width: 350px;
-  }
-
-  .imagen2 {
-    width: 700px;
-  }
+/** >>>Buttons<<< */
+.btn {
+  width: 2.1vw;
+  height: 2.1vw;
+  padding: 15px;
+  border: #9b62f3 solid 1px;
+  border-radius: 50px;
+  background-color: #9c62f370;
+  background-image: url(../../../assets/Planetas/flecha.png);
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  background-position: center;
+}
+.btn:hover {
+  transform: scale(1.1);
 }
 
-@media screen and (max-width: 992px) {
-  .telescopio {
+.btn-r:hover {
+  transform: rotate(180deg) scale(1.2);
+}
+.btn-ot {
+  width: 15vw;
+  /* background-color: #8dae15;
+  background-image: url(../../../assets/images/abrir-telescopio.png); */
+}
+.btn-ot:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.btn-imprimir {
+  border-radius: 50px;
+  width: 8vw;
+  border: none;
+  background-color: #5a65fc;
+  color: #ffffff;
+  font-size: 1.5vw;
+  justify-self: center;
+  text-align: center;
+  margin: 15px;
+  transform: translateY(-167%);
+}
+.btn-imprimir:hover {
+  transform: translateY(-167%) scale(1.1);
+}
+/** >>>Fonts<<< */
+.titles {
+  display: flex;
+  flex-direction: row;
+}
+span {
+  display: flex;
+  flex-direction: row;
+}
+.title {
+  font-size: 5vw;
+  color: #000000;
+  margin-right: 15px;
+}
+.title-purple {
+  color: #5a65fc;
+}
+.semiBold {
+  font-family: "GoldplaySemiBold";
+  font-weight: bolder;
+  color: #030233;
+  margin-right: 5px;
+}
+.info-desc {
+  font-size: 1vw;
+  color: #5a65fc;
+}
+.desc {
+  color: #585e99;
+  font-size: 1vw;
+}
+p {
+  font-family: "GoldplayMedium";
+  color: #000000;
+  font-size: 1vw;
+}
+.form-control {
+  height: 22vh;
+  background-color: #f8f8f8;
+  color: #a0a8bc;
+  font-family: "GoldplayMedium";
+  font-style: italic;
+  border-radius: 0.5rem;
+}
+.form-control:focus {
+  color: #000000;
+  font-family: "GoldplayMedium";
+  font-style: normal;
+}
+/** >>>>> Scroll Bar <<<<<<*/
+
+.form::-webkit-scrollbar {
+  width: 13px;
+  height: 10px;
+}
+.form::-webkit-scrollbar-track-piece {
+  border-radius: 2px;
+  background-clip: content-box;
+  border-radius: 6px;
+  border: solid 4px transparent;
+}
+.form::-webkit-scrollbar-track-piece:decrement {
+  background-clip: content-box;
+  border: solid 4px transparent;
+}
+.form::-webkit-scrollbar-thumb {
+  background-color: #9c62f3e1;
+  width: 4px;
+  border-radius: 6px;
+}
+.form::-webkit-scrollbar-track {
+  /*background: #EFF7F8;*/
+  background: #ffffff5e;
+  border-radius: 50px;
+}
+
+/** >>>>> Responsive Design <<<<<*/
+
+@media screen and (max-width: 768px) {
+  /** >>>>> Components <<<<< */
+  .planeta {
+    height: 100vh;
+    display: flex;
     flex-direction: column;
+    background-image: none;
+    align-items: baseline;
+    position: relative;
   }
-  .imagen {
-    width: 300px;
+  .navbar {
+    padding: 10px 10px;
+    position: fixed;
+  }
+  .telescopio {
+    width: 100%;
+    overflow-y: auto;
+  }
+  .moon {
+    align-self: flex-start;
+    transform: translate(150px, 70px);
   }
 
-  .imagen2 {
-    width: 600px;
+  /** >>>>> Scroll Bar <<<<<<*/
+  .telescopio::-webkit-scrollbar {
+    width: 13px;
+    height: 10px;
+  }
+  .telescopio::-webkit-scrollbar-track-piece {
+    border-radius: 2px;
+    background-clip: content-box;
+    border-radius: 6px;
+    border: solid 4px transparent;
+  }
+  .telescopio::-webkit-scrollbar-track-piece:decrement {
+    background-clip: content-box;
+    border: solid 4px transparent;
+  }
+  .telescopio::-webkit-scrollbar-thumb {
+    background-color: #9c62f3e1;
+    width: 4px;
+    border-radius: 6px;
+  }
+  .telescopio::-webkit-scrollbar-track {
+    /*background: #EFF7F8;*/
+    background: #ffffff5e;
+    border-radius: 50px;
+  }
+
+  .form {
+    width: 100%;
+    background-image: url(../../../assets/images/Fondo-Info.png);
+  }
+  .image {
+    width: 35%;
+  }
+  /** >>>>> Botones <<<<< */
+  .btn-imprimir {
+    width: 50vw;
+    font-size: 3.5vw;
+    transform: translateY(0%);
+  }
+  .btn-imprimir:hover {
+    transform: translateY(0%) scale(1.1);
+  }
+  .btn-ot {
+    width: 23vw;
+  }
+  .btn-ot:hover {
+    transform: scale(1.1);
+  }
+  /** >>>Fonts<<< */
+  .titles {
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+  }
+  .semiBold {
+    margin-right: 10px;
+  }
+  .info-desc {
+    font-size: 3vw;
+  }
+  .desc {
+    font-size: 3vw;
+  }
+  p {
+    font-size: 3vw;
   }
 }
-
-@media screen and (max-width: 575px) {
-  .telescopio-container {
-    padding: 0px;
-  }
-  .imagen {
-    width: 200px;
-  }
-
-  .imagen2 {
-    width: 400px;
-    transform: translateY(-100%);
-    transform: translateX(-10%);
-  }
-}
-/*******END********/

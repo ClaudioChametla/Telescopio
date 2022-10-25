@@ -1,5 +1,8 @@
 <!-- Bienvenida -->
-<div class="luna" *ngIf="!hiddenGame && !cuestionario">
+<div
+  class="luna animate__animated animate__fadeIn"
+  *ngIf="!hiddenGame && !cuestionario"
+>
   <div class="bienvenida" *ngIf="cuestionario === false">
     <button class="btn-salir" (click)="irSistema()"></button>
     <h1 class="text-bienvenida">¡Bienvenido a la Luna!</h1>
@@ -10,7 +13,10 @@
     </p>
     <p class="text-pregunta">¿Te gustaría reforzar tus conocimientos?</p>
     <p class="text-invitacion">Contesta correctamente el siguiente Quizz.</p>
-    <button class="btn-inicio" (click)="mostrarCuestionario()">
+    <button
+      class="btn-inicio animate__animated animate__pulse animate__infinite animate__delay-2s"
+      (click)="mostrarCuestionario()"
+    >
       Iniciar Quizz
     </button>
   </div>
@@ -21,7 +27,7 @@
     <button class="btn-salir" (click)="salirCuestionario()"></button>
   </header>
   <body>
-    <div class="preguntas-container">
+    <div class="preguntas-container animate__animated animate__bounceInLeft">
       <div class="preguntas">
         <!-- Cuestionario con preguntas aleatorias -->
         <div id="preguntas-title">
