@@ -4,36 +4,30 @@
   </div>
   <div class="estrellas-container">
     <!-- informacion de las estrellas -->
-    <div class="estrella-item" *ngFor="let item of estrellasDatos">
-      <p>Clase: {{ item.clase }}</p>
-      <p>Color: {{ item.color }}</p>
-      <p>Temperatura: {{ item.temperatura }}</p>
-      <p>Masa: {{ item.masa }}</p>
-      <!-- Haciendo click sobre la imagen se muestra la estrella seleccionada -->
-      <img
-        class="estrella-imagen"
-        src="{{ item.image }}"
-        (click)="seleccion(item.id)"
-      />
+    <div class="estrella-grid">
+      <div class="estrella-item" *ngFor="let item of estrellasDatos">
+        <!-- Haciendo click sobre la imagen se muestra la estrella seleccionada -->
+        <div class="estrella-imgContainer">
+          <img
+            class="estrella-imagen"
+            src="{{ item.image }}"
+            (click)="seleccion(item.id)"
+          />
+        </div>
+        <div class="estrella-desc">
+          <p class="title">Clase: {{ item.clase }}</p>
+          <p>Color: {{ item.color }}</p>
+          <p>Temperatura: {{ item.temperatura }}</p>
+          <p>Masa: {{ item.masa }}</p>
+        </div>
+      </div>
     </div>
-
-    <!-- Aqui se muestra un componente de mi estrella -->
-    <div class="mi-estrella">
-      <br />
-      <br />
-      <p>Mi estrella</p>
-      <br />
-      <!-- al hacer click en esta imagen te llevara al componente mi estrella -->
-      <img
-        class="estrella-imagen"
-        src="../../../assets/Planetas/sol.png"
-        (click)="naveMiEstrella()"
-      />
-    </div>
+    <button class="btn-miEstrella" (click)="naveMiEstrella()">
+      Mi estrella
+    </button>
   </div>
-
-  <!-- Menu de navegacion -->
 </div>
+
 <app-tipo-estrella
   [selecEstrella]="estrellasSelec"
   *ngIf="mostrarEstrellas === false"
