@@ -16,6 +16,8 @@ export class MiEstrellaComponent implements OnInit {
   mostrarEstrella: Boolean = false;
   rand: Number = 0;
 
+  modalState: Boolean = false;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
@@ -43,5 +45,9 @@ export class MiEstrellaComponent implements OnInit {
   //Mesyta el componente estrellas
   irEstrellas() {
     this.router.navigate(['/estrellas']);
+  }
+
+  mostrarModal() {
+    this.modalState = !this.modalState;
   }
 }
