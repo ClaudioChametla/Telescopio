@@ -172,3 +172,34 @@ input {
 .nombre {
   color: #585e99;
 }
+/** >>>>>>>>>> Modal Frase<<<<<<<<<<*/
+
+.container-frase {
+  width: 55vw;
+  height: 33vw;
+}
+.head-frase {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.autor-estrella {
+  color: #030233 !important;
+  font-size: 5vw;
+  font-family: "GoldplayBold";
+}
+.frase {
+  color: #585e99 !important;
+  font-size: 2vw;
+  text-align: center;
+}
+.autor {
+  color: #28bdf8 !important;
+  font-size: 1.5vw;
+}
+.btn-green {
+  background-color: #92c105;
+  width: 17vw;
+  font-size: 2vw;
+  margin: 20px;
+}

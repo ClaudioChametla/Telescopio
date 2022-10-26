@@ -1,78 +1,9 @@
-<!-- <div
-  class="estrella-container"
-  *ngIf="miEstrella === false"
-  (click)="mostrarMiEstrella()"
-> -->
-<!-- Muestra tu estrella con tu nombre -->
-<!--   <div class="estrellaMostrar" *ngIf="mostrarEstrella === true">
-    <p class="animation-a">{{ nombreEstrella }}</p> -->
-<!-- Frase aleatoria e imagen aleatoria -->
-<!--  <img
-      class="animation-a"
-      src="{{ miEstrellaDatos[rand].imagen }}"
-      width="250px"
-    />
-    <p class="animation-b">{{ miEstrellaDatos[rand].frase }}</p>
-    <p class="animation-c">-{{ miEstrellaDatos[rand].autor }}-</p>
-    <button class="btn btn-outline-danger animation-c" (click)="irEstrellas()">
-      Salir
-    </button>
-  </div> -->
-
-<!-- Boton para abrir el formulario -->
-<!--   <div class="estrellaMostrar" *ngIf="mostrarEstrella === false">
-    <p>Crea una nueva estrella haciendo click</p>
-  </div>
-</div> -->
-
-<!-- Abre el formulario para nombrar a la estrella -->
-<!-- <div class="estrella-container" *ngIf="miEstrella === true"> -->
-<!-- Audio de sonido espacial -->
-<!--  <audio autoplay>
-    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3" />
-    Tu navegador no soporta audio HTML5.
-  </audio> -->
-
-<!--   <p>Nombra a tu estrella</p> -->
-
-<!-- Boton para crear la estrella -->
-<!--   <div style="display: flex; justify-content: center">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Nombre de tu estrella"
-      name="nombre"
-      [(ngModel)]="nombreEstrella"
-    />
-    <button
-      class="btn btn-outline-success"
-      type="button"
-      id="button-addon2"
-      (click)="irEstrella()"
-    >
-      Ir
-    </button>
-  </div> -->
-<!-- </div> -->
-
-<!-- Audio de sonido espacial -->
-<!--   <audio autoplay loop>
-    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3" />
-    Tu navegador no soporta audio HTML5.
-  </audio> -->
-
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
-<!--------------------------------------->
 <div class="miestrella-container">
+  <audio autoplay loop>
+    <source src="\assets\Sounds\SonidoDeEspacio.mp3" type="audio/mp3" />
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
   <header class="navbar">
     <button class="btn-salir" (click)="irEstrellas()"></button>
     <div>
@@ -82,7 +13,7 @@
     </div>
   </header>
   <body>
-    <div class="desc animate__animated animate__fadeInDown">
+    <div class="desc animate__animated animate__bounceIn">
       <h1>¡Nombra tu estrella!</h1>
       <p>Imagina que puedas darle al Universo</p>
       <p>un significado personal.</p>
@@ -98,32 +29,69 @@
   </body>
 </div>
 
-<!-----Editar número de páginas------------------------------------------>
 <div
   class="modal-container animate__animated animate__fadeIn"
   *ngIf="modalState"
 >
-  <div class="modal-box animate__animated animate__fadeInDown">
+  <div
+    id="modal-nombre"
+    class="modal-box animate__animated animate__fadeInDown"
+  >
     <div class="modal-header">
       <div class="cerrar">
         <button
           type="button"
           class="btn-cerrar"
-          (click)="mostrarModal()"
+          (click)="cerrarModal()"
         ></button>
       </div>
     </div>
     <div class="modal-body">
       <p class="nombre">Elige el nombre de tu estrella.</p>
       <input
+        id="input-nombre"
         class="form-control"
         type="text"
-        placeholder="Nombre de tu estrella"
+        placeholder="Escribe el nombre aquí"
         name="nombre"
         [(ngModel)]="nombreEstrella"
       />
-      <button class="btn-miEstrella">Aceptar</button>
+      <button
+        class="btn-miEstrella"
+        (click)="irEstrella()"
+        [disabled]="lockKey"
+      >
+        Aceptar
+      </button>
     </div>
   </div>
 </div>
-<!-----Editar número de páginas----------------------------------------------->
+
+<div
+  class="modal-container animate__animated animate__fadeIn"
+  *ngIf="mostrarEstrella"
+>
+  <div
+    id="modal-nombre"
+    class="modal-box container-frase animate__animated animate__fadeInDown"
+  >
+    <div class="modal-header head-frase">
+      <div class="cerrar">
+        <button
+          type="button"
+          class="btn-cerrar"
+          (click)="salirFrase()"
+        ></button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="frase">Tu estrella será nombrada como:</p>
+      <h2 class="autor-estrella">{{ nombre }}</h2>
+      <p class="frase">{{ miEstrellaDatos[rand].frase }}</p>
+      <p class="autor">{{ miEstrellaDatos[rand].autor }}</p>
+      <button class="btn-miEstrella btn-green" (click)="salirFrase()">
+        Salir
+      </button>
+    </div>
+  </div>
+</div>
