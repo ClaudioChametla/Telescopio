@@ -1,4 +1,7 @@
-<div class="estrella" *ngIf="mostrarEstrellas === true">
+<div
+  class="estrella animate__animated animate__fadeIn"
+  *ngIf="mostrarEstrellas === true"
+>
   <div class="">
     <button class="btn-salir" type="button" (click)="irSistema()"></button>
   </div>
@@ -6,7 +9,7 @@
     <!-- informacion de las estrellas -->
     <div class="estrella-grid">
       <div
-        class="estrella-item"
+        class="estrella-item animate__animated animate__bounceIn"
         *ngFor="let item of estrellasDatos"
         (click)="seleccion(item.id)"
       >
