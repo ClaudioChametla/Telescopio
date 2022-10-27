@@ -203,3 +203,32 @@ input {
   font-size: 2vw;
   margin: 20px;
 }
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  .desc {
+    width: 100%;
+    margin-top: 50px;
+  }
+  /** >>>>>>>>>> Fonts <<<<<<<<<<*/
+  h1 {
+    font-size: 8.2vw;
+  }
+  p {
+    font-size: 2.6vw;
+  }
+  .p-green {
+    margin-left: 5px;
+  }
+  .btn-miEstrella {
+    width: 40%;
+    font-size: 3vw;
+  }
+  input {
+    font-size: 2.3vw;
+  }
+  .container-frase {
+    height: 61vh;
+  }
+}

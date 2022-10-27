@@ -67,8 +67,8 @@
   }
 }
 .estrella-imgContainer {
-  width: 250px;
-  height: 160px;
+  width: 145px;
+  height: 145px;
   border: solid 5px #11cec9;
   border-radius: 79px;
   background-color: #080a16;
@@ -79,7 +79,7 @@
 }
 .estrella-desc {
   height: 120px;
-  width: 107%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,10 +133,28 @@ p {
 }
 
 /** >>>>>>>>>> Responsive Design <<<<<<<<<<*/
+@media screen and (max-width: 1400px) {
+  .estrella-imgContainer {
+    width: 100px;
+    height: 100px;
+  }
+  .estrella-desc {
+    width: 69%;
+    height: 87px;
+  }
+  p {
+    width: 30%;
+  }
+}
+@media screen and(max-width:992px) {
+  .estrella-grid {
+    grid-template-columns: 50% 50%;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .estrella-grid {
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -171,14 +189,15 @@ p {
 
   .estrella-imgContainer {
     width: 150px;
-    height: 100px;
+    height: 150px;
   }
   .estrella-item {
     margin: 15px 5px;
     width: 90%;
   }
   .estrella-desc {
-    height: 85px;
+    width: 70%;
+    height: 135px;
   }
   .btn-miEstrella {
     margin-top: 15%;

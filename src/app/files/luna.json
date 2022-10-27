@@ -16,7 +16,7 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Tierra",
           "value": 0
         }
       ]
@@ -58,7 +58,7 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Es una unidad de medida de masa",
           "value": 0
         }
       ]
@@ -79,7 +79,7 @@
           "value": 1
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Pasando pluton",
           "value": 0
         }
       ]
@@ -100,7 +100,7 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Rigel",
           "value": 0
         }
       ]
@@ -121,7 +121,7 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "M32",
           "value": 0
         }
       ]
@@ -142,7 +142,7 @@
           "value": 1
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Tipo O",
           "value": 0
         }
       ]
@@ -159,11 +159,11 @@
           "value": 1
         },
         {
-          "opcion": "Ngc 55",
+          "opcion": "NGC 55",
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "NGC 2933",
           "value": 0
         }
       ]
@@ -184,7 +184,7 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "7 días",
           "value": 0
         }
       ]
@@ -205,7 +205,7 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Al mar y a los animales",
           "value": 0
         }
       ]
@@ -229,20 +229,58 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Atlas",
           "value": 0
         }
       ]
     },
     {
-      "pregunta": "¿Cual es el llamado Planeta Gigante Gaseoso?",
+      "pregunta": "¿Cual de los siguientes planetas es mas grande?",
       "opciones": [
         {
           "opcion": "Urano",
           "value": 0
         },
         {
+          "opcion": "Saturno",
+          "value": 0
+        },
+        {
+          "opcion": "Neptuno",
+          "value": 0
+        },
+        {
           "opcion": "Jupiter",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "pregunta": "¿En qué dirección gira la tierra?",
+      "opciones": [
+        {
+          "opcion": "De norte a sur",
+          "value": 0
+        },
+        {
+          "opcion": "De este a oeste",
+          "value": 0
+        },
+        {
+          "opcion": "De sur a norte",
+          "value": 0
+        },
+        {
+          "opcion": "De oeste a este",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "pregunta": "¿Cuál de los siguientes planetas NO tiene lunas?",
+      "opciones": [
+        {
+          "opcion": "Mercurio",
           "value": 1
         },
         {
@@ -250,49 +288,11 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
-          "value": 0
-        }
-      ]
-    },
-    {
-      "pregunta": "¿Que es un año luz?",
-      "opciones": [
-        {
-          "opcion": "Es una unidad de medida en distancia",
-          "value": 1
-        },
-        {
-          "opcion": "Es una unidad de medida de tiempo",
+          "opcion": "Urano",
           "value": 0
         },
         {
-          "opcion": "Es una unidad de medida de peso",
-          "value": 0
-        },
-        {
-          "opcion": "Saturno",
-          "value": 0
-        }
-      ]
-    },
-    {
-      "pregunta": "¿Dónde termina el Sistema Solar?",
-      "opciones": [
-        {
-          "opcion": "Hasta el planeta enano Pluton y Caronte",
-          "value": 0
-        },
-        {
-          "opcion": "Empezando Alpha Centauri",
-          "value": 0
-        },
-        {
-          "opcion": "Pasando la nube Oort",
-          "value": 1
-        },
-        {
-          "opcion": "Saturno",
+          "opcion": "Tierra",
           "value": 0
         }
       ]
@@ -655,7 +655,7 @@
           "value": 0
         },
         {
-          "opcion": "Saturno",
+          "opcion": "Galileo Galilei",
           "value": 0
         }
       ]

@@ -28,7 +28,7 @@ export class LunaComponent implements OnInit {
   random: number = 0;
 
   //Para mostrar u ocultar la pizarra
-  hiddenGame: Boolean = true;
+  hiddenGame: Boolean = false;
   btnAvaible: boolean = false;
 
   constructor(private router: Router) {}
