@@ -14,9 +14,10 @@
   justify-content: center;
 }
 .controles {
+  width: 83%;
   display: grid;
+  justify-items: center;
   grid-template-columns: 50% 50%;
-  gap: 5;
 }
 #canvasId {
   border: solid 1px #fff;
@@ -45,11 +46,98 @@
   background-color: #ca2eb3;
 }
 
+/** Tamaños de pincel*/
+.controles-contain {
+  width: 11vw;
+  height: 3vw;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #ffffff;
+  border-radius: 7px;
+  background-color: #f3f3f6;
+}
+.tmo {
+  border: none;
+  border-radius: 50%;
+  background-color: #34297c;
+}
+.tmo:hover {
+  transform: scale(1.1);
+}
+.xs {
+  width: 15px;
+  height: 15px;
+}
+.s {
+  width: 20px;
+  height: 20px;
+}
+.m {
+  width: 25px;
+  height: 25px;
+}
+.b {
+  width: 30px;
+  height: 30px;
+}
+
+/**Colores de pincel */
+.colores-contain {
+  width: 15vw;
+  padding: 5px;
+}
+.color-pincel {
+  width: 30px;
+  height: 30px;
+  border: solid 1px #ffffff;
+  border-radius: 50%;
+}
+.color-pincel:hover {
+  transform: scale(1.1);
+}
+input[type="color"] {
+  width: 30px;
+  height: 30px;
+  border: solid 1px #ffffff;
+  border-radius: 50px;
+}
+.verde {
+  background-color: #bad616;
+}
+.azul {
+  background-color: #28bef9;
+}
+.morado {
+  background-color: #7a54ff;
+}
+.rosa {
+  background-color: #e2338f;
+}
+.melon {
+  background-color: #ff5e85;
+}
+.all-color {
+  background-color: #9900ff;
+}
 /** >>>>> Fonts <<<<<*/
 h1 {
   font-family: "GoldplayBold";
   font-size: 3.8vw;
   color: #5a65fc;
+}
+.control-text {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0rem;
+  color: #624bd1;
+  font-family: "GoldplayMedium";
+  font-size: 1vw;
+}
+.mtl {
+  margin-left: 80px;
 }
 .subtitulo {
   text-align: center;
