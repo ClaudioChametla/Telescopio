@@ -92,6 +92,7 @@
 .estrella-imagen {
   width: 135px;
 }
+
 /** >>>>>>>>>> Buttons <<<<<<<<<*/
 .btn-salir {
   width: 2.1vw;
@@ -118,6 +119,9 @@
 }
 .btn-miEstrella:hover {
   transform: scale(1.1);
+}
+.salir-telescopio {
+  padding: 40px;
 }
 /** >>>>>>>> Fonts <<<<<<<<*/
 p {
@@ -149,6 +153,7 @@ p {
     width: 30%;
   }
 }
+
 @media screen and(max-width:992px) {
   .estrella-grid {
     grid-template-columns: 50% 50%;

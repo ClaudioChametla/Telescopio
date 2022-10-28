@@ -1,6 +1,6 @@
 <div
   class="estrella animate__animated animate__fadeIn"
-  *ngIf="mostrarEstrellas === true"
+  *ngIf="mostrarEstrellas"
 >
   <div class="">
     <button class="btn-salir" type="button" (click)="irSistema()"></button>
@@ -25,7 +25,10 @@
           <p>Masa: {{ item.masa }}</p>
         </div>
       </div>
-      <div class="estrella-item animate__animated animate__bounceIn">
+      <div
+        class="estrella-item animate__animated animate__bounceIn"
+        (click)="mostrarTelescopio()"
+      >
         <!-- Haciendo click sobre la imagen se muestra la estrella seleccionada -->
         <div class="estrella-imgContainer">
           <img class="estrella-imagen" src="{{ typeStar.image }}" />
@@ -47,5 +50,18 @@
 
 <app-tipo-estrella
   [selecEstrella]="estrellasSelec"
-  *ngIf="mostrarEstrellas === false"
+  *ngIf="mostrarResumen"
 ></app-tipo-estrella>
+
+<!--Mostrando Telescopio-->
+<div class="telescopio-container" *ngIf="abrirTelescopio">
+  <div class="salir-telescopio">
+    <button
+      class="btn-salir"
+      type="button"
+      (click)="ocultarTelescopio()"
+    ></button>
+  </div>
+  <app-telescopio [datos]="telescopeMyStar"></app-telescopio>
+</div>
+<!--Mostrando Telescopio-->

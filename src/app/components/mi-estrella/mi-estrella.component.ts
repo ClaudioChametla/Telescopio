@@ -48,7 +48,7 @@ export class MiEstrellaComponent implements OnInit {
 
   frase() {
     this.mostrarEstrella = true;
-    this.rand = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+    this.rand = Math.floor(Math.random() * (6 - 0 + 1)) + 0;
     localStorage.setItem('nombre', this.nombre);
     localStorage.setItem('rand', this.rand.toString());
   }
