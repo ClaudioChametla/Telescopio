@@ -18,10 +18,24 @@
           <img class="estrella-imagen" src="{{ item.image }}" />
         </div>
         <div class="estrella-desc">
-          <p class="title">Clase: {{ item.clase }}</p>
+          <p class="title">Nombre: {{ item.nombre }}</p>
+          <p>Clase: {{ item.clase }}</p>
           <p>Color: {{ item.color }}</p>
           <p>Temperatura: {{ item.temperatura }}</p>
           <p>Masa: {{ item.masa }}</p>
+        </div>
+      </div>
+      <div class="estrella-item animate__animated animate__bounceIn">
+        <!-- Haciendo click sobre la imagen se muestra la estrella seleccionada -->
+        <div class="estrella-imgContainer">
+          <img class="estrella-imagen" src="{{ typeStar.image }}" />
+        </div>
+        <div class="estrella-desc">
+          <p class="title">Nombre: {{ nombre }}</p>
+          <p>Clase: {{ typeStar.clase }}</p>
+          <p>Color: {{ typeStar.color }}</p>
+          <p>Temperatura: {{ typeStar.temperatura }}</p>
+          <p>Masa: {{ typeStar.masa }}</p>
         </div>
       </div>
     </div>
