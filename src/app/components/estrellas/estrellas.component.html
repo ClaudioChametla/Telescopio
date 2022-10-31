@@ -2,9 +2,10 @@
   class="estrella animate__animated animate__fadeIn"
   *ngIf="mostrarEstrellas"
 >
-  <div class="">
+  <nav class="navbar">
     <button class="btn-salir" type="button" (click)="irSistema()"></button>
-  </div>
+    <app-control-ventana></app-control-ventana>
+  </nav>
   <div class="estrellas-container">
     <!-- informacion de las estrellas -->
     <div class="estrella-grid">
@@ -62,6 +63,7 @@
       type="button"
       (click)="ocultarTelescopio()"
     ></button>
+    <app-control-ventana></app-control-ventana>
   </div>
   <app-telescopio [datos]="telescopeMyStar"></app-telescopio>
 </div>

@@ -121,6 +121,9 @@
   transform: scale(1.1);
 }
 .salir-telescopio {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 40px;
 }
 /** >>>>>>>> Fonts <<<<<<<<*/

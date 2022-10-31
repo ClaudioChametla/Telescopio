@@ -1,4 +1,7 @@
 <div class="universo" *ngIf="mostrarUniverso == true">
+  <nav class="nav-container">
+    <app-control-ventana></app-control-ventana>
+  </nav>
   <!-- Todas las galaxias son contenidas en galaxias-container -->
   <div class="galaxias-container">
     <div class="galaxia-content a" (click)="viaLactea()">

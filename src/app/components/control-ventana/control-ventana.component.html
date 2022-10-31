@@ -1,6 +1,15 @@
-<div class="container-buttons">
-  <button class="icon home"></button>
-  <button class="icon minimize"></button>
-  <button class="icon window"></button>
+<div
+  class="container-buttons"
+  [ngClass]="dark ? 'container-darkness' : 'container-lightness'"
+>
+  <button class="icon" [ngClass]="dark ? 'home' : 'home-lightness'"></button>
+  <button
+    class="icon"
+    [ngClass]="dark ? 'minimize' : 'minimize-lightness'"
+  ></button>
+  <button
+    class="icon"
+    [ngClass]="dark ? 'window' : 'window-lightness'"
+  ></button>
   <button class="icon close"></button>
 </div>

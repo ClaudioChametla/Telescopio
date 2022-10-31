@@ -13,6 +13,15 @@
   flex-direction: row;
   justify-content: flex-start;
 }
+
+.navbar-control {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav-tel {
+  justify-content: space-between;
+}
 .telescopio {
   height: 100%;
   width: 35%;

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-control-ventana',
   templateUrl: './control-ventana.component.html',
-  styleUrls: ['./control-ventana.component.scss']
+  styleUrls: ['./control-ventana.component.scss'],
 })
 export class ControlVentanaComponent implements OnInit {
+  @Input() dark: Boolean = true;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    console.log(this.dark);
   }
-
 }

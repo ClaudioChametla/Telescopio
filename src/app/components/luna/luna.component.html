@@ -4,7 +4,10 @@
   *ngIf="!hiddenGame && !cuestionario"
 >
   <div class="bienvenida" *ngIf="cuestionario === false">
-    <button class="btn-salir" (click)="irSistema()"></button>
+    <nav class="nav-container">
+      <button class="btn-salir" (click)="irSistema()"></button>
+      <app-control-ventana></app-control-ventana>
+    </nav>
     <h1 class="text-bienvenida">¡Bienvenido a la Luna!</h1>
     <p class="text-parrafo">
       La Luna es el único satélite natural de la Tierra. Se encuentra en
@@ -23,9 +26,10 @@
 </div>
 <!-- cuestionario -->
 <div class="quizz-container" *ngIf="cuestionario">
-  <header>
+  <nav class="nav-container">
     <button class="btn-salir" (click)="salirCuestionario()"></button>
-  </header>
+    <app-control-ventana></app-control-ventana>
+  </nav>
   <body>
     <div class="preguntas-container animate__animated animate__bounceInLeft">
       <div class="preguntas">
@@ -104,7 +108,10 @@
 </div>
 <!-- hiddenGame -->
 <div class="dibujo" *ngIf="hiddenGame">
-  <button class="btn-salir" (click)="salir()"></button>
+  <nav class="nav-container">
+    <button class="btn-salir" (click)="salir()"></button>
+    <app-control-ventana [dark]="false"></app-control-ventana>
+  </nav>
   <!-- Pizarra para realizar un dibujo oculta -->
   <app-dibujo></app-dibujo>
 </div>

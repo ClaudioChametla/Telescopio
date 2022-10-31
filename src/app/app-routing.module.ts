@@ -6,7 +6,6 @@ import { EstrellasComponent } from './components/estrellas/estrellas.component';
 import { LunaComponent } from './components/luna/luna.component';
 import { MiEstrellaComponent } from './components/mi-estrella/mi-estrella.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { ControlVentanaComponent } from './components/control-ventana/control-ventana.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -16,7 +15,6 @@ const routes: Routes = [
   { path: 'estrellas', component: EstrellasComponent },
   { path: 'luna', component: LunaComponent },
   { path: 'mi-estrella', component: MiEstrellaComponent },
-  { path: 'control', component: ControlVentanaComponent },
 ];
 
 @NgModule({

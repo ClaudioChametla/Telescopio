@@ -44,6 +44,9 @@
   <!-- Muestra u oculta el menu dependiendo de si se muestra o no el telescopio -->
   <div class="form">
     <!-- contiene la informacion de cada galaxia -->
+    <nav class="navbar-control">
+      <app-control-ventana [dark]="false"></app-control-ventana>
+    </nav>
     <div class="titles">
       <!-- <h1 class="gpPlayBold title title-purple">{{ title[0] }}</h1> -->
       <h1 class="gpPlayBold title">{{ planeta[planetaSelected].name }}</h1>
@@ -92,7 +95,10 @@
 
 <!--Mostrando Telescopio-->
 <div class="telescopio-container" *ngIf="abrirTelescopio">
-  <button class="btn" type="button" (click)="ocultarTelescopio()"></button>
+  <nav class="navbar-control nav-tel">
+    <button class="btn" type="button" (click)="ocultarTelescopio()"></button>
+    <app-control-ventana></app-control-ventana>
+  </nav>
   <app-telescopio [datos]="informacion"></app-telescopio>
 </div>
 <!--Mostrando Telescopio-->
