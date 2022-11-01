@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 export class DibujoComponent implements OnInit, AfterViewInit {
   //Imagen para descargar
   image: any = new Image();
+  imageDraw: any = new Image();
   //Copia del Canvas
   canvasCopy: any;
   //Variable para color
@@ -25,9 +26,12 @@ export class DibujoComponent implements OnInit, AfterViewInit {
   //El elemento no es estatico
   //Asignamos la variable canvasRef de tipo 'any'
   @ViewChild('canvasRef', { static: false }) canvasRef: any;
+  canvasEl: any;
+  canvasId: any;
+  base64: any;
   isAvaible: Boolean;
-  public width: number = 700;
-  public height: number = 700;
+  width: any;
+  height: any;
   private points: Array<any> = [];
   cx: CanvasRenderingContext2D;
 
@@ -51,67 +55,9 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     this.isAvaible = false;
   };
 
-  /**Detecta el cambio tamaño de la pantalla y ajusta el canvas
-   * @param $event
-   */
-  @HostListener('window:resize', ['$event'])
-  onWindowResize(event: any) {
-    //debounce resize, wait for resize to finish before doing stuff
-    console.log(event.target.innerWidth);
-    let key = event.target.innerWidth;
-    if (key > 1400) {
-      this.width = 700;
-      this.height = 700;
-    } else if (key > 1200) {
-      this.width = 600;
-      this.height = 600;
-    } else if (key > 992) {
-      this.width = 500;
-      this.height = 500;
-    } else if (key > 768) {
-      this.width = 400;
-      this.height = 400;
-    } else if (key > 576) {
-      this.width = 300;
-      this.height = 300;
-    } else {
-      this.width = 200;
-      this.height = 200;
-    }
-  }
-  /**Detecta el tamaño de la pantalla y ajusta el canvas
-   * @param $event
-   */
-  @HostListener('window:load', ['$event'])
-  onWindowLoad(event: any) {
-    //debounce resize, wait for resize to finish before doing stuff
-    let key = event.currentTarget.innerWidth;
-    if (key > 1400) {
-      this.width = 700;
-      this.height = 700;
-    } else if (key > 1200) {
-      this.width = 600;
-      this.height = 600;
-    } else if (key > 992) {
-      this.width = 500;
-      this.height = 500;
-    } else if (key > 768) {
-      this.width = 400;
-      this.height = 400;
-    } else if (key > 576) {
-      this.width = 300;
-      this.height = 300;
-    } else {
-      this.width = 200;
-      this.height = 200;
-    }
-  }
-
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.color);
-  }
+  ngOnInit(): void {}
   ngAfterViewInit(): void {
     /**Llama al metodo que renderiza el canvas en este
      * ciclo de vida para que primero cargue la vista
@@ -121,13 +67,33 @@ export class DibujoComponent implements OnInit, AfterViewInit {
 
   /**Renderiza el canvas*/
   render() {
-    const canvasEl = this.canvasRef.nativeElement;
-    this.cx = canvasEl.getContext('2d');
+    this.canvasEl = this.canvasRef.nativeElement;
+    this.cx = this.canvasEl.getContext('2d');
+    var canvas = document.getElementById('canvasId');
+    this.canvasId = canvas.id;
+
     this.cx.fillStyle = '#09112B';
-    this.cx.fillRect(0, 0, this.width, this.height);
+    var s = getComputedStyle(this.canvasEl);
+    let xwidth = s.width;
+    let xheight = s.height;
+
+    xwidth = this.canvasEl.width = xwidth.split('px')[0];
+    xheight = this.canvasEl.height = xheight.split('px')[0];
+    let x: number = +xwidth;
+    let y: number = +xheight;
+    console.log(x);
+    console.log(y);
+
+    this.cx.fillStyle = '#09112B';
+    this.cx.fillRect(0, 0, x, y);
     this.cx.lineWidth = 5;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = this.color;
+    console.log(this.color);
+    if (this.base64 != null) {
+      this.imageDraw.src = this.base64;
+      this.cx.drawImage(this.imageDraw, 0, 0, x, y);
+    }
   }
 
   /**Limpia lo que esta en el canvas y vuelve a poner el fondo*/
@@ -142,9 +108,8 @@ export class DibujoComponent implements OnInit, AfterViewInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.cx.clearRect(0, 0, this.width, this.height);
-        this.cx.fillRect(0, 0, this.width, this.height);
+        this.render();
       } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info');
       }
     });
   }
@@ -154,21 +119,17 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     e.stopPropagation();
     let dibujo: any = document.getElementById('dibujo');
     this.canvasCopy = this.canvasRef;
-    const canvasEl = this.canvasRef.nativeElement;
-    this.image.src = canvasEl.toDataURL('img/png');
+    this.canvasEl = this.canvasRef.nativeElement;
+    this.image.src = this.canvasEl.toDataURL('img/png');
     dibujo!.href = this.image.src;
     dibujo!.download = 'Mi dibujo en la luna.png';
     console.log(this.image);
   }
 
-  salir() {
-    /* this.hiddenGame=false; */
-  }
-
   /**Calcula las coordenadas del canvas*/
-  private write(res): any {
-    const canvasEl: any = this.canvasRef.nativeElement;
-    const rect = canvasEl.getBoundingClientRect();
+  write(res): any {
+    this.canvasEl = this.canvasRef.nativeElement;
+    const rect = this.canvasEl.getBoundingClientRect();
     const prevPos = {
       x: res.clientX - rect.left,
       y: res.clientY - rect.top,
@@ -178,7 +139,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
   }
 
   /**Crea un arreglo donde va ir insertando las coordenadas para general el dibujo*/
-  private writeSingle(prevPos) {
+  writeSingle(prevPos) {
     this.points.push(prevPos);
     if (this.points.length > 3) {
       const prevPos = this.points[this.points.length - 1];
@@ -188,7 +149,7 @@ export class DibujoComponent implements OnInit, AfterViewInit {
   }
 
   /**Genera las lineas y las dibuja en el canvas de acuerdo a la posicion obtenida*/
-  private drawOnCanvas(prevPos: any, currentPos: any) {
+  drawOnCanvas(prevPos: any, currentPos: any) {
     if (!this.cx) {
       return;
     }
@@ -198,9 +159,9 @@ export class DibujoComponent implements OnInit, AfterViewInit {
       this.cx.lineTo(currentPos.x, currentPos.y);
       this.cx.stroke();
       this.cx.save();
-      const canvasEl = this.canvasRef.nativeElement;
-      let base64 = canvasEl.toDataURL('image/png', 1);
-      console.log(base64);
+      this.canvasEl = this.canvasRef.nativeElement;
+      this.base64 = this.canvasEl.toDataURL('image/png', 1);
+      //console.log(this.base64);
     }
   }
 
@@ -209,21 +170,79 @@ export class DibujoComponent implements OnInit, AfterViewInit {
     let color: any = document.getElementById('selectorColor');
     this.color = color.value;
     console.log(this.color);
-    const canvasEl = this.canvasRef.nativeElement;
-    console.log(canvasEl.width);
-
-    this.cx = canvasEl.getContext('2d');
+    this.canvasEl = this.canvasRef.nativeElement;
+    this.cx = this.canvasEl.getContext('2d');
     this.cx.lineWidth = this.grosor;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = this.color;
   }
 
+  onResize(event) {
+    this.render();
+  }
+
   /* borrar() {
     this.color = '#09112B';
-    const canvasEl = this.canvasRef.nativeElement;
-    this.cx = canvasEl.getContext('2d');
+    const this.canvasEl = this.canvasRef.nativeElement;
+    this.cx = this.canvasEl.getContext('2d');
     this.cx.lineWidth = this.grosor;
     this.cx.lineCap = 'round';
     this.cx.strokeStyle = this.color;
   } */
+
+  /**Color de pincel */
+  setColor(event) {
+    let colorSelected = event.target.id;
+    switch (colorSelected) {
+      case 'verde':
+        this.color = '#BAD616';
+        break;
+      case 'azul':
+        this.color = '#28BEF9';
+        break;
+      case 'morado':
+        this.color = '#7A54FF';
+        break;
+      case 'rosa':
+        this.color = '#E2338F';
+        break;
+      case 'melon':
+        this.color = '#FF5E85';
+        break;
+      default:
+        this.color = '#ffffff';
+        break;
+    }
+    this.canvasEl = this.canvasRef.nativeElement;
+    this.cx = this.canvasEl.getContext('2d');
+    this.cx.lineWidth = this.grosor;
+    this.cx.lineCap = 'round';
+    this.cx.strokeStyle = this.color;
+  }
+  /**Grosor de pincel */
+  setGrosor(event) {
+    let grosorSelected = event.target.id;
+    switch (grosorSelected) {
+      case 'xsmall':
+        this.grosor = 2;
+        break;
+      case 'small':
+        this.grosor = 5;
+        break;
+      case 'mid':
+        this.grosor = 10;
+        break;
+      case 'big':
+        this.grosor = 15;
+        break;
+      default:
+        this.grosor = 2;
+        break;
+    }
+    this.canvasEl = this.canvasRef.nativeElement;
+    this.cx = this.canvasEl.getContext('2d');
+    this.cx.lineWidth = this.grosor;
+    this.cx.lineCap = 'round';
+    this.cx.strokeStyle = this.color;
+  }
 }
