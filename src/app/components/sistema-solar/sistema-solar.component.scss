@@ -15,8 +15,9 @@
 
 .navbar {
   display: flex;
+  width: 95%;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-between;
   padding: 2%;
 }
 .btn {
@@ -47,7 +48,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2%;
+  margin: 1%;
 }
 .title {
   width: 30%;

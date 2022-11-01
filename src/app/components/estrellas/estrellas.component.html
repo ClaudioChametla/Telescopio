@@ -1,10 +1,11 @@
 <div
   class="estrella animate__animated animate__fadeIn"
-  *ngIf="mostrarEstrellas === true"
+  *ngIf="mostrarEstrellas"
 >
-  <div class="">
+  <nav class="navbar">
     <button class="btn-salir" type="button" (click)="irSistema()"></button>
-  </div>
+    <app-control-ventana></app-control-ventana>
+  </nav>
   <div class="estrellas-container">
     <!-- informacion de las estrellas -->
     <div class="estrella-grid">
@@ -18,10 +19,27 @@
           <img class="estrella-imagen" src="{{ item.image }}" />
         </div>
         <div class="estrella-desc">
-          <p class="title">Clase: {{ item.clase }}</p>
+          <p class="title">Nombre: {{ item.nombre }}</p>
+          <p>Clase: {{ item.clase }}</p>
           <p>Color: {{ item.color }}</p>
           <p>Temperatura: {{ item.temperatura }}</p>
           <p>Masa: {{ item.masa }}</p>
+        </div>
+      </div>
+      <div
+        class="estrella-item animate__animated animate__bounceIn"
+        (click)="mostrarTelescopio()"
+      >
+        <!-- Haciendo click sobre la imagen se muestra la estrella seleccionada -->
+        <div class="estrella-imgContainer">
+          <img class="estrella-imagen" src="{{ typeStar.image }}" />
+        </div>
+        <div class="estrella-desc">
+          <p class="title">Nombre: {{ nombre }}</p>
+          <p>Clase: {{ typeStar.clase }}</p>
+          <p>Color: {{ typeStar.color }}</p>
+          <p>Temperatura: {{ typeStar.temperatura }}</p>
+          <p>Masa: {{ typeStar.masa }}</p>
         </div>
       </div>
     </div>
@@ -32,6 +50,21 @@
 </div>
 
 <app-tipo-estrella
+  class="animate__animated animate__fadeIn"
   [selecEstrella]="estrellasSelec"
-  *ngIf="mostrarEstrellas === false"
+  *ngIf="mostrarResumen"
 ></app-tipo-estrella>
+
+<!--Mostrando Telescopio-->
+<div class="telescopio-container" *ngIf="abrirTelescopio">
+  <div class="salir-telescopio">
+    <button
+      class="btn-salir"
+      type="button"
+      (click)="ocultarTelescopio()"
+    ></button>
+    <app-control-ventana></app-control-ventana>
+  </div>
+  <app-telescopio [datos]="telescopeMyStar"></app-telescopio>
+</div>
+<!--Mostrando Telescopio-->

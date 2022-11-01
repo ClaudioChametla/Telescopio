@@ -3,10 +3,13 @@
   *ngIf="mostrarPlaneta === false"
 >
   <!--Menu-->
-  <div class="navbar">
-    <button class="btn btn-l" type="button" (click)="irUniverso()"></button>
-    <button class="btn btn-r" type="button" (click)="estrellas()"></button>
-  </div>
+  <nav class="navbar">
+    <div class="button-nav">
+      <button class="btn btn-l" type="button" (click)="irUniverso()"></button>
+      <button class="btn btn-r" type="button" (click)="estrellas()"></button>
+    </div>
+    <app-control-ventana></app-control-ventana>
+  </nav>
   <section class="header">
     <h2 class="title gpSemiBold">
       Con este mapa interactivo podrás explorar los planetas
@@ -103,6 +106,7 @@
 </div>
 
 <app-planetas
+  class="animate__animated animate__bounceInLeft"
   *ngIf="mostrarPlaneta == true"
   [planetaSelected]="planetaSelec"
 ></app-planetas>

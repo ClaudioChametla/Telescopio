@@ -28,7 +28,8 @@ export class TipoEstrellaComponent implements OnInit {
     this.estrellaSelecDatos = estrellas;
     this.informacion.push(
       this.estrellaSelecDatos[this.selecEstrella].image,
-      this.estrellaSelecDatos[this.selecEstrella].name
+      this.estrellaSelecDatos[this.selecEstrella].clase,
+      this.estrellaSelecDatos[this.selecEstrella].descr
     );
   }
 

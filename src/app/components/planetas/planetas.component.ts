@@ -29,7 +29,8 @@ export class PlanetasComponent implements OnInit {
     this.planeta = planetas;
     this.informacion.push(
       this.planeta[this.planetaSelected].image,
-      this.planeta[this.planetaSelected].name
+      this.planeta[this.planetaSelected].name,
+      this.planeta[this.planetaSelected].desc
     );
   }
 

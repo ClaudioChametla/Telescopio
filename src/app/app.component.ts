@@ -38,7 +38,7 @@ export class AppComponent {
       },
       modes: {
         push: {
-          quantity: 4,
+          quantity: 1,
         },
         repulse: {
           distance: 50,

@@ -1,5 +1,6 @@
-<div class="dibujo-container">
+<div class="dibujo-container" (window:resize)="onResize($event)">
   <section class="menu">
+    <!-- (window:load)="onLoad($event)"> -->
     <!-- Descripción -->
     <h1>¡Felicidades!</h1>
     <p class="subtitulo">Haz llegado al lado obscuro de la luna</p>
@@ -12,20 +13,39 @@
       <p class="control-text mtl">Grosor de pincel</p>
       <!-- Cambia el color del lapiz -->
       <div class="controles-contain colores-contain">
-        >
         <!-- Tamaño en  -->
-        <button class="color-pincel verde"></button
+        <button
+          id="verde"
+          class="color-pincel verde"
+          (click)="setColor($event)"
+        ></button
         ><!-- Tamaño en  -->
-        <button class="color-pincel azul"></button
+        <button
+          id="azul"
+          class="color-pincel azul"
+          (click)="setColor($event)"
+        ></button
         ><!-- Tamaño en  -->
-        <button class="color-pincel morado"></button
+        <button
+          id="morado"
+          class="color-pincel morado"
+          (click)="setColor($event)"
+        ></button
         ><!-- Tamaño en  -->
-        <button class="color-pincel rosa"></button
+        <button
+          id="rosa"
+          class="color-pincel rosa"
+          (click)="setColor($event)"
+        ></button
         ><!-- Tamaño en  -->
-        <button class="color-pincel melon"></button
+        <button
+          id="melon"
+          class="color-pincel melon"
+          (click)="setColor($event)"
+        ></button
         ><!-- Tamaño en  -->
-        <button class="color-pincel all-color"></button
-        ><!-- Tamaño en  -->
+        <!-- <button id="all-color" class="color-pincel all-color"></button
+        > -->
         <input
           id="selectorColor"
           type="color"
@@ -36,22 +56,13 @@
 
       <!-- Cambia el grosor del lapiz -->
       <div class="controles-contain">
-        <button class="tmo b"></button
+        <button id="big" class="tmo b" (click)="setGrosor($event)"></button
         ><!-- Tamaño en  -->
-        <button class="tmo m"></button
+        <button id="mid" class="tmo m" (click)="setGrosor($event)"></button
         ><!-- Tamaño en  -->
-        <button class="tmo s"></button
+        <button id="small" class="tmo s" (click)="setGrosor($event)"></button
         ><!-- Tamaño en  -->
-        <button class="tmo xs"></button
-        ><!-- Tamaño en  -->
-        <!-- <input
-          id="selectorGrosor"
-          type="number"
-          value="3"
-          name="grosor"
-          [(ngModel)]="grosor"
-          (change)="configSelected()"
-        /> -->
+        <button id="xsmall" class="tmo xs" (click)="setGrosor($event)"></button>
       </div>
 
       <!-- Boton que limpia el contenido del canvas -->

@@ -1,0 +1,97 @@
+.container-buttons {
+  width: 210px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 50px;
+}
+.container-darkness {
+  background-color: rgba(140, 88, 218, 0.479);
+  border: 2px #9c62f4 solid;
+}
+.container-lightness {
+  background-color: #ecf2f6c5;
+  border: 2px #ffffff solid;
+}
+.icon {
+  height: 25px;
+  width: 25px;
+  border: none;
+  background: none;
+  background-repeat: no-repeat;
+  background-size: 92%;
+  background-position: center;
+}
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.home {
+  background-image: url(../../../assets/control/home.png);
+}
+.minimize {
+  background-image: url(../../../assets/control/minimize.png);
+}
+.window {
+  background-image: url(../../../assets/control/window.png);
+}
+.home-lightness {
+  background-image: url(../../../assets/control/ho.png);
+}
+.minimize-lightness {
+  background-image: url(../../../assets/control/min.png);
+}
+.window-lightness {
+  background-image: url(../../../assets/control/win.png);
+}
+
+.close {
+  height: 35px;
+  width: 35px;
+  background-size: 100%;
+  background-image: url(../../../assets/control/close.png);
+}
+@media screen and (max-width: 1200px) {
+  .container-buttons {
+    width: 190px;
+    padding: 7px;
+  }
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+  .close {
+    height: 30px;
+    width: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .container-buttons {
+    width: 170px;
+    padding: 6px;
+  }
+  .icon {
+    height: 15px;
+    width: 15px;
+  }
+  .close {
+    height: 25px;
+    width: 25px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container-buttons {
+    width: 125px;
+    padding: 5px;
+  }
+  .icon {
+    height: 10px;
+    width: 10px;
+  }
+  .close {
+    height: 20px;
+    width: 20px;
+  }
+}

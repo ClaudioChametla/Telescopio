@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   overflow-y: auto;
 }
@@ -19,7 +19,13 @@
   justify-items: center;
   grid-template-columns: 50% 50%;
 }
+.dibujo {
+  height: 80%;
+  width: 40%;
+}
 #canvasId {
+  width: 100%;
+  height: 100%;
   border: solid 1px #fff;
   background-color: #09112b;
   border: #3ce8ea solid 1px;
@@ -173,6 +179,9 @@ h1 {
   .descripcion {
     width: 100%;
     font-size: 3vw;
+  }
+  .control-text {
+    font-size: 2vw;
   }
   /**Buttons*/
   .btn {

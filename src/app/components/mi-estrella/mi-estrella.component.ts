@@ -11,8 +11,8 @@ import miEstrella from '../../files/miEstrella.json';
 export class MiEstrellaComponent implements OnInit {
   //Json imagenes de estrellas y frase de atrofisicos
   miEstrellaDatos: any = miEstrella;
-  nombreEstrella: String = '';
-  nombre: String = '';
+  nombreEstrella: string = '';
+  nombre: string = '';
   miEstrella: Boolean = false;
   mostrarEstrella: Boolean = false;
   rand: Number = 0;
@@ -48,7 +48,9 @@ export class MiEstrellaComponent implements OnInit {
 
   frase() {
     this.mostrarEstrella = true;
-    this.rand = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+    this.rand = Math.floor(Math.random() * (6 - 0 + 1)) + 0;
+    localStorage.setItem('nombre', this.nombre);
+    localStorage.setItem('rand', this.rand.toString());
   }
   salirFrase() {
     let modal = document.getElementById('modal-nombre');

@@ -17,6 +17,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { DibujoComponent } from './components/dibujo/dibujo.component';
 import { TelescopioComponent } from './components/telescopio/telescopio.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { ControlVentanaComponent } from './components/control-ventana/control-ventana.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     DibujoComponent,
     TelescopioComponent,
     InicioComponent,
+    ControlVentanaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgParticlesModule, FormsModule],
   providers: [],
